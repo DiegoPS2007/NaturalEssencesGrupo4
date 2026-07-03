@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color:  #F9F6F0;
+}
+
+header{
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+.logo img{
+    max-height: 10vh;
+}
+
+.logo h3{
+    color:  #1A531A ;
+}
+
+.logo h5{
+    color: #5C4033;
+}
+
+.buscador input, .buscador button{
+    border-color: #1A531A;
+}
+
+nav{
+    background-color: #C1D0B5;
+    color: #1A531A;
+}
+
+footer{
+    background: white;
+}
+
+.suscribete{
+    background-color: #C1D0B5;
+}
