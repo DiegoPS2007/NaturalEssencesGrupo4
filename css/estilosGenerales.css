@@ -5,6 +5,7 @@
 
 body{
     background-color:  #F9F6F0;
+    font-family: sans-serif;
 }
 
 header{
@@ -14,36 +15,123 @@ header{
     z-index: 100;
 }
 
-.logo{
+header .logo{
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
 }
 
-.logo img{
-    max-height: 10vh;
+header .logo img{
+    max-height: 8vh;
 }
 
-.logo h3{
+header .logo h3{
     color:  #1A531A ;
 }
 
-.logo h5{
+header .logo h5{
     color: #5C4033;
 }
 
-.buscador input, .buscador button{
-    border-color: #1A531A;
+header .sup-der img{
+    height: 3rem;
 }
 
-nav{
+header .buscador input, header .buscador button{
+    border: 2px solid #1A531A;
+    border-radius: 15px;
+}
+
+header .buscador button:hover{
+    background-color: #C1D0B5;
+}
+
+header nav{
     background-color: #C1D0B5;
     color: #1A531A;
+    font-weight: bold;
+}
+
+header .nav-link-der{
+    border-right: 3px solid #1A531A;
+}
+
+header nav li{
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    border-left: 3px solid #1A531A;
+    font-size: 18px;
+}
+
+header .nav-link{
+    color: #1A531A;
+}
+
+header .nav-link:hover{
+    color: #7FC05C;
 }
 
 footer{
     background: white;
+    color: #1A531A;
 }
 
-.suscribete{
+footer .suscribete{
     background-color: #C1D0B5;
+}
+
+footer .suscribete input{
+    border: 2px solid #1A531A;
+    border-radius: 15px;
+}
+
+footer .logo{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+
+footer .logo h3{
+    color:  #1A531A ;
+}
+
+footer .logo h5{
+    color: #5C4033;
+}
+
+/* -----------------------
+--- CLASES COMUNES ---
+----------------------- */
+
+/*BOTONES*/
+
+.btn-natural{
+    background-color: white;
+    color: #1A531A;
+    font-weight: bold;
+    border: 2px solid #1A531A;
+}
+
+.btn-natural:hover{
+    background-color: #1A531A;
+    color: white;
+    font-weight: bold;
+    border: 2px solid #1A531A;
+}
+
+/* INPUTS */
+
+.form-control:focus {
+    border-color: #7FC05C;
+    box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
+    outline: 0;
+}
+
+/* LINKS <a>*/
+
+a{
+    color: #1A531A;
+}
+
+a:hover{
+    color: #7FC05C;
 }
