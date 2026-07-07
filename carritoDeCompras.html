@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de compras</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilosGenerales.css">
+    <link rel="stylesheet" href="css/estilosCarrito.css">
+    <link rel="icon" href="img/general/favicon logo/favicon.ico">
+</head>
+
+<body>
+    <header class="container-fluid px-0">
+        <div class="text-center px-5 py-2 bg-white">
+            <div class="row align-items-center m-0">
+                <div class="logo col-sm-8 col-lg-4 order-lg-1">
+                    <div class="row align-items-center">
+                        <div class="col-1">
+                            <img src="img/general/favicon logo/favicon.ico" alt="Logo Natural Essences">
+                        </div>
+                        <div class="col-11">
+                            <h3 class="mb-0">NATURAL ESSENCES</h3>
+                            <h5>SKINCARE & WELLNESS</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class=" sup-der col-sm-4 col-lg-2 order-lg-3">
+                    <div class="row justify-content-between">
+                        <div class="col-3">
+                            <a href="#"><img src="img/general/iconos/fav-border64.png" alt="favoritos"></a>
+                        </div>
+                        <div class="col-3">
+                            <a href="#"><img src="img/general/iconos/carrito64.png" alt="carrito"></a>
+                        </div>
+                        <div class="col-3">
+                            <a href="#"><img src="img/general/iconos/perfil64.png" alt="perfil"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-lg-6 order-lg-2 my-sm-2">
+                    <div class="input-group buscador">
+                        <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar">
+                        <button class="btn btn-natural" type="submit">
+                            <img src="img/general/iconos/lupa32.png" alt="lupa">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-md ">
+            <div class="container-fluid justify-content-start justify-content-md-center">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-md-center" id="navbarNav">
+                    <ul class="navbar-nav text-start text-md-center">
+                        <li class="nav-item">
+                            <a class="nav-link py-0" href="#">PRODUCTOS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link py-0" href="#">COLECCIONES</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link py-0" href="#">TEST DE PIEL</a>
+                        </li>
+                        <li class="nav-item nav-link-der">
+                            <a class="nav-link py-0" href="#">NUESTRA MARCA</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container my-5">
+        <h2 class="fw-bold mb-2 texto-primario">Tu carrito de compras</h2>
+        <hr class="border-dark opacity-50 mb-4">
+
+        <div class="row justify-content-between">
+            <div class="col-lg-7 mb-4 border rounded p-4 marco-carrito">
+                <div class="d-flex justify-content-between align-items-center border-bottom border-dark pb-2 mb-3">
+                    <h5 class="m-0 fw-bold">Tus artículos (<span id="cantidad-articulos">0</span>)</h5>
+                    <button id="btn-limpiar" class="btn btn-sm btn-icono fw-bold text-dark">
+                        Limpiar carrito
+                    </button>
+                </div>
+
+                <div id="carrito-contenedor" class="carrito-scroll pe-2">
+                </div>
+
+                <div class="mt-4 text-center">
+                    <button class="btn btn-natural w-50 fw-bold p-2">VER TODOS LOS PRODUCTOS</button>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="resumen-pedido p-4">
+                    <h4 class="fw-bold mb-4 texto-primario">Resumen del Pedido</h4>
+
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Subtotal (<span id="resumen-cantidad">0</span> artículos)</span>
+                        <span class="fw-bold">S/ <span id="resumen-subtotal">0.00</span></span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3 pb-3 border-bottom border-dark">
+                        <span>Costo de envío</span>
+                        <span class="fw-bold">Calculado en el pago</span>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label text-muted">¿Tienes un código de descuento?</label>
+                        <div class="input-group buscador">
+                            <input type="text" id="input-cupon" class="form-control" placeholder="Ej: NATURAL20">
+                            <button id="btn-cupon" class="btn btn-natural fw-bold" type="button">APLICAR</button>
+                        </div>
+                        <span id="mensaje-cupon"></span>
+                    </div>
+
+                    <div class="d-flex justify-content-between mb-4 border-top border-dark pt-3">
+                        <h5 class="fw-bold m-0">Total estimado</h5>
+                        <h5 class="fw-bold m-0">S/ <span id="resumen-total">0.00</span></h5>
+                    </div>
+
+                    <button id="btn-ir-pagar" class="btn btn-natural w-100 fw-bold p-2 mb-3 text-uppercase">IR A
+                        PAGAR</button>
+                    <div class="text-center">
+                        <a href="#" class="text-decoration-underline text-dark fw-light">Seguir comprando</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-5 pt-5 border-top">
+            <h3 class="fw-bold mb-4 texto-primario">Recomendados para ti</h3>
+            <div class="row g-4" id="contenedor-recomendados">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm p-2 tarjeta-producto">
+                        <div
+                            class="d-flex justify-content-between align-items-center px-2 pt-2 position-absolute w-100 top-0 start-0 z-1">
+                            <span class="badge bg-success">NUEVO</span>
+                            <img src="img/general/iconos/fav32.png" alt="favorito" class="icono-favorito">
+                        </div>
+                        <div class="mt-4 mb-2 d-flex justify-content-center contenedor-img-tarjeta">
+                            <img src="img/general/productos/serum.jpg" alt="Sérum" class="img-fluid img-ajustada">
+                        </div>
+                        <div class="card-body text-center p-0">
+                            <small class="text-muted">Cuidado Facial</small>
+                            <h6 class="fw-bold mt-1">Sérum Facial Hidratante</h6>
+                            <div class="d-flex justify-content-center align-items-center gap-2 my-2">
+                                <span class="text-decoration-line-through text-muted small">S/ 60.00</span>
+                                <span class="fw-bold text-danger fs-5">S/ 45.00</span>
+                                <span class="text-warning fw-bold small ms-1">★ 4.7</span>
+                            </div>
+                            <button class="btn btn-natural w-100 btn-add-cart" data-id="1"
+                                data-nombre="Sérum Facial Hidratante" data-precio="45.00"
+                                data-img="img/general/productos/serum.jpg">AÑADIR AL CARRITO</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm p-2 tarjeta-producto">
+                        <div
+                            class="d-flex justify-content-between align-items-center px-2 pt-2 position-absolute w-100 top-0 start-0 z-1">
+                            <span class="badge bg-success">NUEVO</span>
+                            <img src="img/general/iconos/fav32.png" alt="favorito" class="icono-favorito">
+                        </div>
+                        <div class="mt-4 mb-2 d-flex justify-content-center contenedor-img-tarjeta">
+                            <img src="img/general/productos/jabon.jpg" alt="Jabón" class="img-fluid img-ajustada">
+                        </div>
+                        <div class="card-body text-center p-0">
+                            <small class="text-muted">Higiene</small>
+                            <h6 class="fw-bold mt-1">Jabón Exfoliante de Avena</h6>
+                            <div class="d-flex justify-content-center align-items-center gap-2 my-2">
+                                <span class="text-decoration-line-through text-muted small">S/ 25.00</span>
+                                <span class="fw-bold text-danger fs-5">S/ 18.50</span>
+                                <span class="text-warning fw-bold small ms-1">★ 4.9</span>
+                            </div>
+                            <button class="btn btn-natural w-100 btn-add-cart" data-id="2"
+                                data-nombre="Jabón Exfoliante de Avena" data-precio="18.50"
+                                data-img="img/general/productos/jabon.jpg">AÑADIR AL CARRITO</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm p-2 tarjeta-producto">
+                        <div
+                            class="d-flex justify-content-between align-items-center px-2 pt-2 position-absolute w-100 top-0 start-0 z-1">
+                            <span class="badge bg-success">NUEVO</span>
+                            <img src="img/general/iconos/fav32.png" alt="favorito" class="icono-favorito">
+                        </div>
+                        <div class="mt-4 mb-2 d-flex justify-content-center contenedor-img-tarjeta">
+                            <img src="img/general/productos/espumaLimpiadora.jpg" alt="Espuma"
+                                class="img-fluid img-ajustada">
+                        </div>
+                        <div class="card-body text-center p-0">
+                            <small class="text-muted">Cuidado Facial</small>
+                            <h6 class="fw-bold mt-1">Espuma facial para piel mixta </h6>
+                            <div class="d-flex justify-content-center align-items-center gap-2 my-2">
+                                <span class="text-decoration-line-through text-muted small">S/ 120.00</span>
+                                <span class="fw-bold text-danger fs-5">S/ 99.99</span>
+                                <span class="text-warning fw-bold small ms-1">★ 4.7</span>
+                            </div>
+                            <button class="btn btn-natural w-100 btn-add-cart" data-id="3"
+                                data-nombre="Espuma facial para piel mixta" data-precio="99.99"
+                                data-img="img/general/productos/espumaLimpiadora.jpg">AÑADIR AL CARRITO</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm p-2 tarjeta-producto">
+                        <div
+                            class="d-flex justify-content-between align-items-center px-2 pt-2 position-absolute w-100 top-0 start-0 z-1">
+                            <span class="badge bg-success">NUEVO</span>
+                            <img src="img/general/iconos/fav32.png" alt="favorito" class="icono-favorito">
+                        </div>
+                        <div class="mt-4 mb-2 d-flex justify-content-center contenedor-img-tarjeta">
+                            <img src="img/general/productos/champu.jpg" alt="Champu" class="img-fluid img-ajustada">
+                        </div>
+                        <div class="card-body text-center p-0">
+                            <small class="text-muted">Higiene</small>
+                            <h6 class="fw-bold mt-1">Shampoo Reparador para Cabello</h6>
+                            <div class="d-flex justify-content-center align-items-center gap-2 my-2">
+                                <span class="text-decoration-line-through text-muted small">S/ 19.90</span>
+                                <span class="fw-bold text-danger fs-5">S/ 18.50</span>
+                                <span class="text-warning fw-bold small ms-1">★ 4.9</span>
+                            </div>
+                            <button class="btn btn-natural w-100 btn-add-cart" data-id="4"
+                                data-nombre="Shampoo Reparador para Cabello" data-precio="18.50"
+                                data-img="img/general/productos/champu.jpg">AÑADIR AL CARRITO</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center">
+        <div class="row suscribete py-3 align-items-center m-0">
+            <div class="col-sm-3 text-center">
+                <p class="m-0 fw-bold">Suscribete para recibir novedades exclusivas.</p>
+            </div>
+            <div class="col-sm-4 ">
+                <input type="email" class="form-control" placeholder="Ingrese su correo"
+                    aria-label="Correo de suscripción">
+            </div>
+            <div class="col-sm-2 text-center">
+                <button class="btn btn-natural" type="submit">SUSCRÍBETE!</button>
+            </div>
+            <div class="col-sm-3 text-center">
+                <p class="m-0">Al suscríbirte, aceptas nuestra <a href="#">política de privacidad</a>.</p>
+            </div>
+        </div>
+        <div class="row pt-3 px-5 m-0">
+            <div class="col-sm-5 col-lg-4">
+                <div class="row align-items-center logo">
+                    <div class="col-sm-4">
+                        <img class="img-fluid" src="img/general/favicon logo/genfavicon-180.png"
+                            alt="Logo Natural Essences">
+                    </div>
+                    <div class="col-sm-8">
+                        <div>
+                            <h3 class="mb-0">NATURAL ESSENCES</h3>
+                            <h5>SKINCARE & WELLNESS</h5>
+                        </div>
+                        <div>
+                            <a class="px-2" href="#"><img src="img/general/iconos/facebook32.png" alt="eee"></a>
+                            <a class="px-2" href="#"><img src="img/general/iconos/instagram32.png" alt="eee"></a>
+                            <a class="px-2" href="#"><img src="img/general/iconos/tik-tok32.png" alt="eee"></a>
+                            <a class="px-2" href="#"><img src="img/general/iconos/youtube32.png" alt="eee"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-7 col-lg-8 row text-start">
+                <div class="col-sm-4">LEGAL</div>
+                <div class="col-sm-4">SOPORTE</div>
+                <div class="col-sm-4">RECLAMACIONES</div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/programasCarrito.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+/* estilosCheckout.css */
+
+/* Fondos y marcos de las cajas */
+.caja-formulario {
+    background-color: #F9F6F0;
+    border-color: #1A531A !important;
+}
+
+.resumen-pedido {
+    background-color: #F9F6F0;
+    border: 2px solid #1A531A !important;
+}
+
+/* Efectos visuales de las opciones de pago */
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.metodo-pago-box {
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+/* Esta clase se añade con JS cuando se selecciona la opción */
+.metodo-pago-box.activo {
+    background-color: #C1D0B5; /* Verde claro del mockup */
+    border-color: #1A531A !important;
+}
+
+/* Estilo para los productos pequeños en el resumen del checkout */
+.item-resumen-img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+}
+
+/* Botón Cancelar (Rojo) */
+.btn-cancelar {
+    background-color: white;
+    color: #dc3545; /* Rojo de Bootstrap */
+    font-weight: bold;
+    border: 2px solid #dc3545;
+    transition: all 0.3s ease;
+}
+
+.btn-cancelar:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Clases de utilidad para validaciones */
+.borde-error {
+    border-color: #dc3545 !important;
+}
+.texto-error {
+    color: #dc3545;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}

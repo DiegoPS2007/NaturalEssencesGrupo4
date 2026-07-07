@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Gracias por tu compra! - Natural Essences</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilosGenerales.css">
+    <link rel="stylesheet" href="css/estilosConfirmarPedido.css"> <!-- Nueva hoja -->
+    <link rel="icon" href="img/general/favicon logo/favicon.ico">
+</head>
+
+<body>
+    <header class="container-fluid px-0">
+        <div class="text-center px-5 py-2 bg-white">
+            <div class="row align-items-center m-0">
+                <div class="logo col-sm-8 col-lg-4 order-lg-1">
+                    <div class="row align-items-center">
+                        <div class="col-1">
+                            <img src="img/general/favicon logo/favicon.ico" alt="Logo Natural Essences">
+                        </div>
+                        <div class="col-11">
+                            <h3 class="mb-0">NATURAL ESSENCES</h3>
+                            <h5>SKINCARE & WELLNESS</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class=" sup-der col-sm-4 col-lg-2 order-lg-3">
+                    <div class="row justify-content-between">
+                        <div class="col-3">
+                            <a href="#"><img src="img/general/iconos/fav-border64.png" alt="favoritos"></a>
+                        </div>
+                        <div class="col-3">
+                            <a href="carritoDeCompras.html"><img src="img/general/iconos/carrito64.png"
+                                    alt="carrito"></a>
+                        </div>
+                        <div class="col-3">
+                            <a href="#"><img src="img/general/iconos/perfil64.png" alt="perfil"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-lg-6 order-lg-2 my-sm-2">
+                    <div class="input-group buscador">
+                        <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar">
+                        <button class="btn btn-natural" type="submit">
+                            <img src="img/general/iconos/lupa32.png" alt="lupa">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-md ">
+            <div class="container-fluid justify-content-start justify-content-md-center">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-md-center" id="navbarNav">
+                    <ul class="navbar-nav text-start text-md-center">
+                        <li class="nav-item"><a class="nav-link py-0" href="#">PRODUCTOS</a></li>
+                        <li class="nav-item"><a class="nav-link py-0" href="#">COLECCIONES</a></li>
+                        <li class="nav-item"><a class="nav-link py-0" href="#">TEST DE PIEL</a></li>
+                        <li class="nav-item nav-link-der"><a class="nav-link py-0" href="#">NUESTRA MARCA</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container my-5">
+
+        <!-- ESTE ES EL NUEVO CONTENEDOR QUE CREA EL MARCO EXTERIOR -->
+        <div class="border border-dark p-5 d-flex flex-column align-items-center mx-auto bg-transparent"
+            style="max-width: 800px;">
+
+            <!-- Ícono del Check -->
+            <div class="mb-4">
+                <div
+                    class="icono-check-container rounded-circle d-flex justify-content-center align-items-center mx-auto">
+                    <img src="img/general/iconos/check-blanco.png" alt="Éxito" class="icono-check-img">
+                </div>
+            </div>
+
+            <!-- Mensajes -->
+            <h2 class="fw-bold mb-3 texto-primario">¡Gracias por tu compra!</h2>
+            <p class="text-muted mb-4 texto-subtitulo text-center">
+                Tu pedido ha sido confirmado. Estamos preparando productos 100%<br>
+                orgánicos con mucho cuidado y dedicación
+            </p>
+
+            <!-- Caja del Resumen -->
+            <div class="caja-confirmacion text-start p-4 mb-4 rounded border">
+                <div class="d-flex justify-content-between mb-4">
+                    <span>Número de Pedido:</span>
+                    <span class="fw-bold" id="conf-pedido">Cargando...</span>
+                </div>
+                <div class="d-flex justify-content-between mb-4">
+                    <span>Fecha estimada de entrega:</span>
+                    <span class="fw-bold">2 - 4 días hábiles</span>
+                </div>
+                <div class="d-flex justify-content-between mb-4 pb-4 border-bottom border-dark">
+                    <span>Monto Total:</span>
+                    <span class="fw-bold">S/ <span id="conf-total">0.00</span></span>
+                </div>
+                <div class="d-flex justify-content-between mt-3">
+                    <span>Enviado a:</span>
+                    <span class="fw-bold text-end ms-3" id="conf-direccion">Cargando dirección...</span>
+                </div>
+            </div>
+
+            <!-- Botones -->
+            <div class="contenedor-botones d-flex gap-3 justify-content-center">
+                <a href="#" class="btn btn-natural fw-bold p-2 w-50">VER MIS PEDIDOS</a>
+                <a href="index.html" class="btn btn-natural fw-bold p-2 w-50">VOLVER AL INICIO</a>
+            </div>
+
+        </div> <!-- Fin del contenedor del marco -->
+
+    </main>
+
+    <footer class="text-center">
+        <!-- (Tu Footer idéntico al de las páginas anteriores) -->
+        <div class="row suscribete py-3 align-items-center m-0">
+            <div class="col-sm-3 text-center">
+                <p class="m-0 fw-bold">Suscribete para recibir novedades exclusivas.</p>
+            </div>
+            <div class="col-sm-4 "><input type="email" class="form-control" placeholder="Ingrese su correo"
+                    aria-label="Correo de suscripción"></div>
+            <div class="col-sm-2 text-center"><button class="btn btn-natural" type="submit">SUSCRÍBETE!</button></div>
+            <div class="col-sm-3 text-center">
+                <p class="m-0">Al suscríbirte, aceptas nuestra <a href="#">política de privacidad</a>.</p>
+            </div>
+        </div>
+        <div class="row pt-3 px-5 m-0">
+            <div class="col-sm-5 col-lg-4">
+                <div class="row align-items-center logo">
+                    <div class="col-sm-4"><img class="img-fluid" src="img/general/favicon logo/genfavicon-180.png"
+                            alt="Logo Natural Essences"></div>
+                    <div class="col-sm-8">
+                        <div>
+                            <h3 class="mb-0">NATURAL ESSENCES</h3>
+                            <h5>SKINCARE & WELLNESS</h5>
+                        </div>
+                        <div>
+                            <a class="px-2" href="#"><img src="img/general/iconos/facebook32.png" alt="Facebook"></a>
+                            <a class="px-2" href="#"><img src="img/general/iconos/instagram32.png" alt="Instagram"></a>
+                            <a class="px-2" href="#"><img src="img/general/iconos/tik-tok32.png" alt="TikTok"></a>
+                            <a class="px-2" href="#"><img src="img/general/iconos/youtube32.png" alt="YouTube"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-7 col-lg-8 row text-start">
+                <div class="col-sm-4">LEGAL</div>
+                <div class="col-sm-4">SOPORTE</div>
+                <div class="col-sm-4">RECLAMACIONES</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/programasConfirmarPedido.js"></script>
+</body>
+
+</html>

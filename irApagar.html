@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ir a pagar</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilosGenerales.css">
+    <link rel="stylesheet" href="css/estilosIrApagar.css">
+    <link rel="icon" href="img/general/favicon logo/favicon.ico">
+</head>
+
+<body>
+    <header class="container-fluid px-0">
+        <div class="text-center px-5 py-2 bg-white">
+            <div class="row align-items-center m-0">
+                <div class="logo col-sm-8 col-lg-4 order-lg-1">
+                    <div class="row align-items-center">
+                        <div class="col-1">
+                            <img src="img/general/favicon logo/favicon.ico" alt="Logo Natural Essences">
+                        </div>
+                        <div class="col-11">
+                            <h3 class="mb-0">NATURAL ESSENCES</h3>
+                            <h5>SKINCARE & WELLNESS</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class=" sup-der col-sm-4 col-lg-2 order-lg-3">
+                    <div class="row justify-content-between">
+                        <div class="col-3">
+                            <a href="#"><img src="img/general/iconos/fav-border64.png" alt="favoritos"></a>
+                        </div>
+                        <div class="col-3">
+                            <a href="#"><img src="img/general/iconos/carrito64.png" alt="carrito"></a>
+                        </div>
+                        <div class="col-3">
+                            <a href="#"><img src="img/general/iconos/perfil64.png" alt="perfil"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-lg-6 order-lg-2 my-sm-2">
+                    <div class="input-group buscador">
+                        <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar">
+                        <button class="btn btn-natural" type="submit">
+                            <img src="img/general/iconos/lupa32.png" alt="lupa">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-md ">
+            <div class="container-fluid justify-content-start justify-content-md-center">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-md-center" id="navbarNav">
+                    <ul class="navbar-nav text-start text-md-center">
+                        <li class="nav-item">
+                            <a class="nav-link py-0" href="#">PRODUCTOS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link py-0" href="#">COLECCIONES</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link py-0" href="#">TEST DE PIEL</a>
+                        </li>
+                        <li class="nav-item nav-link-der">
+                            <a class="nav-link py-0" href="#">NUESTRA MARCA</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <main class="container my-5">
+        <h2 class="fw-bold mb-4 texto-primario">Ir a pagar</h2>
+        
+        <div class="row justify-content-between">
+            
+            <div class="col-lg-7 mb-4">
+                
+                <div class="border rounded p-4 mb-4 caja-formulario">
+                    <h5 class="fw-bold texto-primario mb-4">
+                        <img src="img/general/iconos/ubicacion.png" alt="Ubicación" class="icono-16 me-2"> Datos de envío
+                    </h5>
+                    
+                    <form id="form-envio">
+                        <div class="row mb-3">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <label class="form-label fw-bold small">Nombres</label>
+                                <input type="text" class="form-control" id="envio-nombres" placeholder="Ej: María">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold small">Apellidos</label>
+                                <input type="text" class="form-control" id="envio-apellidos" placeholder="Ej: Pérez">
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-3 align-items-end">
+                            <div class="col-md-8 mb-3 mb-md-0">
+                                <label class="form-label fw-bold small">Dirección</label>
+                                <select class="form-select" id="envio-direccion">
+                                    <option value="" disabled selected hidden>Selecciona una dirección...</option>
+                                    <option value="casa">Av. Principal 123, Chiclayo</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <button type="button" id="btn-agregar-direccion" class="btn btn-natural w-100 fw-bold">AGREGAR</button>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-bold small">Correo electrónico</label>
+                            <input type="email" class="form-control" id="envio-correo" placeholder="ejemplo@correo.com">
+                        </div>
+
+                        <div class="mt-4 pt-3 border-top border-dark">
+                            <button type="button" id="btn-guardar-envio" class="btn btn-natural w-100 fw-bold p-2">GUARDAR DATOS DE ENVÍO</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="border rounded p-4 caja-formulario">
+                    <h5 class="fw-bold texto-primario mb-4">
+                        <img src="img/general/iconos/tarjeta.png" alt="Pago" class="icono-16 me-2"> Método de Pago
+                    </h5>
+                    
+                    <label class="metodo-pago-box border rounded p-3 mb-3 d-flex justify-content-between align-items-center w-100 cursor-pointer" id="box-tarjeta">
+                        <div class="d-flex align-items-center">
+                            <input class="form-check-input me-3 mt-0" type="radio" name="metodo-pago" value="tarjeta" id="radio-tarjeta">
+                            <div>
+                                <h6 class="fw-bold m-0">Tarjeta de Crédito / Débito</h6>
+                                <small class="text-muted">Visa, Mastercard, Amex</small>
+                            </div>
+                        </div>
+                        <span class="badge bg-primary">VISA</span>
+                    </label>
+
+                    <div id="formulario-tarjeta" class="border rounded p-3 mb-3 d-none bg-white">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold small">Número de tarjeta</label>
+                            <input type="text" class="form-control" id="tarjeta-numero" placeholder="0000 0000 0000 0000">
+                        </div>
+                        <div class="row mb-3 align-items-end">
+                            <div class="col-6">
+                                <label class="form-label fw-bold small">Fecha de vencimiento</label>
+                                <input type="text" class="form-control" id="tarjeta-fecha" placeholder="MM / AA">
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label fw-bold small">CVV</label>
+                                <input type="text" class="form-control" id="tarjeta-cvv" placeholder="3-4 dígitos">
+                            </div>
+                        </div>
+                        <div class="text-center mb-3">
+                            <small class="text-muted">Todas las transacciones son seguras y privadas</small>
+                        </div>
+                        <button type="button" id="btn-guardar-tarjeta" class="btn btn-natural w-100 fw-bold">GUARDAR DATOS DE PAGO</button>
+                    </div>
+
+                    <label class="metodo-pago-box border rounded p-3 d-flex justify-content-between align-items-center w-100 cursor-pointer" id="box-yape">
+                        <div class="d-flex align-items-center">
+                            <input class="form-check-input me-3 mt-0" type="radio" name="metodo-pago" value="yape" id="radio-yape">
+                            <div>
+                                <h6 class="fw-bold m-0">Yape / Plin</h6>
+                                <small class="text-muted">Paga rápido con QR</small>
+                            </div>
+                        </div>
+                        <span class="badge bg-dark">QR</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="resumen-pedido p-4 border rounded">
+                    <h4 class="fw-bold mb-4 texto-primario">Resumen de compra</h4>
+                    
+                    <div id="checkout-productos" class="mb-4">
+                        </div>
+                    
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Subtotal (<span id="resumen-cantidad">0</span> artículos)</span>
+                        <span class="fw-bold">S/ <span id="resumen-subtotal">0.00</span></span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-4 pb-3 border-bottom border-dark" id="fila-descuento" style="display: none !important;">
+                        <span class="text-success">Descuento aplicado</span>
+                        <span class="fw-bold text-success">- S/ <span id="resumen-descuento">0.00</span></span>
+                    </div>
+
+                    <div class="d-flex justify-content-between mb-4 border-dark pt-2">
+                        <h5 class="fw-bold m-0">Total a pagar</h5>
+                        <h5 class="fw-bold m-0">S/ <span id="resumen-total">0.00</span></h5>
+                    </div>
+
+                    <button id="btn-pagar-ahora" class="btn btn-natural w-100 fw-bold p-3 mb-3 text-uppercase">PAGAR AHORA</button>
+                    <button id="btn-cancelar-compra" class="btn btn-cancelar w-100 fw-bold p-2 mb-3 text-uppercase">CANCELAR COMPRA</button>
+                    
+                    <div class="text-center text-muted small">
+                        <img src="img/general/iconos/candado.png" alt="Seguro" style="width: 12px;" class="me-1"> Paga 100% seguro y encriptado
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center">
+        <div class="row suscribete py-3 align-items-center m-0">
+            <div class="col-sm-3 text-center">
+                <p class="m-0 fw-bold">Suscribete para recibir novedades exclusivas.</p>
+            </div>
+            <div class="col-sm-4 ">
+                <input type="email" class="form-control" placeholder="Ingrese su correo"
+                    aria-label="Correo de suscripción">
+            </div>
+            <div class="col-sm-2 text-center">
+                <button class="btn btn-natural" type="submit">SUSCRÍBETE!</button>
+            </div>
+            <div class="col-sm-3 text-center">
+                <p class="m-0">Al suscríbirte, aceptas nuestra <a href="#">política de privacidad</a>.</p>
+            </div>
+        </div>
+        <div class="row pt-3 px-5 m-0">
+            <div class="col-sm-5 col-lg-4">
+                <div class="row align-items-center logo">
+                    <div class="col-sm-4">
+                        <img class="img-fluid" src="img/general/favicon logo/genfavicon-180.png" alt="Logo Natural Essences">
+                    </div>
+                    <div class="col-sm-8">
+                        <div>
+                            <h3 class="mb-0">NATURAL ESSENCES</h3>
+                            <h5>SKINCARE & WELLNESS</h5>
+                        </div>
+                        <div>
+                            <a class="px-2" href="#"><img src="img/general/iconos/facebook32.png" alt="eee"></a>
+                            <a class="px-2" href="#"><img src="img/general/iconos/instagram32.png" alt="eee"></a>
+                            <a class="px-2" href="#"><img src="img/general/iconos/tik-tok32.png" alt="eee"></a>
+                            <a class="px-2" href="#"><img src="img/general/iconos/youtube32.png" alt="eee"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-7 col-lg-8 row text-start">
+                <div class="col-sm-4">LEGAL</div>
+                <div class="col-sm-4">SOPORTE</div>
+                <div class="col-sm-4">RECLAMACIONES</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/programasIrApagar.js"></script>
+</body>
+
+</html>
