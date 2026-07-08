@@ -1,0 +1,78 @@
+/* ESTILOS GENERALES */
+@import url("perfil.css");
+
+/* HEADER */
+
+/* FOOTER */
+
+/* MAIN Y MODALES */
+.resena-panel {
+    border: 2px solid #1a531a;
+    border-radius: 8px;
+    box-shadow: 0 18px 45px rgba(20, 73, 38, 0.22);
+    overflow: hidden;
+}
+
+.resena-titulo {
+    background-color: #c1d0b5;
+    color: #1a531a;
+    font-style: normal;
+}
+
+.resena-panel .modal-body,
+.resena-panel .modal-footer {
+    background-color: #fbfaf6;
+}
+
+.productos-resena .btn.active {
+    background-color: #1a531a;
+    color: #ffffff;
+}
+
+.estrella {
+    font-size: 1.7rem;
+}
+
+.pedido-card {
+    border-color: #1A531A;
+}
+
+.fecha-pedido {
+    color: #111111;
+}
+
+.espacio-imagen-fecha {
+    border: 2px solid #7fc05c;
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+}
+
+.estado-entregado {
+    background-color: #C1D0B5;
+    color: #1A531A;
+}
+
+.seguimiento li::before {
+    font-size: 1.35rem;
+    line-height: 1;
+    top: -0.08rem;
+}
+
+.seguimiento li.seguimiento-ok::before {
+    color: #1A531A;
+}
+
+.seguimiento li.seguimiento-pendiente::before {
+    color: #C1D0B5;
+}
+
+.pedido-botones {
+    border-bottom: 1px solid #1A531A;
+}
+
+.pedido-botones .btn-natural,
+.pedido-acciones .btn-natural {
+    color: #1A531A;
+    font-weight: 700;
+}

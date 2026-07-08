@@ -13,6 +13,14 @@ const campoEntradaCupon = document.getElementById('entrada-codigo-cupon');
 const botonAplicarCupon = document.getElementById('btn-aplicar-cupon');
 const elementoMensajeCupon = document.getElementById('mensaje-cupon');
 
+function guardarCarritoActual() {
+    if (window.StorageNE) {
+        StorageNE.reemplazarCarritoUsuario(listaProductosCarrito);
+    } else {
+        localStorage.setItem('carritoTienda', JSON.stringify(listaProductosCarrito));
+    }
+}
+
 function renderizarVistaCarrito() {
     elementoContenedorCarrito.innerHTML = ''; 
 
@@ -85,6 +93,7 @@ window.modificarCantidadProducto = function(idProducto, valorCambio) {
         if (productoEncontrado.cantidad <= 0) {
             eliminarProductoDelCarrito(identificadorNumerico);
         } else {
+            guardarCarritoActual();
             renderizarVistaCarrito();
         }
     }
@@ -93,11 +102,13 @@ window.modificarCantidadProducto = function(idProducto, valorCambio) {
 window.eliminarProductoDelCarrito = function(idProducto) {
     const identificadorNumerico = parseInt(idProducto);
     listaProductosCarrito = listaProductosCarrito.filter(item => item.id !== identificadorNumerico);
+    guardarCarritoActual();
     renderizarVistaCarrito();
 }
 
 botonLimpiarCarrito.addEventListener('click', () => {
     listaProductosCarrito = [];
+    guardarCarritoActual();
     renderizarVistaCarrito();
 });
 
@@ -143,6 +154,7 @@ botonesAgregarCarrito.forEach(botonActual => {
                 imagen: rutaImagenProducto
             });
         }
+        guardarCarritoActual();
         renderizarVistaCarrito();
     });
 });
@@ -154,13 +166,27 @@ if (botonProcederPago) {
             alert("Tu carrito está vacío. Añade productos antes de pagar.");
             return;
         }
-        localStorage.setItem('carritoTienda', JSON.stringify(listaProductosCarrito));
+        if (window.StorageNE && !StorageNE.obtenerUsuarioActual()) {
+            guardarCarritoActual();
+            alert("Primero inicia sesion para continuar con el pago.");
+            window.location.href = 'iniciarSesion.html';
+            return;
+        }
+
+        guardarCarritoActual();
         localStorage.setItem('descuentoTienda', porcentajeDescuentoAplicado);
         window.location.href = 'irApagar.html';
     });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    if (window.StorageNE) {
+        listaProductosCarrito = StorageNE.obtenerCarritoUsuario();
+    } else {
+        const carritoGuardado = localStorage.getItem('carritoTienda');
+        listaProductosCarrito = carritoGuardado ? JSON.parse(carritoGuardado) : [];
+    }
+
     renderizarVistaCarrito(); 
 
     const listaIconosCorazon = document.querySelectorAll('.icono-favorito');

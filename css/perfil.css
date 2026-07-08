@@ -1,3 +1,5 @@
+/* ESTILOS GENERALES */
+
 * {
     margin: 0;
     padding: 0;
@@ -9,6 +11,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* HEADER */
 header {
     background-color: #ffffff;
     position: sticky;
@@ -83,36 +86,44 @@ a:hover {
     color: #7fc05c;
 }
 
-footer {
-    background: #ffffff;
-    color: #1a531a;
+/* FOOTER */
+footer{
+    background: white;
+    color: #1A531A;
 }
 
-footer .suscribete {
-    background-color: #c1d0b5;
+footer .suscribete{
+    background-color: #C1D0B5;
 }
 
-footer a {
-    color: #1a531a;
+footer .suscribete input{
+    border: 2px solid #1A531A;
+    border-radius: 15px;
+}
+
+footer .logo{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+
+footer .logo h3{
+    color:  #1A531A ;
+}
+
+footer .logo h5{
+    color: #5C4033;
+}
+
+footer .footer-contenido a {
     display: block;
-    margin-bottom: 0.55rem;
-    text-decoration: none;
+    padding: 0.25rem 0; /* Les da una pequeña separación arriba y abajo */
+    width: 100%;
+    align-items: end;
 }
 
-footer .footer-contenido {
-    border-bottom: 1px solid #1a531a;
-}
 
-footer .libro-img {
-    display: block;
-    margin: 0 auto 0.5rem;
-    max-width: 64px;
-}
-
-.derechos {
-    color: #1a531a;
-}
-
+/* MAIN Y DEMAS */
 .btn-natural {
     background-color: #ffffff;
     border: 2px solid #1a531a;
@@ -149,8 +160,8 @@ a {
     min-height: 650px;
 }
 
-.breadcrumb {
-    --bs-breadcrumb-divider: ">";
+section, .panel-perfil, .direccion-card{
+    border-radius: 5px;
 }
 
 .breadcrumb-item,
@@ -194,11 +205,9 @@ a {
     font-size: 0.9rem;
 }
 
-.miembro::before {
-    color: #e4c84b;
-    content: "*";
-    font-weight: bold;
-    margin-right: 0.4rem;
+
+.cont-miembro img{
+    width: 15px;
 }
 
 .menu-perfil {

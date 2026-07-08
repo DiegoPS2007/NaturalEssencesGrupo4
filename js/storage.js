@@ -28,6 +28,90 @@ function guardarUsuarios(usuarios) {
     guardarJSON(CLAVE_USUARIOS, usuarios);
 }
 
+function completarDatosUsuario(usuario) {
+    return {
+        id: usuario.id || generarId("usuario"),
+        nombre: usuario.nombre || "",
+        apellido: usuario.apellido || "",
+        correo: normalizarCorreo(usuario.correo),
+        contrasena: usuario.contrasena || "",
+        telefono: usuario.telefono || "",
+        fechaRegistro: usuario.fechaRegistro || new Date().toISOString(),
+        direcciones: Array.isArray(usuario.direcciones) ? usuario.direcciones : [],
+        carrito: Array.isArray(usuario.carrito) ? usuario.carrito : [],
+        favoritos: Array.isArray(usuario.favoritos) ? usuario.favoritos : [],
+        compras: Array.isArray(usuario.compras) ? usuario.compras : []
+    };
+}
+
+function agregarPedidoPruebaYemer(usuarios) {
+    const usuarioYemer = usuarios.find((usuario) => {
+        const nombreCompleto = `${usuario.nombre || ""} ${usuario.apellido || ""}`.trim().toLowerCase();
+        return nombreCompleto === "yemer huayapa";
+    });
+
+    if (!usuarioYemer) {
+        return usuarios;
+    }
+
+    const yaExiste = (usuarioYemer.compras || []).some((compra) => compra.id === "pedido-prueba-yemer-entregado");
+    if (yaExiste) {
+        return usuarios;
+    }
+
+    const direccionPrueba = (usuarioYemer.direcciones || []).find((direccion) => direccion.principal)
+        || (usuarioYemer.direcciones || [])[0]
+        || {
+            departamento: "Lambayeque",
+            provincia: "Chiclayo",
+            distrito: "Chiclayo",
+            codigoPostal: "14001",
+            direccion: "Av. Principal 123",
+            detalle: "Casa",
+            referencia: "Frente al parque",
+            principal: true
+        };
+
+    usuarioYemer.compras = [
+        {
+            id: "pedido-prueba-yemer-entregado",
+            numero: "#NE-24025",
+            fecha: "2026-06-20T10:00:00.000Z",
+            productos: [
+                {
+                    id: 1,
+                    nombre: "Serum Facial Hidratante",
+                    precio: 45,
+                    cantidad: 1,
+                    imagen: "img/general/productos/serum.jpg"
+                },
+                {
+                    id: 2,
+                    nombre: "Jabon Exfoliante de Avena",
+                    precio: 18.5,
+                    cantidad: 2,
+                    imagen: "img/general/productos/jabon.jpg"
+                }
+            ],
+            subtotal: 82,
+            descuento: 0,
+            total: 82,
+            direccion: direccionPrueba,
+            metodoPago: "Yape / Plin",
+            estado: "Entregado",
+            resenas: []
+        },
+        ...usuarioYemer.compras
+    ];
+
+    return usuarios;
+}
+
+function inicializarStorage() {
+    const usuariosCompletos = obtenerUsuarios().map(completarDatosUsuario);
+    guardarUsuarios(agregarPedidoPruebaYemer(usuariosCompletos));
+}
+
 function normalizarCorreo(correo) {
     return String(correo || "").trim().toLowerCase();
 }
@@ -98,6 +182,35 @@ function actualizarUsuarioActual(cambios) {
     return actualizarUsuario(usuario.id, cambios);
 }
 
+function migrarCarritoTemporalAlUsuario(idUsuario) {
+    const carritoTemporal = leerJSON("carritoTienda", []);
+    if (!Array.isArray(carritoTemporal) || carritoTemporal.length === 0) {
+        return;
+    }
+
+    const usuario = buscarUsuarioPorId(idUsuario);
+    if (!usuario) {
+        return;
+    }
+
+    const carritoActual = Array.isArray(usuario.carrito) ? usuario.carrito : [];
+    const carritoMezclado = [...carritoActual];
+
+    carritoTemporal.forEach((productoTemporal) => {
+        const productoExistente = carritoMezclado.find((producto) => producto.id === productoTemporal.id);
+        if (productoExistente) {
+            productoExistente.cantidad += productoTemporal.cantidad;
+        } else {
+            carritoMezclado.push(productoTemporal);
+        }
+    });
+
+    actualizarUsuario(idUsuario, {
+        carrito: carritoMezclado
+    });
+    localStorage.removeItem("carritoTienda");
+}
+
 function iniciarSesion(idUsuario, recordar) {
     guardarJSON(CLAVE_SESION, {
         idUsuario: idUsuario,
@@ -109,6 +222,8 @@ function iniciarSesion(idUsuario, recordar) {
     } else {
         localStorage.removeItem(CLAVE_RECORDAR);
     }
+
+    migrarCarritoTemporalAlUsuario(idUsuario);
 }
 
 function cerrarSesion() {
@@ -279,6 +394,7 @@ window.StorageNE = {
     buscarUsuarioPorId,
     actualizarUsuario,
     actualizarUsuarioActual,
+    migrarCarritoTemporalAlUsuario,
     iniciarSesion,
     cerrarSesion,
     obtenerSesion,
@@ -295,3 +411,5 @@ window.StorageNE = {
     guardarResenaCompra,
     normalizarCorreo
 };
+
+inicializarStorage();

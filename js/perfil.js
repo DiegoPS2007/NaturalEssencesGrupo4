@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (nueva.value !== confirmar.value) {
-            alert("La confirmacion no coincide.");
+            alert("Las nuevas contraseñas no coinciden.");
             return;
         }
 

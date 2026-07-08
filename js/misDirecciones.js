@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (botonEliminar) {
-            const confirmar = confirm("Deseas eliminar esta direccion?");
+            const confirmar = confirm("¿Esta seguro que desea eliminar esta dirección?");
             if (!confirmar) {
                 return;
             }

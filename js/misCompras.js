@@ -24,6 +24,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    function sumarDias(fechaISO, dias) {
+        const fecha = new Date(fechaISO);
+        fecha.setDate(fecha.getDate() + dias);
+        return fecha.toISOString();
+    }
+
     function obtenerDireccionTexto(direccion) {
         if (!direccion) {
             return "Direccion no registrada";
@@ -47,7 +53,45 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
     }
 
+    function obtenerPasoActual(compra) {
+        const estado = String(compra.estado || "").toLowerCase();
+
+        if (estado.includes("entregado") || estado.includes("terminado")) {
+            return 4;
+        }
+
+        if (estado.includes("enviado")) {
+            return 3;
+        }
+
+        if (estado.includes("prepar") || estado.includes("proceso")) {
+            return 2;
+        }
+
+        return 1;
+    }
+
+    function crearSeguimientoHTML(compra) {
+        const pasoActual = obtenerPasoActual(compra);
+        const pasos = [
+            { texto: "Pedido confirmado", fecha: compra.fecha },
+            { texto: "En preparacion", fecha: sumarDias(compra.fecha, 1) },
+            { texto: "Enviado", fecha: sumarDias(compra.fecha, 2) },
+            { texto: "Entregado", fecha: sumarDias(compra.fecha, 4) }
+        ];
+
+        return pasos.map((paso, indice) => {
+            const completado = indice + 1 <= pasoActual;
+            return `
+                <li class="${completado ? "seguimiento-ok" : "seguimiento-pendiente"}">
+                    ${paso.texto} - ${formatoFecha(paso.fecha)}
+                </li>
+            `;
+        }).join("");
+    }
+
     function crearCompraHTML(compra) {
+        const compraTerminada = compra.estado === "Terminado" || compra.estado === "Entregado";
         const estadoClase = compra.estado === "Terminado" || compra.estado === "Entregado"
             ? "estado-entregado"
             : "badge bg-warning text-dark";
@@ -61,10 +105,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="pedido-encabezado d-flex flex-column flex-lg-row justify-content-between gap-2 mb-3">
                     <div class="d-flex align-items-center gap-3">
                         <span>${compra.numero}</span>
-                        <span class="${estadoClase}">${compra.estado}</span>
+                        <span class="${estadoClase}">${compraTerminada ? "&#10003; " : ""}${compra.estado}</span>
                     </div>
-                    <div class="d-flex flex-wrap gap-4">
-                        <span>${formatoFecha(compra.fecha)}</span>
+                    <div class="d-flex flex-wrap align-items-center gap-4">
+                        <span class="fecha-pedido d-inline-flex align-items-center gap-2">
+                            <span class="espacio-imagen-fecha" aria-hidden="true"></span>
+                            ${formatoFecha(compra.fecha)}
+                        </span>
                         <strong>S/ ${Number(compra.total).toFixed(2)}</strong>
                     </div>
                 </div>
@@ -101,10 +148,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     <div class="col-md-6">
                         <h6>Seguimiento</h6>
                         <ul class="seguimiento">
-                            <li>Pedido confirmado</li>
-                            <li>${compra.estado}</li>
+                            ${crearSeguimientoHTML(compra)}
                         </ul>
                     </div>
+                </div>
+
+                <div class="pedido-botones d-flex flex-column flex-md-row gap-3 pt-3">
+                    <button type="button" class="btn btn-natural btn-boleta" data-id="${compra.id}">DESCARGAR FACTURA/BOLETA</button>
+                    <button type="button" class="btn btn-natural btn-devolucion" data-id="${compra.id}">INICIAR DEVOLUCION</button>
                 </div>
 
                 <div class="pedido-acciones d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3 pt-3">
@@ -114,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         </button>
                         ${resenasTexto}
                     </div>
-                    <button type="button" class="btn btn-natural btn-recomprar" data-id="${compra.id}">RECOMPRAR</button>
+                    ${compraTerminada ? `<button type="button" class="btn btn-natural btn-recomprar" data-id="${compra.id}">RECOMPRAR</button>` : ""}
                 </div>
             </article>
         `;
@@ -129,18 +180,26 @@ document.addEventListener("DOMContentLoaded", () => {
         const enProceso = compras.filter((compra) => compra.estado !== "Terminado" && compra.estado !== "Entregado");
         const terminadas = compras.filter((compra) => compra.estado === "Terminado" || compra.estado === "Entregado");
 
+        if (compras.length === 0) {
+            panelCompras.innerHTML = `
+                <h4 class="titulo-panel">Mis Compras</h4>
+                <p class="text-muted mt-3">Aun no tienes compras</p>
+            `;
+            return;
+        }
+
         panelCompras.innerHTML = `
             <h4 class="titulo-panel">Mis Compras</h4>
-            <h5 class="fw-bold mt-3">Compras en proceso</h5>
-            ${enProceso.length ? enProceso.map(crearCompraHTML).join("") : '<p class="text-muted">No tienes compras en proceso.</p>'}
-            <h5 class="fw-bold mt-4">Compras terminadas</h5>
-            ${terminadas.length ? terminadas.map(crearCompraHTML).join("") : '<p class="text-muted">No tienes compras terminadas.</p>'}
+            ${enProceso.length ? `<h5 class="fw-bold mt-3">Compras en proceso</h5>${enProceso.map(crearCompraHTML).join("")}` : ""}
+            ${terminadas.length ? `<h5 class="fw-bold mt-4">Compras terminadas</h5>${terminadas.map(crearCompraHTML).join("")}` : ""}
         `;
     }
 
     panelCompras.addEventListener("click", (evento) => {
         const botonResena = evento.target.closest(".btn-resena");
         const botonRecomprar = evento.target.closest(".btn-recomprar");
+        const botonBoleta = evento.target.closest(".btn-boleta");
+        const botonDevolucion = evento.target.closest(".btn-devolucion");
 
         if (botonResena) {
             idCompraActual = botonResena.dataset.id;
@@ -160,6 +219,14 @@ document.addEventListener("DOMContentLoaded", () => {
             const compra = (usuario.compras || []).find((item) => item.id === botonRecomprar.dataset.id);
             StorageNE.reemplazarCarritoUsuario(compra.productos);
             window.location.href = "carritoDeCompras.html";
+        }
+
+        if (botonBoleta) {
+            alert("Boleta generada para descargar.");
+        }
+
+        if (botonDevolucion) {
+            alert("Solicitud de devolucion iniciada.");
         }
     });
 

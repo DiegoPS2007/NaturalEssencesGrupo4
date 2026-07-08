@@ -1,0 +1,34 @@
+/* ESTILOS GENERALES */
+@import url("iniciarSesion.css");
+
+/* HEADER */
+
+/* FOOTER */
+
+/* MAIN */
+.panel-imagen-registrarse {
+    background-image: linear-gradient(rgba(84, 69, 43, 0.35), rgba(84, 69, 43, 0.35)), url("../img/login/registrarse-fondo.jpg");
+    background-position: center;
+    background-size: cover;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.contenedor-tarjetas-registrarse {
+    margin-left: auto;
+    max-width: 500px;
+}
+
+.panel-imagen-registrarse span,
+.panel-imagen-registrarse h4 {
+    color: #c1d0b5;
+}
+
+@media (max-width: 767.98px) {
+    .panel-imagen-registrarse {
+        min-height: 460px;
+    }
+}

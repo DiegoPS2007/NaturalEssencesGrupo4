@@ -1,0 +1,34 @@
+/* ESTILOS GENERALES */
+@import url("iniciarSesion.css");
+
+/* HEADER */
+
+/* FOOTER */
+
+/* MAIN */
+.panel-imagen-restablecer {
+    background-image: linear-gradient(rgba(84, 69, 43, 0.35), rgba(84, 69, 43, 0.35)), url("../img/login/restablecer-fondo.jpg");
+    background-position: center;
+    background-size: cover;
+    min-height: 680px;
+}
+
+.btn-cancelar {
+    background-color: #ffffff;
+    border: 2px solid #b31313;
+    border-radius: 7px;
+    color: #b31313;
+    font-weight: 700;
+}
+
+.btn-cancelar:hover {
+    background-color: #b31313;
+    border-color: #b31313;
+    color: #ffffff;
+}
+
+@media (max-width: 767.98px) {
+    .panel-imagen-restablecer {
+        min-height: 360px;
+    }
+}

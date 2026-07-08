@@ -1,0 +1,52 @@
+/* ESTILOS GENERALES */
+@import url("perfil.css");
+
+/* HEADER */
+
+/* FOOTER */
+
+/* MAIN Y MODALES */
+.direccion-modal {
+    border: 2px solid #1a531a;
+    border-radius: 8px;
+    box-shadow: 0 18px 45px rgba(20, 73, 38, 0.22);
+    overflow: hidden;
+}
+
+.direccion-modal-titulo {
+    background-color: #c1d0b5;
+    color: #1a531a;
+    font-style: normal;
+}
+
+.direccion-modal .modal-body {
+    background-color: #fbfaf6;
+}
+
+.direccion-modal .form-control,
+.direccion-modal .form-select {
+    background-color: #ffffff;
+    border-color: #8ca27c;
+}
+
+.direccion-modal .modal-footer {
+    background-color: #fbfaf6;
+}
+
+.btn-cancelar {
+    background-color: #ffffff;
+    border: 2px solid #b31313;
+    border-radius: 7px;
+    color: #b31313;
+    font-weight: 700;
+}
+
+.btn-cancelar:hover {
+    background-color: #b31313;
+    border-color: #b31313;
+    color: #ffffff;
+}
+
+section, .panel-perfil, #listaDirecciones{
+    border-radius: 5px;
+}

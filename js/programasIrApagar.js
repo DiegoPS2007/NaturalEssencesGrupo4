@@ -1,8 +1,12 @@
-const datosCarritoGuardados = localStorage.getItem('carritoTienda');
 const datosDescuentoGuardados = localStorage.getItem('descuentoTienda');
+const usuarioActualPago = StorageNE.protegerPagina();
 
-let listaProductosCheckout = datosCarritoGuardados ? JSON.parse(datosCarritoGuardados) : [];
+let listaProductosCheckout = usuarioActualPago ? StorageNE.obtenerCarritoUsuario() : [];
 let porcentajeDescuentoAplicado = datosDescuentoGuardados ? parseFloat(datosDescuentoGuardados) : 0;
+let direccionSeleccionadaPago = null;
+let subtotalCompraActual = 0;
+let descuentoCompraActual = 0;
+let totalCompraActual = 0;
 
 let estadoDatosEnvioCompletos = false;
 let estadoDatosPagoCompletos = false;
@@ -13,6 +17,38 @@ const elementoSubtotalResumen = document.getElementById('texto-subtotal-resumen'
 const elementoDescuentoResumen = document.getElementById('texto-descuento-resumen');
 const elementoFilaDescuento = document.getElementById('contenedor-fila-descuento');
 const elementoTotalResumen = document.getElementById('texto-total-resumen');
+
+function cargarDatosUsuarioCheckout() {
+    if (!usuarioActualPago) {
+        return;
+    }
+
+    document.getElementById('campo-entrada-nombres').value = usuarioActualPago.nombre || "";
+    document.getElementById('campo-entrada-apellidos').value = usuarioActualPago.apellido || "";
+    document.getElementById('campo-entrada-correo').value = usuarioActualPago.correo || "";
+
+    const selectorDireccion = document.getElementById('selector-direccion-envio');
+    const direcciones = Array.isArray(usuarioActualPago.direcciones) ? usuarioActualPago.direcciones : [];
+
+    selectorDireccion.innerHTML = "";
+
+    if (direcciones.length === 0) {
+        selectorDireccion.innerHTML = '<option value="" selected>No tienes direcciones guardadas</option>';
+        return;
+    }
+
+    selectorDireccion.innerHTML = '<option value="" disabled selected hidden>Selecciona una direccion...</option>';
+    direcciones.forEach((direccion) => {
+        const opcion = document.createElement('option');
+        opcion.value = direccion.id;
+        opcion.textContent = `${direccion.direccion}${direccion.detalle ? ", " + direccion.detalle : ""} - ${direccion.distrito || ""}`;
+        selectorDireccion.appendChild(opcion);
+    });
+
+    const direccionPrincipal = direcciones.find((direccion) => direccion.principal) || direcciones[0];
+    selectorDireccion.value = direccionPrincipal.id;
+    direccionSeleccionadaPago = direccionPrincipal;
+}
 
 function renderizarResumenCompra() {
     if (listaProductosCheckout.length === 0) {
@@ -44,6 +80,10 @@ function renderizarResumenCompra() {
 
     let montoDescuentoTotal = sumatoriaSubtotal * porcentajeDescuentoAplicado;
     let costoTotalCalculado = sumatoriaSubtotal - montoDescuentoTotal;
+
+    subtotalCompraActual = sumatoriaSubtotal;
+    descuentoCompraActual = montoDescuentoTotal;
+    totalCompraActual = costoTotalCalculado;
 
     elementoCantidadResumen.textContent = sumatoriaCantidadTotal;
     elementoSubtotalResumen.textContent = sumatoriaSubtotal.toFixed(2);
@@ -80,7 +120,7 @@ listaRadiosMetodoPago.forEach(radioSeleccionado => {
 
 const botonAgregarNuevaDireccion = document.getElementById('boton-agregar-direccion');
 botonAgregarNuevaDireccion.addEventListener('click', () => {
-    alert("Funcionalidad para agregar nueva dirección en desarrollo.");
+    window.location.href = 'misDirecciones.html';
 });
 
 const botonGuardarInformacionEnvio = document.getElementById('boton-guardar-datos-envio');
@@ -94,6 +134,7 @@ botonGuardarInformacionEnvio.addEventListener('click', () => {
         alert("Por favor, completa todos los datos de envío.");
         estadoDatosEnvioCompletos = false;
     } else {
+        direccionSeleccionadaPago = (usuarioActualPago.direcciones || []).find((direccion) => direccion.id === valorDireccion) || null;
         alert("¡Datos de envío guardados correctamente!");
         estadoDatosEnvioCompletos = true;
     }
@@ -132,12 +173,29 @@ botonProcesarPagoFinal.addEventListener('click', () => {
         return;
     }
 
-    const elementoSelectorDireccion = document.getElementById('selector-direccion-envio');
-    const textoDireccionSeleccionada = elementoSelectorDireccion.options[elementoSelectorDireccion.selectedIndex].text;
-    const valorTotalCompra = document.getElementById('texto-total-resumen').textContent;
+    if (!direccionSeleccionadaPago) {
+        alert("Selecciona una direccion guardada para continuar.");
+        return;
+    }
 
-    localStorage.setItem('direccionConfirmacion', textoDireccionSeleccionada);
-    localStorage.setItem('totalConfirmacion', valorTotalCompra);
+    const metodoPagoTexto = opcionMetodoPagoSeleccionada.value === 'tarjeta'
+        ? 'Tarjeta de Credito / Debito'
+        : 'Yape / Plin';
+
+    const compraCreada = StorageNE.crearCompraUsuario({
+        productos: listaProductosCheckout,
+        subtotal: subtotalCompraActual,
+        descuento: descuentoCompraActual,
+        total: totalCompraActual,
+        direccion: direccionSeleccionadaPago,
+        metodoPago: metodoPagoTexto
+    });
+
+    if (!compraCreada) {
+        alert("No se pudo registrar la compra. Inicia sesion nuevamente.");
+        window.location.href = 'iniciarSesion.html';
+        return;
+    }
 
     localStorage.removeItem('carritoTienda');
     localStorage.removeItem('descuentoTienda');
@@ -148,12 +206,12 @@ const botonCancelarProcesoCompra = document.getElementById('boton-cancelar-compr
 botonCancelarProcesoCompra.addEventListener('click', () => {
     const confirmacionUsuario = confirm("¿Estás seguro que deseas cancelar tu compra y vaciar tu carrito?");
     if (confirmacionUsuario) {
-        localStorage.removeItem('carritoTienda');
-        localStorage.removeItem('descuentoTienda');
+        StorageNE.vaciarCarritoUsuario();
         window.location.href = 'carritoDeCompras.html'; 
     }
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+    cargarDatosUsuarioCheckout();
     renderizarResumenCompra();
 });
