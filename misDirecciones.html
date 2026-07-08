@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis Direcciones</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="css/misDirecciones.css">
     <link rel="icon" href="img/general/favicon logo/favicon.ico">
 </head>
 
@@ -32,7 +32,8 @@
                             <a href="#"><img src="img/general/iconos/fav-border64.png" alt="Favoritos"></a>
                         </div>
                         <div class="col-3">
-                            <a href="carritoDeCompras.html"><img src="img/general/iconos/carrito64.png" alt="Carrito"></a>
+                            <a href="carritoDeCompras.html"><img src="img/general/iconos/carrito64.png"
+                                    alt="Carrito"></a>
                         </div>
                         <div class="col-3">
                             <a href="perfil.html"><img src="img/general/iconos/perfil64.png" alt="Perfil"></a>
@@ -92,21 +93,25 @@
                 <aside class="col-lg-3 col-md-4">
                     <section class="tarjeta-usuario text-center p-4 mb-4">
                         <div class="avatar-iniciales d-flex align-items-center justify-content-center mx-auto mb-3">
-                            MG
+
                         </div>
-                        <h3 class="nombre-usuario mb-2">Maria Garcia</h3>
-                        <p class="correo-usuario mb-2">maria@gmail.com</p>
-                        <p class="miembro mb-0">Miembro desde 2024</p>
+                        <h3 class="nombre-usuario mb-2"></h3>
+                        <p class="correo-usuario mb-2"></p>
+                        <div class="cont-miembro d-flex align-items-center justify-content-center"">
+                            <img src=" img/perfil/perfil-estrella.png" alt="estrella">
+                            <p class="miembro mb-0 ms-2">Miembro desde</p>
+                        </div>
+
                     </section>
 
                     <nav class="menu-perfil list-group">
-                        <a href="compras.html" class="list-group-item list-group-item-action opcion-menu">
+                        <a href="misCompras.html" class="list-group-item list-group-item-action opcion-menu">
                             <img src="img/perfil/perfil-Mis compras.png" alt=""> Mis Compras
                         </a>
                         <a href="perfil.html" class="list-group-item list-group-item-action opcion-menu">
                             <img src="img/perfil/perfil-perfil.png" alt=""> Mi Informacion
                         </a>
-                        <a href="direcciones.html" class="list-group-item list-group-item-action opcion-menu active">
+                        <a href="misDirecciones.html" class="list-group-item list-group-item-action opcion-menu active">
                             <img src="img/perfil/perfil-direccion.png" alt=""> Mis Direcciones
                         </a>
                         <a href="#" class="list-group-item list-group-item-action opcion-menu">
@@ -130,7 +135,7 @@
                                     <p class="mb-3">Frente a plaza vea</p>
                                     <div class="d-flex flex-wrap gap-3">
                                         <button type="button" class="btn btn-natural">EDITAR</button>
-                                        <button type="button" class="btn btn-natural">ELIMINAR</button>
+                                        <button type="button" class="btn btn-cancelar">ELIMINAR</button>
                                     </div>
                                 </div>
                                 <span class="principal-badge">Principal</span>
@@ -196,7 +201,8 @@
                                 <input type="text" class="form-control" id="direccion" required>
                             </div>
                             <div class="col-12">
-                                <label for="detalleDireccion" class="form-label">Depto, casa, piso, interior (opcional):</label>
+                                <label for="detalleDireccion" class="form-label">Depto, casa, piso, interior
+                                    (opcional):</label>
                                 <input type="text" class="form-control" id="detalleDireccion">
                             </div>
                             <div class="col-12">
@@ -215,34 +221,33 @@
                     </div>
                     <div class="modal-footer justify-content-start gap-3">
                         <button type="submit" class="btn btn-natural">GUARDAR DIRECCION</button>
-                        <button type="button" class="btn btn-natural" data-bs-dismiss="modal">CANCELAR</button>
+                        <button type="button" class="btn btn-cancelar" data-bs-dismiss="modal">CANCELAR</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 
-    <footer class="text-center">
-        <div class="row suscribete py-3 align-items-center m-0">
+    <footer class="row text-center">
+        <div class="row suscribete py-3 align-items-center">
             <div class="col-sm-3 text-center">
                 <p class="m-0 fw-bold">Suscribete para recibir novedades exclusivas.</p>
             </div>
 
-            <div class="col-sm-4">
+            <div class="col-sm-4 ">
                 <input type="email" class="form-control" placeholder="Ingrese su correo"
-                    aria-label="Correo de suscripcion">
+                    aria-label="Correo de suscripción">
             </div>
 
-            <div class="col-sm-2 text-center my-2 my-sm-0">
-                <button class="btn btn-natural" type="submit">SUSCRIBETE!</button>
+            <div class="col-sm-2 text-center">
+                <button class="btn btn-natural" type="submit">SUSCRÍBETE!</button>
             </div>
 
             <div class="col-sm-3 text-center">
-                <p class="m-0">Al suscribirte, aceptas nuestra <a href="#">Politica de Privacidad</a>.</p>
+                <p class="m-0">Al suscríbirte, aceptas nuestra <a href="#">política de privacidad</a>.</p>
             </div>
         </div>
-
-        <div class="row pt-3 px-4 px-lg-5 m-0 footer-contenido">
+        <div class="row pt-3 px-5">
             <div class="col-sm-5 col-lg-4">
                 <div class="row align-items-center logo">
                     <div class="col-sm-4">
@@ -250,19 +255,20 @@
                             alt="Logo Natural Essences">
                     </div>
                     <div class="col-sm-8">
-                        <h3 class="mb-0">NATURAL ESSENCES</h3>
-                        <h5>SKINCARE & WELLNESS</h5>
                         <div>
-                            <a class="px-2" href="#"><img src="img/general/iconos/facebook32.png" alt="Facebook"></a>
-                            <a class="px-2" href="#"><img src="img/general/iconos/instagram32.png" alt="Instagram"></a>
-                            <a class="px-2" href="#"><img src="img/general/iconos/tik-tok32.png" alt="TikTok"></a>
-                            <a class="px-2" href="#"><img src="img/general/iconos/youtube32.png" alt="YouTube"></a>
+                            <h3 class="mb-0">NATURAL ESSENCES</h3>
+                            <h5>SKINCARE & WELLNESS</h5>
+                        </div>
+                        <div>
+                            <a class="px-2" href="#"><img src="img/general/iconos/facebook32.png" alt="eee"></a>
+                            <a class="px-2" href="#"><img src="img/general/iconos/instagram32.png" alt="eee"></a>
+                            <a class="px-2" href="#"><img src="img/general/iconos/tik-tok32.png" alt="eee"></a>
+                            <a class="px-2" href="#"><img src="img/general/iconos/youtube32.png" alt="eee"></a>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="col-sm-7 col-lg-8 row text-start">
+            <div class="col-sm-7 col-lg-8 row footer-contenido">
                 <div class="col-sm-4 mb-3">
                     <h6 class="fw-bold">LEGAL</h6>
                     <a href="#">Politica de Privacidad</a>
@@ -275,60 +281,22 @@
                     <a href="#">Preguntas Frecuentes</a>
                 </div>
                 <div class="col-sm-4 mb-3 text-center">
-                    <h6 class="fw-bold">Libro de Reclamaciones</h6>
-                    <img class="libro-img" src="img/general/favicon logo/genfavicon-64.png" alt="Libro de reclamaciones">
+                    <img class="libro-img" src="img/general/favicon logo/genfavicon-64.png"
+                        alt="Libro de reclamaciones">
                     <a href="#">Libro de Reclamaciones</a>
                 </div>
             </div>
         </div>
-
-        <div class="derechos px-4 px-lg-5 py-3 text-start">
-            &copy; 2026 Natural Essences. Todos los derechos reservados.
+        <div class="derechos px-5 py-3 text-start">
+            <span>&copy; 2026 Natural Essences. Todos los derechos reservados.</span>
+            <span
+                class="metodos-pago float-sm-end"><span>VISA</span><span>MC</span><span>YAPE</span><span>PLIN</span></span>
         </div>
     </footer>
 
     <script src="js/bootstrap.bundle.min.js"></script>
-    <script>
-        const formDireccion = document.getElementById("formDireccion");
-        const listaDirecciones = document.getElementById("listaDirecciones");
-        const direccionModal = document.getElementById("direccionModal");
-        const instanciaModal = bootstrap.Modal.getOrCreateInstance(direccionModal);
-
-        formDireccion.addEventListener("submit", (event) => {
-            event.preventDefault();
-
-            const distrito = document.getElementById("distrito").value;
-            const provincia = document.getElementById("provincia").value;
-            const codigoPostal = document.getElementById("codigoPostal").value.trim();
-            const direccion = document.getElementById("direccion").value.trim();
-            const detalle = document.getElementById("detalleDireccion").value.trim();
-            const referencia = document.getElementById("referencia").value.trim();
-            const principal = document.getElementById("direccionPrincipal").checked;
-
-            if (principal) {
-                document.querySelectorAll(".principal-badge").forEach((badge) => badge.remove());
-            }
-
-            const tarjeta = document.createElement("article");
-            tarjeta.className = "direccion-card p-4 mb-4";
-            tarjeta.innerHTML = `
-                <div>
-                    <p class="mb-2">${distrito}, ${provincia}${codigoPostal ? " " + codigoPostal : ""}</p>
-                    <p class="mb-2">${direccion}${detalle ? ", " + detalle : ""}</p>
-                    <p class="mb-3">${referencia || "Sin referencia"}</p>
-                    <div class="d-flex flex-wrap gap-3">
-                        <button type="button" class="btn btn-natural">EDITAR</button>
-                        <button type="button" class="btn btn-natural">ELIMINAR</button>
-                    </div>
-                </div>
-                ${principal ? '<span class="principal-badge">Principal</span>' : ""}
-            `;
-
-            listaDirecciones.appendChild(tarjeta);
-            formDireccion.reset();
-            instanciaModal.hide();
-        });
-    </script>
+    <script src="js/storage.js"></script>
+    <script src="js/misDirecciones.js"></script>
 </body>
 
 </html>

@@ -32,7 +32,8 @@
                             <a href="#"><img src="img/general/iconos/fav-border64.png" alt="Favoritos"></a>
                         </div>
                         <div class="col-3">
-                            <a href="carritoDeCompras.html"><img src="img/general/iconos/carrito64.png" alt="Carrito"></a>
+                            <a href="carritoDeCompras.html"><img src="img/general/iconos/carrito64.png"
+                                    alt="Carrito"></a>
                         </div>
                         <div class="col-3">
                             <a href="perfil.html"><img src="img/general/iconos/perfil64.png" alt="Perfil"></a>
@@ -92,21 +93,25 @@
                 <aside class="col-lg-3 col-md-4">
                     <section class="tarjeta-usuario text-center p-4 mb-4">
                         <div class="avatar-iniciales d-flex align-items-center justify-content-center mx-auto mb-3">
-                            MG
+
                         </div>
-                        <h3 class="nombre-usuario mb-2">Maria Garcia</h3>
-                        <p class="correo-usuario mb-2">maria@gmail.com</p>
-                        <p class="miembro mb-0">Miembro desde 2024</p>
+                        <h3 class="nombre-usuario mb-2"></h3>
+                        <p class="correo-usuario mb-2"></p>
+                        <div class="cont-miembro d-flex align-items-center justify-content-center"">
+                            <img src=" img/perfil/perfil-estrella.png" alt="estrella">
+                            <p class="miembro mb-0 ms-2">Miembro desde</p>
+                        </div>
+
                     </section>
 
                     <nav class="menu-perfil list-group">
-                        <a href="compras.html" class="list-group-item list-group-item-action opcion-menu">
+                        <a href="misCompras.html" class="list-group-item list-group-item-action opcion-menu">
                             <img src="img/perfil/perfil-Mis compras.png" alt=""> Mis Compras
                         </a>
                         <a href="perfil.html" class="list-group-item list-group-item-action opcion-menu active">
                             <img src="img/perfil/perfil-perfil.png" alt=""> Mi Informacion
                         </a>
-                        <a href="direcciones.html" class="list-group-item list-group-item-action opcion-menu">
+                        <a href="misDirecciones.html" class="list-group-item list-group-item-action opcion-menu">
                             <img src="img/perfil/perfil-direccion.png" alt=""> Mis Direcciones
                         </a>
                         <a href="#" class="list-group-item list-group-item-action opcion-menu">
@@ -122,7 +127,7 @@
                     <div class="panel-perfil p-4 p-lg-5 mb-4">
                         <h4 class="titulo-panel">Mi Informacion</h4>
 
-                        <form>
+                        <form id="formPerfil">
                             <div class="row mb-3">
                                 <div class="col-md-6 mb-3 mb-md-0">
                                     <label for="nombres" class="form-label">Nombres:</label>
@@ -150,7 +155,7 @@
                             </div>
 
                             <div class="d-flex flex-column flex-sm-row gap-3">
-                                <button type="button" class="btn btn-natural px-5">EDITAR</button>
+                                <button type="button" class="btn btn-natural px-5" id="btnEditarPerfil">EDITAR</button>
                                 <button type="submit" class="btn btn-natural px-5">GUARDAR CAMBIOS</button>
                             </div>
                         </form>
@@ -159,7 +164,7 @@
                     <div class="panel-perfil p-4 p-lg-5">
                         <h4 class="titulo-panel">Cambiar Contrasena</h4>
 
-                        <form>
+                        <form id="formPassword">
                             <div class="mb-3">
                                 <label for="actual" class="form-label">Contrasena actual:</label>
                                 <input type="password" class="form-control" id="actual">
@@ -183,27 +188,26 @@
         </div>
     </main>
 
-    <footer class="text-center">
-        <div class="row suscribete py-3 align-items-center m-0">
+    <footer class="row text-center">
+        <div class="row suscribete py-3 align-items-center">
             <div class="col-sm-3 text-center">
                 <p class="m-0 fw-bold">Suscribete para recibir novedades exclusivas.</p>
             </div>
 
-            <div class="col-sm-4">
+            <div class="col-sm-4 ">
                 <input type="email" class="form-control" placeholder="Ingrese su correo"
-                    aria-label="Correo de suscripcion">
+                    aria-label="Correo de suscripción">
             </div>
 
-            <div class="col-sm-2 text-center my-2 my-sm-0">
-                <button class="btn btn-natural" type="submit">SUSCRIBETE!</button>
+            <div class="col-sm-2 text-center">
+                <button class="btn btn-natural" type="submit">SUSCRÍBETE!</button>
             </div>
 
             <div class="col-sm-3 text-center">
-                <p class="m-0">Al suscribirte, aceptas nuestra <a href="#">Politica de Privacidad</a>.</p>
+                <p class="m-0">Al suscríbirte, aceptas nuestra <a href="#">política de privacidad</a>.</p>
             </div>
         </div>
-
-        <div class="row pt-3 px-4 px-lg-5 m-0 footer-contenido">
+        <div class="row pt-3 px-5">
             <div class="col-sm-5 col-lg-4">
                 <div class="row align-items-center logo">
                     <div class="col-sm-4">
@@ -211,19 +215,20 @@
                             alt="Logo Natural Essences">
                     </div>
                     <div class="col-sm-8">
-                        <h3 class="mb-0">NATURAL ESSENCES</h3>
-                        <h5>SKINCARE & WELLNESS</h5>
                         <div>
-                            <a class="px-2" href="#"><img src="img/general/iconos/facebook32.png" alt="Facebook"></a>
-                            <a class="px-2" href="#"><img src="img/general/iconos/instagram32.png" alt="Instagram"></a>
-                            <a class="px-2" href="#"><img src="img/general/iconos/tik-tok32.png" alt="TikTok"></a>
-                            <a class="px-2" href="#"><img src="img/general/iconos/youtube32.png" alt="YouTube"></a>
+                            <h3 class="mb-0">NATURAL ESSENCES</h3>
+                            <h5>SKINCARE & WELLNESS</h5>
+                        </div>
+                        <div>
+                            <a class="px-2" href="#"><img src="img/general/iconos/facebook32.png" alt="eee"></a>
+                            <a class="px-2" href="#"><img src="img/general/iconos/instagram32.png" alt="eee"></a>
+                            <a class="px-2" href="#"><img src="img/general/iconos/tik-tok32.png" alt="eee"></a>
+                            <a class="px-2" href="#"><img src="img/general/iconos/youtube32.png" alt="eee"></a>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="col-sm-7 col-lg-8 row text-start">
+            <div class="col-sm-7 col-lg-8 row footer-contenido">
                 <div class="col-sm-4 mb-3">
                     <h6 class="fw-bold">LEGAL</h6>
                     <a href="#">Politica de Privacidad</a>
@@ -236,19 +241,22 @@
                     <a href="#">Preguntas Frecuentes</a>
                 </div>
                 <div class="col-sm-4 mb-3 text-center">
-                    <h6 class="fw-bold">Libro de Reclamaciones</h6>
-                    <img class="libro-img" src="img/general/favicon logo/genfavicon-64.png" alt="Libro de reclamaciones">
+                    <img class="libro-img" src="img/general/favicon logo/genfavicon-64.png"
+                        alt="Libro de reclamaciones">
                     <a href="#">Libro de Reclamaciones</a>
                 </div>
             </div>
         </div>
-
-        <div class="derechos px-4 px-lg-5 py-3 text-start">
-            &copy; 2026 Natural Essences. Todos los derechos reservados.
+        <div class="derechos px-5 py-3 text-start">
+            <span>&copy; 2026 Natural Essences. Todos los derechos reservados.</span>
+            <span
+                class="metodos-pago float-sm-end"><span>VISA</span><span>MC</span><span>YAPE</span><span>PLIN</span></span>
         </div>
     </footer>
 
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/perfil.js"></script>
 </body>
 
 </html>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis Compras</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="css/misCompras.css">
     <link rel="icon" href="img/general/favicon logo/favicon.ico">
 </head>
 
@@ -100,13 +100,13 @@
                     </section>
 
                     <nav class="menu-perfil list-group">
-                        <a href="compras.html" class="list-group-item list-group-item-action opcion-menu active">
+                        <a href="misCompras.html" class="list-group-item list-group-item-action opcion-menu active">
                             <img src="img/perfil/perfil-Mis compras.png" alt=""> Mis Compras
                         </a>
                         <a href="perfil.html" class="list-group-item list-group-item-action opcion-menu">
                             <img src="img/perfil/perfil-perfil.png" alt=""> Mi Informacion
                         </a>
-                        <a href="direcciones.html" class="list-group-item list-group-item-action opcion-menu">
+                        <a href="misDirecciones.html" class="list-group-item list-group-item-action opcion-menu">
                             <img src="img/perfil/perfil-direccion.png" alt=""> Mis Direcciones
                         </a>
                         <a href="#" class="list-group-item list-group-item-action opcion-menu">
@@ -328,43 +328,14 @@
         </div>
 
         <div class="derechos px-4 px-lg-5 py-3 text-start">
-            &copy; 2026 Natural Essences. Todos los derechos reservados.
+            <span>&copy; 2026 Natural Essences. Todos los derechos reservados.</span>
+            <span class="metodos-pago float-sm-end"><span>VISA</span><span>MC</span><span>YAPE</span><span>PLIN</span></span>
         </div>
     </footer>
 
     <script src="js/bootstrap.bundle.min.js"></script>
-    <script>
-        const botonesProducto = document.querySelectorAll(".productos-resena .btn");
-        const productosSeleccionados = document.getElementById("productosSeleccionados");
-        const estrellas = document.querySelectorAll(".estrella");
-        const calificacionSeleccionada = document.getElementById("calificacionSeleccionada");
-
-        botonesProducto.forEach((boton) => {
-            boton.addEventListener("click", () => {
-                boton.classList.toggle("active");
-                boton.setAttribute("aria-pressed", boton.classList.contains("active"));
-
-                const seleccionados = [...botonesProducto]
-                    .filter((item) => item.classList.contains("active"))
-                    .map((item) => item.dataset.producto);
-
-                productosSeleccionados.value = seleccionados.join(", ");
-            });
-        });
-
-        estrellas.forEach((estrella) => {
-            estrella.addEventListener("click", () => {
-                const valor = Number(estrella.dataset.valor);
-                calificacionSeleccionada.value = valor;
-
-                estrellas.forEach((item) => {
-                    const activa = Number(item.dataset.valor) <= valor;
-                    item.classList.toggle("active", activa);
-                    item.setAttribute("aria-checked", item.dataset.valor === String(valor));
-                });
-            });
-        });
-    </script>
+    <script src="js/storage.js"></script>
+    <script src="js/misCompras.js"></script>
 </body>
 
 </html>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/iniciarSesion.css">
     <link rel="icon" href="img/general/favicon logo/favicon.ico">
     <title>IniciarSesion</title>
 </head>
@@ -82,7 +82,7 @@
         <div class="row contenedor-principal">
             <div class="col-md-6 panel-imagen-iniciarSesion">
                 <div class="contenedor-tarjetas-login">
-                    <h2 class="titulo-principal">Bienvenido <br>de <span>vuelta</span></h2>
+                    <h1 class="titulo-principal">Bienvenido <br>de <span>vuelta</span></h1>
                     <p class="descripcion-panel">Accede a tu cuenta y retoma tu camino hacia una piel más sana, radiante
                         y consciente.</p>
 
@@ -137,13 +137,12 @@
                         <div class="row g-3 mb-3">
                             <div class="col-6">
                                 <div class="form-check mb-2">
-                                    <input class="form-check-input casilla-verificacion" type="checkbox" id="terminos"
-                                        required>
+                                    <input class="form-check-input casilla-verificacion" type="checkbox" id="terminos">
                                     <label class="form-check-label etiqueta-casilla" for="terminos">Recordarme</label>
                                 </div>
                             </div>
                             <div class="col-6 text-end">
-                                <a href="restablecerContraseña.html" class="enlace-verde">¿Olvidaste tu contraseña?</a>
+                                <a href="rescuperarContrasena.html" class="enlace-verde">¿Olvidaste tu contraseña?</a>
                             </div>
                         </div>
 
@@ -210,21 +209,32 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-7 col-lg-8 row text-start">
-                <div class="col-sm-4">
-                    LEGAL
+            <div class="col-sm-7 col-lg-8 row footer-contenido">
+                <div class="col-sm-4 mb-3">
+                    <h6 class="fw-bold">LEGAL</h6>
+                    <a href="#">Politica de Privacidad</a>
+                    <a href="#">Terminos y Condiciones</a>
                 </div>
-                <div class="col-sm-4">
-                    SOPORTE
+                <div class="col-sm-4 mb-3">
+                    <h6 class="fw-bold">SOPORTE</h6>
+                    <a href="#">Contactanos</a>
+                    <a href="#">Ayuda y Soporte</a>
+                    <a href="#">Preguntas Frecuentes</a>
                 </div>
-                <div class="col-sm-4">
-                    RECLAMACIONES
+                <div class="col-sm-4 mb-3 text-center">
+                    <img class="libro-img" src="img/general/favicon logo/genfavicon-64.png" alt="Libro de reclamaciones">
+                    <a href="#">Libro de Reclamaciones</a>
                 </div>
-
             </div>
+        </div>
+        <div class="derechos px-5 py-3 text-start">
+            <span>&copy; 2026 Natural Essences. Todos los derechos reservados.</span>
+            <span class="metodos-pago float-sm-end"><span>VISA</span><span>MC</span><span>YAPE</span><span>PLIN</span></span>
         </div>
     </footer>
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/iniciarSesion.js"></script>
 </body>
 
 </html>
