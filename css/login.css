@@ -1,0 +1,261 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #F9F6F0;
+    font-family: sans-serif;
+}
+
+header {
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .logo {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+header .logo img {
+    max-height: 8vh;
+}
+
+header .logo h3 {
+    color: #1A531A;
+}
+
+header .logo h5 {
+    color: #5C4033;
+}
+
+header .sup-der img {
+    height: 3rem;
+}
+
+header .buscador input,
+header .buscador button {
+    border: 2px solid #1A531A;
+    border-radius: 15px;
+}
+
+header .buscador button:hover {
+    background-color: #C1D0B5;
+}
+
+header nav {
+    background-color: #C1D0B5;
+    color: #1A531A;
+    font-weight: bold;
+}
+
+header .nav-link-der {
+    border-right: 3px solid #1A531A;
+}
+
+header nav li {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    border-left: 3px solid #1A531A;
+    font-size: 18px;
+}
+
+header .nav-link {
+    color: #1A531A;
+}
+
+header .nav-link:hover {
+    color: #7FC05C;
+}
+
+footer {
+    background: white;
+    color: #1A531A;
+}
+
+footer .suscribete {
+    background-color: #C1D0B5;
+}
+
+footer .suscribete input {
+    border: 2px solid #1A531A;
+    border-radius: 15px;
+}
+
+footer .logo {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+
+footer .logo h3 {
+    color: #1A531A;
+}
+
+footer .logo h5 {
+    color: #5C4033;
+}
+
+/* -----------------------
+--- CLASES COMUNES ---
+----------------------- */
+
+/*BOTONES*/
+
+.btn-natural {
+    background-color: white;
+    color: #1A531A;
+    font-weight: bold;
+    border: 2px solid #1A531A;
+}
+
+.btn-natural:hover {
+    background-color: #1A531A;
+    color: white;
+    font-weight: bold;
+    border: 2px solid #1A531A;
+}
+
+.btn-cancelar:hover {
+    background-color: #cf0606;
+    color: white;
+    font-weight: bold;
+    border: 2px solid #cf0606;
+}
+
+/* INPUTS */
+
+.form-control:focus {
+    border-color: #7FC05C;
+    box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
+    outline: 0;
+}
+
+/* LINKS <a>*/
+
+a {
+    color: #1A531A;
+}
+
+a:hover {
+    color: #7FC05C;
+}
+
+/* MAIN */
+main .contenedor-principal {
+    overflow: hidden;
+    min-height: 600px;
+}
+
+.panel-imagen-registrarse {
+    background-image: linear-gradient(rgba(120, 95, 60, 0.35), rgba(120, 95, 60, 0.35)), url("../img/login/registrarse-fondo.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    padding: 15px;
+}
+
+.contenedor-tarjetas-registrarse {
+    max-width: 440px;        
+    margin-left: auto;
+}
+
+.panel-imagen-iniciarSesion {
+    background-image: linear-gradient(rgba(120, 95, 60, 0.35), rgba(120, 95, 60, 0.35)), url("../img/login/login-fondo.jpg");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    padding: 15px;
+}
+
+.panel-imagen-restablecer {
+    background-image: linear-gradient(rgba(120, 95, 60, 0.35), rgba(120, 95, 60, 0.35)), url("../img/login/restablecer-fondo.jpg");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    padding: 15px;
+}
+
+.contenedor-tarjetas-login {
+    margin-right: auto;
+    max-width: 500px;
+    padding: 35px;
+}
+
+.panel-imagen-registrarse span,
+.panel-imagen-registrarse h4,
+.panel-imagen-iniciarSesion span,
+.panel-imagen-iniciarSesion h4 {
+    color: #C1D0B5;
+}
+
+.panel-formulario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-formulario{
+    width: 500px;
+}
+
+.tarjeta {
+    display: flex;
+    gap: 15px;
+}
+
+.titulo-formulario {
+    color: #1b4d1c;
+    font-weight: bold;
+}
+
+.caja-entrada::placeholder {
+    color: #a6a6a6;
+}
+
+.caja-entrada:focus {
+    border-color: #1b4d1c;
+}
+
+.casilla-verificacion {
+    border: 2px solid #1b4d1c;
+}
+
+.casilla-verificacion:checked {
+    background-color: #1b4d1c;
+    border-color: #1b4d1c;
+}
+
+.posicion-divisor {
+    position: relative;
+}
+
+.posicion-divisor::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    border-top: 1px solid #a6a6a6;
+    z-index: 1;
+}
+
+.texto-divisor {
+    position: relative;
+    background-color: #f7f5f0;
+    padding: 0 15px;
+    color: #666666;
+    font-size: 0.95rem;
+    z-index: 2;
+}

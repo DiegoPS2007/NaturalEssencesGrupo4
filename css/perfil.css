@@ -1,0 +1,189 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #F9F6F0;
+    font-family: sans-serif;
+}
+
+header {
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .logo {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+header .logo img {
+    max-height: 8vh;
+}
+
+header .logo h3 {
+    color: #1A531A;
+}
+
+header .logo h5 {
+    color: #5C4033;
+}
+
+header .sup-der img {
+    height: 3rem;
+}
+
+header .buscador input,
+header .buscador button {
+    border: 2px solid #1A531A;
+    border-radius: 15px;
+}
+
+header .buscador button:hover {
+    background-color: #C1D0B5;
+}
+
+header nav {
+    background-color: #C1D0B5;
+    color: #1A531A;
+    font-weight: bold;
+}
+
+header .nav-link-der {
+    border-right: 3px solid #1A531A;
+}
+
+header nav li {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    border-left: 3px solid #1A531A;
+    font-size: 18px;
+}
+
+header .nav-link {
+    color: #1A531A;
+}
+
+header .nav-link:hover {
+    color: #7FC05C;
+}
+
+footer {
+    background: white;
+    color: #1A531A;
+}
+
+footer .suscribete {
+    background-color: #C1D0B5;
+}
+
+footer .suscribete input {
+    border: 2px solid #1A531A;
+    border-radius: 15px;
+}
+
+footer .logo {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+
+footer .logo h3 {
+    color: #1A531A;
+}
+
+footer .logo h5 {
+    color: #5C4033;
+}
+
+/* -----------------------
+--- CLASES COMUNES ---
+----------------------- */
+
+/*BOTONES*/
+
+.btn-natural {
+    background-color: white;
+    color: #1A531A;
+    font-weight: bold;
+    border: 2px solid #1A531A;
+}
+
+.btn-natural:hover {
+    background-color: #1A531A;
+    color: white;
+    font-weight: bold;
+    border: 2px solid #1A531A;
+}
+
+.btn-cancelar:hover {
+    background-color: #cf0606;
+    color: white;
+    font-weight: bold;
+    border: 2px solid #cf0606;
+}
+
+/* INPUTS */
+
+.form-control:focus {
+    border-color: #7FC05C;
+    box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
+    outline: 0;
+}
+
+/* LINKS <a>*/
+
+a {
+    color: #1A531A;
+}
+
+a:hover {
+    color: #7FC05C;
+}
+
+/* MAIN */
+.contenedor-principal{
+    overflow: hidden;
+    min-height: 600px;
+    border: #06cf09 solid 1px;
+    justify-content: center;
+}
+
+.contenedor-principal .contenedor{
+    width: 75%;
+    border: #cf0606 solid 1px;
+    margin: 30px 0px;
+}
+
+.tarjeta-usuario, .menu-perfil{
+    border: #1A531A solid 3px;
+    background-color: white;
+}
+
+.menu-perfil img{
+    width: 20px;
+}
+
+.menu-perfil .opcion-menu {
+    background-color: #ffffff;
+    color: #144926; 
+    padding: 14px 20px;
+    border: none;
+    border-top: 2px solid #144926;
+    transition: background-color 0.2s ease;
+}
+
+.menu-perfil .opcion-menu:hover {
+    background-color: #C1D0B5;
+    color: #144926;
+}
+
+.menu-perfil .opcion-menu.active {
+    background-color: #C1D0B5;
+    color: #144926;
+    border-bottom: 2px solid #C1D0B5;
+}
+
