@@ -1,168 +1,195 @@
-let carrito = [];
-let porcentajeDescuento = 0; 
+let listaProductosCarrito = [];
+let porcentajeDescuentoAplicado = 0; 
 
-const contenedorCarrito = document.getElementById('carrito-contenedor');
-const btnLimpiar = document.getElementById('btn-limpiar');
-const cantArticulosDOM = document.getElementById('cantidad-articulos');
-const resumenCantidadDOM = document.getElementById('resumen-cantidad');
-const resumenSubtotalDOM = document.getElementById('resumen-subtotal');
-const resumenTotalDOM = document.getElementById('resumen-total');
-const botonesAñadir = document.querySelectorAll('.btn-add-cart');
+const elementoContenedorCarrito = document.getElementById('contenedor-lista-carrito');
+const botonLimpiarCarrito = document.getElementById('btn-limpiar-carrito');
+const elementoCantidadArticulos = document.getElementById('cantidad-articulos');
+const elementoResumenCantidad = document.getElementById('resumen-cantidad');
+const elementoResumenSubtotal = document.getElementById('resumen-subtotal');
+const elementoResumenTotal = document.getElementById('resumen-total');
+const botonesAgregarCarrito = document.querySelectorAll('.btn-agregar-carrito');
 
-const inputCupon = document.getElementById('input-cupon');
-const btnCupon = document.getElementById('btn-cupon');
-const mensajeCupon = document.getElementById('mensaje-cupon');
+const campoEntradaCupon = document.getElementById('entrada-codigo-cupon');
+const botonAplicarCupon = document.getElementById('btn-aplicar-cupon');
+const elementoMensajeCupon = document.getElementById('mensaje-cupon');
 
-function renderizarCarrito() {
-    contenedorCarrito.innerHTML = ''; 
+function renderizarVistaCarrito() {
+    elementoContenedorCarrito.innerHTML = ''; 
 
-    if (carrito.length === 0) {
-        contenedorCarrito.innerHTML = '<p class="text-center text-muted my-5">Tu carrito está vacío. ¡Añade algunos productos!</p>';
+    if (listaProductosCarrito.length === 0) {
+        elementoContenedorCarrito.innerHTML = '<p class="text-center text-muted my-5">Tu carrito está vacío. ¡Añade algunos productos!</p>';
     } else {
-        carrito.forEach(producto => {
-            const divItem = document.createElement('div');
-            divItem.classList.add('item-carrito', 'row', 'align-items-center');
+        listaProductosCarrito.forEach(productoActual => {
+            const elementoFilaProducto = document.createElement('div');
+            elementoFilaProducto.classList.add('item-carrito', 'row', 'align-items-center');
             
-            divItem.innerHTML = `
+            elementoFilaProducto.innerHTML = `
                 <div class="col-4 col-md-3">
-                    <div class="d-flex justify-content-center align-items-center bg-white rounded img-carrito-contenedor">
-                        <img src="${producto.imagen}" alt="${producto.nombre}" class="img-ajustada">
+                    <div class="d-flex justify-content-center align-items-center bg-white rounded contenedor-imagen-carrito">
+                        <img src="${productoActual.imagen}" alt="${productoActual.nombre}" class="imagen-producto-ajustada">
                     </div>
                 </div>
                 <div class="col-8 col-md-9">
                     <div class="row align-items-center">
                         <div class="col-sm-7 mb-2 mb-sm-0">
-                            <h6 class="fw-bold mb-1">${producto.nombre}</h6>
-                            <span class="fw-bold">S/ ${producto.precio.toFixed(2)}</span>
+                            <h6 class="fw-bold mb-1">${productoActual.nombre}</h6>
+                            <span class="fw-bold">S/ ${productoActual.precio.toFixed(2)}</span>
                         </div>
                         <div class="col-sm-5 d-flex justify-content-between align-items-center gap-3">
-                            <div class="control-cantidad">
-                                <button onclick="modificarCantidad(${producto.id}, -1)">-</button>
-                                <span>${producto.cantidad}</span>
-                                <button onclick="modificarCantidad(${producto.id}, 1)">+</button>
+                            <div class="controles-cantidad-producto">
+                                <button onclick="modificarCantidadProducto(${productoActual.id}, -1)">-</button>
+                                <span>${productoActual.cantidad}</span>
+                                <button onclick="modificarCantidadProducto(${productoActual.id}, 1)">+</button>
                             </div>
-                            <button onclick="eliminarProducto(${producto.id})" class="btn-icono text-danger fw-bold fs-5">
+                            <button onclick="eliminarProductoDelCarrito(${productoActual.id})" class="btn-icono text-danger fw-bold fs-5">
                                 🗑️
                             </button>
                         </div>
                     </div>
                 </div>
             `;
-            contenedorCarrito.appendChild(divItem);
+            elementoContenedorCarrito.appendChild(elementoFilaProducto);
         });
     }
-    actualizarTotales();
+    calcularTotalesCarrito();
 }
 
-function actualizarTotales() {
-    let totalCantidad = 0;
-    let subtotal = 0;
+function calcularTotalesCarrito() {
+    let sumatoriaCantidadTotal = 0;
+    let sumatoriaSubtotal = 0;
 
-    carrito.forEach(prod => {
-        totalCantidad += prod.cantidad;
-        subtotal += (prod.precio * prod.cantidad);
+    listaProductosCarrito.forEach(productoItem => {
+        sumatoriaCantidadTotal += productoItem.cantidad;
+        sumatoriaSubtotal += (productoItem.precio * productoItem.cantidad);
     });
 
-    let total = subtotal - (subtotal * porcentajeDescuento);
+    let costoTotalCalculado = sumatoriaSubtotal - (sumatoriaSubtotal * porcentajeDescuentoAplicado);
 
-    cantArticulosDOM.textContent = totalCantidad;
-    resumenCantidadDOM.textContent = totalCantidad;
-    resumenSubtotalDOM.textContent = subtotal.toFixed(2);
-    resumenTotalDOM.textContent = total.toFixed(2);
+    elementoCantidadArticulos.textContent = sumatoriaCantidadTotal;
+    elementoResumenCantidad.textContent = sumatoriaCantidadTotal;
+    elementoResumenSubtotal.textContent = sumatoriaSubtotal.toFixed(2);
+    elementoResumenTotal.textContent = costoTotalCalculado.toFixed(2);
 
-    if (carrito.length === 0) {
-        porcentajeDescuento = 0;
-        inputCupon.value = '';
-        mensajeCupon.textContent = '';
+    if (listaProductosCarrito.length === 0) {
+        porcentajeDescuentoAplicado = 0;
+        campoEntradaCupon.value = '';
+        elementoMensajeCupon.textContent = '';
     }
 }
 
-window.modificarCantidad = function(id, cambio) {
-    const idNumero = parseInt(id); 
-    const producto = carrito.find(p => p.id === idNumero);
-    if (producto) {
-        producto.cantidad += cambio;
-        if (producto.cantidad <= 0) {
-            eliminarProducto(idNumero);
+window.modificarCantidadProducto = function(idProducto, valorCambio) {
+    const identificadorNumerico = parseInt(idProducto); 
+    const productoEncontrado = listaProductosCarrito.find(item => item.id === identificadorNumerico);
+    if (productoEncontrado) {
+        productoEncontrado.cantidad += valorCambio;
+        if (productoEncontrado.cantidad <= 0) {
+            eliminarProductoDelCarrito(identificadorNumerico);
         } else {
-            renderizarCarrito();
+            renderizarVistaCarrito();
         }
     }
 }
 
-window.eliminarProducto = function(id) {
-    const idNumero = parseInt(id);
-    carrito = carrito.filter(p => p.id !== idNumero);
-    renderizarCarrito();
+window.eliminarProductoDelCarrito = function(idProducto) {
+    const identificadorNumerico = parseInt(idProducto);
+    listaProductosCarrito = listaProductosCarrito.filter(item => item.id !== identificadorNumerico);
+    renderizarVistaCarrito();
 }
 
-btnLimpiar.addEventListener('click', () => {
-    carrito = [];
-    renderizarCarrito();
+botonLimpiarCarrito.addEventListener('click', () => {
+    listaProductosCarrito = [];
+    renderizarVistaCarrito();
 });
 
-btnCupon.addEventListener('click', () => {
-    const codigo = inputCupon.value.trim().toUpperCase();
+botonAplicarCupon.addEventListener('click', () => {
+    const codigoIngresado = campoEntradaCupon.value.trim().toUpperCase();
     
-    if (carrito.length === 0) {
-        mensajeCupon.textContent = 'Añade productos antes de aplicar un cupón.';
-        mensajeCupon.className = 'text-danger small d-block mt-2 fw-bold';
+    if (listaProductosCarrito.length === 0) {
+        elementoMensajeCupon.textContent = 'Añade productos antes de aplicar un cupón.';
+        elementoMensajeCupon.className = 'text-danger small d-block mt-2 fw-bold';
         return;
     }
 
-    if (codigo === 'NATURAL20') {
-        porcentajeDescuento = 0.20;
-        mensajeCupon.textContent = '¡Cupón de 20% aplicado con éxito!';
-        mensajeCupon.className = 'text-success small d-block mt-2 fw-bold';
+    if (codigoIngresado === 'NATURAL20') {
+        porcentajeDescuentoAplicado = 0.20;
+        elementoMensajeCupon.textContent = '¡Cupón de 20% aplicado con éxito!';
+        elementoMensajeCupon.className = 'text-success small d-block mt-2 fw-bold';
     } else {
-        porcentajeDescuento = 0;
-        mensajeCupon.textContent = 'Código inválido o expirado.';
-        mensajeCupon.className = 'text-danger small d-block mt-2 fw-bold';
+        porcentajeDescuentoAplicado = 0;
+        elementoMensajeCupon.textContent = 'Código inválido o expirado.';
+        elementoMensajeCupon.className = 'text-danger small d-block mt-2 fw-bold';
     }
     
-    actualizarTotales();
+    calcularTotalesCarrito();
 });
 
-botonesAñadir.forEach(boton => {
-    boton.addEventListener('click', (e) => {
-        const id = parseInt(e.target.getAttribute('data-id'));
-        const nombre = e.target.getAttribute('data-nombre');
-        const precio = parseFloat(e.target.getAttribute('data-precio'));
-        const imagen = e.target.getAttribute('data-img');
+botonesAgregarCarrito.forEach(botonActual => {
+    botonActual.addEventListener('click', (eventoBoton) => {
+        const identificadorProducto = parseInt(eventoBoton.target.getAttribute('data-id'));
+        const nombreDelProducto = eventoBoton.target.getAttribute('data-nombre');
+        const precioDelProducto = parseFloat(eventoBoton.target.getAttribute('data-precio'));
+        const rutaImagenProducto = eventoBoton.target.getAttribute('data-img');
 
-        const productoExistente = carrito.find(p => p.id === id);
+        const productoYaExiste = listaProductosCarrito.find(item => item.id === identificadorProducto);
         
-        if (productoExistente) {
-            productoExistente.cantidad += 1;
+        if (productoYaExiste) {
+            productoYaExiste.cantidad += 1;
         } else {
-            carrito.push({
-                id: id,
-                nombre: nombre,
-                precio: precio,
+            listaProductosCarrito.push({
+                id: identificadorProducto,
+                nombre: nombreDelProducto,
+                precio: precioDelProducto,
                 cantidad: 1,
-                imagen: imagen
+                imagen: rutaImagenProducto
             });
         }
-        renderizarCarrito();
+        renderizarVistaCarrito();
     });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    renderizarCarrito();
-}); 
-
-// Redirigir al Checkout guardando los datos
-const btnIrAPagar = document.getElementById('btn-ir-pagar');
-if(btnIrAPagar) {
-    btnIrAPagar.addEventListener('click', () => {
-        if (carrito.length === 0) {
+const botonProcederPago = document.getElementById('btn-proceder-pago');
+if (botonProcederPago) {
+    botonProcederPago.addEventListener('click', () => {
+        if (listaProductosCarrito.length === 0) {
             alert("Tu carrito está vacío. Añade productos antes de pagar.");
             return;
         }
-        // Guardamos los datos en el navegador (Local Storage)
-        localStorage.setItem('carritoTienda', JSON.stringify(carrito));
-        localStorage.setItem('descuentoTienda', porcentajeDescuento);
-        // Redirigimos a la nueva página
+        localStorage.setItem('carritoTienda', JSON.stringify(listaProductosCarrito));
+        localStorage.setItem('descuentoTienda', porcentajeDescuentoAplicado);
         window.location.href = 'irApagar.html';
     });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    renderizarVistaCarrito(); 
+
+    const listaIconosCorazon = document.querySelectorAll('.icono-favorito');
+  
+    const rutaImagenCorazonBordes = "img/general/iconos/fav-border32.png"; 
+    const rutaImagenCorazonLleno = "img/general/iconos/fav32.png"; 
+    
+    listaIconosCorazon.forEach(iconoCorazonActual => {
+        
+        iconoCorazonActual.addEventListener('mouseenter', function() {
+            if (!this.classList.contains('activo')) {
+                this.src = rutaImagenCorazonLleno;
+            }
+        });
+
+        iconoCorazonActual.addEventListener('mouseleave', function() {
+            if (!this.classList.contains('activo')) {
+                this.src = rutaImagenCorazonBordes;
+            }
+        });
+
+        iconoCorazonActual.addEventListener('click', function() {
+            this.classList.toggle('activo');
+            
+            if (this.classList.contains('activo')) {
+                this.src = rutaImagenCorazonLleno;
+            } else {
+                this.src = rutaImagenCorazonBordes; 
+            }
+        });
+    });
+});

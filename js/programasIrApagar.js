@@ -1,161 +1,153 @@
-// programasCheckout.js
+const datosCarritoGuardados = localStorage.getItem('carritoTienda');
+const datosDescuentoGuardados = localStorage.getItem('descuentoTienda');
 
-const carritoData = localStorage.getItem('carritoTienda');
-const descuentoData = localStorage.getItem('descuentoTienda');
+let listaProductosCheckout = datosCarritoGuardados ? JSON.parse(datosCarritoGuardados) : [];
+let porcentajeDescuentoAplicado = datosDescuentoGuardados ? parseFloat(datosDescuentoGuardados) : 0;
 
-let carrito = carritoData ? JSON.parse(carritoData) : [];
-let porcentajeDescuento = descuentoData ? parseFloat(descuentoData) : 0;
+let estadoDatosEnvioCompletos = false;
+let estadoDatosPagoCompletos = false;
 
-let datosEnvioGuardados = false;
-let datosPagoGuardados = false;
+const elementoContenedorProductos = document.getElementById('contenedor-lista-productos-checkout');
+const elementoCantidadResumen = document.getElementById('texto-cantidad-resumen');
+const elementoSubtotalResumen = document.getElementById('texto-subtotal-resumen');
+const elementoDescuentoResumen = document.getElementById('texto-descuento-resumen');
+const elementoFilaDescuento = document.getElementById('contenedor-fila-descuento');
+const elementoTotalResumen = document.getElementById('texto-total-resumen');
 
-const contenedorProductos = document.getElementById('checkout-productos');
-const resumenCantidadDOM = document.getElementById('resumen-cantidad');
-const resumenSubtotalDOM = document.getElementById('resumen-subtotal');
-const resumenDescuentoDOM = document.getElementById('resumen-descuento');
-const filaDescuento = document.getElementById('fila-descuento');
-const resumenTotalDOM = document.getElementById('resumen-total');
-
-function renderizarResumen() {
-    if (carrito.length === 0) {
+function renderizarResumenCompra() {
+    if (listaProductosCheckout.length === 0) {
         window.location.href = 'carritoDeCompras.html';
         return;
     }
 
-    contenedorProductos.innerHTML = '';
-    let totalCantidad = 0;
-    let subtotal = 0;
+    elementoContenedorProductos.innerHTML = '';
+    let sumatoriaCantidadTotal = 0;
+    let sumatoriaSubtotal = 0;
 
-    carrito.forEach(producto => {
-        totalCantidad += producto.cantidad;
-        subtotal += (producto.precio * producto.cantidad);
+    listaProductosCheckout.forEach(productoActual => {
+        sumatoriaCantidadTotal += productoActual.cantidad;
+        sumatoriaSubtotal += (productoActual.precio * productoActual.cantidad);
 
-        const divItem = document.createElement('div');
-        divItem.classList.add('d-flex', 'align-items-center', 'mb-3', 'border-bottom', 'pb-3');
+        const elementoFilaProducto = document.createElement('div');
+        elementoFilaProducto.classList.add('d-flex', 'align-items-center', 'mb-3', 'border-bottom', 'pb-3');
         
-        divItem.innerHTML = `
-            <img src="${producto.imagen}" alt="${producto.nombre}" class="item-resumen-img me-3">
+        elementoFilaProducto.innerHTML = `
+            <img src="${productoActual.imagen}" alt="${productoActual.nombre}" class="imagen-producto-resumen me-3">
             <div>
-                <h6 class="fw-bold mb-1" style="font-size: 0.9rem;">${producto.nombre}</h6>
-                <small class="text-muted d-block mb-1">Cantidad: ${producto.cantidad}</small>
-                <span class="fw-bold" style="font-size: 0.9rem;">S/ ${(producto.precio * producto.cantidad).toFixed(2)}</span>
+                <h6 class="fw-bold mb-1" style="font-size: 0.9rem;">${productoActual.nombre}</h6>
+                <small class="text-muted d-block mb-1">Cantidad: ${productoActual.cantidad}</small>
+                <span class="fw-bold" style="font-size: 0.9rem;">S/ ${(productoActual.precio * productoActual.cantidad).toFixed(2)}</span>
             </div>
         `;
-        contenedorProductos.appendChild(divItem);
+        elementoContenedorProductos.appendChild(elementoFilaProducto);
     });
 
-    let descuentoTotal = subtotal * porcentajeDescuento;
-    let total = subtotal - descuentoTotal;
+    let montoDescuentoTotal = sumatoriaSubtotal * porcentajeDescuentoAplicado;
+    let costoTotalCalculado = sumatoriaSubtotal - montoDescuentoTotal;
 
-    resumenCantidadDOM.textContent = totalCantidad;
-    resumenSubtotalDOM.textContent = subtotal.toFixed(2);
+    elementoCantidadResumen.textContent = sumatoriaCantidadTotal;
+    elementoSubtotalResumen.textContent = sumatoriaSubtotal.toFixed(2);
     
-    if (porcentajeDescuento > 0) {
-        filaDescuento.style.setProperty('display', 'flex', 'important');
-        resumenDescuentoDOM.textContent = descuentoTotal.toFixed(2);
+    if (porcentajeDescuentoAplicado > 0) {
+        elementoFilaDescuento.style.setProperty('display', 'flex', 'important');
+        elementoDescuentoResumen.textContent = montoDescuentoTotal.toFixed(2);
     }
 
-    resumenTotalDOM.textContent = total.toFixed(2);
+    elementoTotalResumen.textContent = costoTotalCalculado.toFixed(2);
 }
 
-// Métodos de Pago
-const radios = document.querySelectorAll('input[name="metodo-pago"]');
-const boxTarjeta = document.getElementById('box-tarjeta');
-const boxYape = document.getElementById('box-yape');
-const formTarjeta = document.getElementById('formulario-tarjeta');
+const listaRadiosMetodoPago = document.querySelectorAll('input[name="metodo-pago"]');
+const elementoOpcionTarjeta = document.getElementById('contenedor-opcion-tarjeta');
+const elementoOpcionYape = document.getElementById('contenedor-opcion-yape');
+const elementoFormularioTarjeta = document.getElementById('formulario-datos-tarjeta');
 
-radios.forEach(radio => {
-    radio.addEventListener('change', (e) => {
-        boxTarjeta.classList.remove('activo');
-        boxYape.classList.remove('activo');
-        formTarjeta.classList.add('d-none');
+listaRadiosMetodoPago.forEach(radioSeleccionado => {
+    radioSeleccionado.addEventListener('change', (eventoCambio) => {
+        elementoOpcionTarjeta.classList.remove('activo');
+        elementoOpcionYape.classList.remove('activo');
+        elementoFormularioTarjeta.classList.add('d-none');
 
-        if(e.target.value === 'tarjeta') {
-            boxTarjeta.classList.add('activo');
-            formTarjeta.classList.remove('d-none'); 
-            datosPagoGuardados = false; 
-        } else if (e.target.value === 'yape') {
-            boxYape.classList.add('activo');
-            datosPagoGuardados = true; 
+        if(eventoCambio.target.value === 'tarjeta') {
+            elementoOpcionTarjeta.classList.add('activo');
+            elementoFormularioTarjeta.classList.remove('d-none'); 
+            estadoDatosPagoCompletos = false; 
+        } else if (eventoCambio.target.value === 'yape') {
+            elementoOpcionYape.classList.add('activo');
+            estadoDatosPagoCompletos = true; 
         }
     });
 });
 
-// Botón Agregar Dirección
-const btnAgregarDireccion = document.getElementById('btn-agregar-direccion');
-btnAgregarDireccion.addEventListener('click', () => {
+const botonAgregarNuevaDireccion = document.getElementById('boton-agregar-direccion');
+botonAgregarNuevaDireccion.addEventListener('click', () => {
     alert("Funcionalidad para agregar nueva dirección en desarrollo.");
 });
 
-// Validaciones
-const btnGuardarEnvio = document.getElementById('btn-guardar-envio');
-btnGuardarEnvio.addEventListener('click', () => {
-    const nombres = document.getElementById('envio-nombres').value.trim();
-    const apellidos = document.getElementById('envio-apellidos').value.trim();
-    const direccion = document.getElementById('envio-direccion').value;
-    const correo = document.getElementById('envio-correo').value.trim();
+const botonGuardarInformacionEnvio = document.getElementById('boton-guardar-datos-envio');
+botonGuardarInformacionEnvio.addEventListener('click', () => {
+    const valorNombres = document.getElementById('campo-entrada-nombres').value.trim();
+    const valorApellidos = document.getElementById('campo-entrada-apellidos').value.trim();
+    const valorDireccion = document.getElementById('selector-direccion-envio').value;
+    const valorCorreoElectronico = document.getElementById('campo-entrada-correo').value.trim();
 
-    if (!nombres || !apellidos || !direccion || !correo) {
+    if (!valorNombres || !valorApellidos || !valorDireccion || !valorCorreoElectronico) {
         alert("Por favor, completa todos los datos de envío.");
-        datosEnvioGuardados = false;
+        estadoDatosEnvioCompletos = false;
     } else {
         alert("¡Datos de envío guardados correctamente!");
-        datosEnvioGuardados = true;
+        estadoDatosEnvioCompletos = true;
     }
 });
 
-const btnGuardarTarjeta = document.getElementById('btn-guardar-tarjeta');
-btnGuardarTarjeta.addEventListener('click', () => {
-    const num = document.getElementById('tarjeta-numero').value.trim();
-    const fecha = document.getElementById('tarjeta-fecha').value.trim();
-    const cvv = document.getElementById('tarjeta-cvv').value.trim();
+const botonGuardarInformacionTarjeta = document.getElementById('boton-guardar-datos-tarjeta');
+botonGuardarInformacionTarjeta.addEventListener('click', () => {
+    const valorNumeroTarjeta = document.getElementById('campo-entrada-numero-tarjeta').value.trim();
+    const valorFechaVencimiento = document.getElementById('campo-entrada-fecha-tarjeta').value.trim();
+    const valorCodigoCvv = document.getElementById('campo-entrada-cvv-tarjeta').value.trim();
 
-    if (!num || !fecha || !cvv) {
+    if (!valorNumeroTarjeta || !valorFechaVencimiento || !valorCodigoCvv) {
         alert("Por favor, completa todos los datos de la tarjeta.");
-        datosPagoGuardados = false;
+        estadoDatosPagoCompletos = false;
     } else {
         alert("¡Datos de tarjeta guardados correctamente!");
-        datosPagoGuardados = true;
+        estadoDatosPagoCompletos = true;
     }
 });
 
-// Finalizar compra (Reemplaza este bloque en programasCheckout.js)
-const btnPagarAhora = document.getElementById('btn-pagar-ahora');
-btnPagarAhora.addEventListener('click', () => {
-    if (!datosEnvioGuardados) {
+const botonProcesarPagoFinal = document.getElementById('boton-procesar-pago');
+botonProcesarPagoFinal.addEventListener('click', () => {
+    if (!estadoDatosEnvioCompletos) {
         alert("Debes guardar tus datos de envío antes de pagar.");
         return;
     }
     
-    const metodoSeleccionado = document.querySelector('input[name="metodo-pago"]:checked');
-    if (!metodoSeleccionado) {
+    const opcionMetodoPagoSeleccionada = document.querySelector('input[name="metodo-pago"]:checked');
+    if (!opcionMetodoPagoSeleccionada) {
         alert("Selecciona un método de pago.");
         return;
     }
 
-    if (!datosPagoGuardados) {
+    if (!estadoDatosPagoCompletos) {
         alert("Asegúrate de guardar los datos de tu tarjeta.");
         return;
     }
 
-    // Novedad: Guardar la dirección y el total antes de vaciar el carrito
-    const selectDireccion = document.getElementById('envio-direccion');
-    const direccionTexto = selectDireccion.options[selectDireccion.selectedIndex].text;
-    const totalFinal = document.getElementById('resumen-total').textContent;
+    const elementoSelectorDireccion = document.getElementById('selector-direccion-envio');
+    const textoDireccionSeleccionada = elementoSelectorDireccion.options[elementoSelectorDireccion.selectedIndex].text;
+    const valorTotalCompra = document.getElementById('texto-total-resumen').textContent;
 
-    localStorage.setItem('direccionConfirmacion', direccionTexto);
-    localStorage.setItem('totalConfirmacion', totalFinal);
+    localStorage.setItem('direccionConfirmacion', textoDireccionSeleccionada);
+    localStorage.setItem('totalConfirmacion', valorTotalCompra);
 
-    // Vaciar el carrito y redirigir a la confirmación
     localStorage.removeItem('carritoTienda');
     localStorage.removeItem('descuentoTienda');
     window.location.href = 'confirmarPedido.html'; 
 });
 
-const btnCancelar = document.getElementById('btn-cancelar-compra');
-btnCancelar.addEventListener('click', () => {
-    const confirmar = confirm("¿Estás seguro que deseas cancelar tu compra y vaciar tu carrito?");
-    if (confirmar) {
+const botonCancelarProcesoCompra = document.getElementById('boton-cancelar-compra');
+botonCancelarProcesoCompra.addEventListener('click', () => {
+    const confirmacionUsuario = confirm("¿Estás seguro que deseas cancelar tu compra y vaciar tu carrito?");
+    if (confirmacionUsuario) {
         localStorage.removeItem('carritoTienda');
         localStorage.removeItem('descuentoTienda');
         window.location.href = 'carritoDeCompras.html'; 
@@ -163,5 +155,5 @@ btnCancelar.addEventListener('click', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    renderizarResumen();
+    renderizarResumenCompra();
 });
