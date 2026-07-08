@@ -1,0 +1,169 @@
+#testDePiel{
+    background-color: #1A531A;
+    color: white;
+}
+
+#testDePiel h1{
+    color: #D4AF37;
+}
+
+.btn-dorado{
+    background-color: #D4AF37;
+    color: white;
+    font-weight: bold;
+    border: 2px solid white;
+}
+
+.btn-dorado:hover{
+    background-color: white;
+    color: #D4AF37;
+    font-weight: bold;
+    border: 2px solid white;
+}
+
+.icono-pilar-container img{
+    width: 10rem;
+}
+
+#pilares h4{
+    color: #1A531A;
+}
+
+#productos .carousel-inner{
+    width: 80%;
+    margin: 0 auto;
+}
+
+hr{
+    color: #1A531A;
+}
+
+.tarjeta-producto{
+    display: flex;
+    flex-direction: column;
+}
+
+.tarjeta-producto .card-body{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.contenedor-img-tarjeta{
+    height: 260px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 1rem;
+}
+
+.imagen-producto-ajustada{
+    width: auto;
+    height: auto;
+    max-width: 85%;
+    max-height: 200px;
+    object-fit: contain;
+    display: block;
+}
+
+.btn-agregar-carrito{
+    margin-top: auto;
+}
+
+.tarjeta-producto h6{
+    min-height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.seccion-marca{
+    border-radius: 12px;
+}
+
+.imagen-marca{
+    height: 100%;
+    min-height: 320px;
+    object-fit: cover;
+}
+
+.fondo-marca{
+    background: #d8e2c8;
+    padding: 3rem;
+}
+
+.contenido-marca{
+    max-width: 480px;
+}
+
+.contenido-marca small{
+    color: #6c757d;
+    letter-spacing: 1px;
+}
+
+.contenido-marca h2{
+    color: #1A531A;
+    margin-bottom: 1rem;
+}
+
+.contenido-marca p{
+    color: #444;
+    line-height: 1.7;
+}
+
+.contenido-marca .btn{
+    margin-top: 10px;
+}
+/* ===== RESEÑAS ===== */
+
+#resenas{
+    background: #FAF8F4;
+}
+
+.titulo-seccion{
+    color: #1A531A;
+}
+
+.tarjeta-resena{
+    border: 2px solid #8BC34A;
+    border-radius: 0;
+    transition: .3s;
+    height: 100%;
+}
+
+.tarjeta-resena:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,.12);
+}
+
+.estrellas{
+    color: #D4AF37;
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+.tarjeta-resena p{
+    font-size: .95rem;
+    color: #444;
+    line-height: 1.6;
+    min-height: 110px;
+}
+
+.avatar-resena{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid #8BC34A;
+    background: #EAF4E3;
+    color: #1A531A;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+.tarjeta-resena h6{
+    color: #1A531A;
+}

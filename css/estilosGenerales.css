@@ -32,7 +32,7 @@ header .logo h5{
     color: #5C4033;
 }
 
-header .enlaces-usuario-superior img{
+header .sup-der img{
     height: 3rem;
 }
 
@@ -87,6 +87,31 @@ footer .suscribete input{
 footer .logo{
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
+}
+
+.libro-reclamaciones{
+    width: 95px;
+    display: block;
+    margin: 0 auto;
+}
+
+.enlace-libro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.enlace-libro span{
+    text-align: center;
+}
+
+.enlace-footer{
+    color: #1A531A;
+    text-decoration: none;
+}
+
+.enlace-footer:hover{
+    text-decoration: underline;
 }
 
 
@@ -163,4 +188,20 @@ body .texto-primario {
 
 .icono-16 {
     width: 16px;
+}
+
+/* BOTONES DE CARRUSEL */
+
+.carousel-indicators button {
+    background-color: #C1D0B5 !important;
+    height: 20px !important;
+    width: 20px !important;
+    border-radius: 50%;
+    border: 2px solid #1A531A!important;
+}
+
+.carousel-indicators .active {
+    background-color: #1A531A !important;
+    opacity: 1;
+    
 }
