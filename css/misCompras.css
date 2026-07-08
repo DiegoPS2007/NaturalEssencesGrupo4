@@ -69,6 +69,8 @@
 
 .pedido-botones {
     border-bottom: 1px solid #1A531A;
+    margin-bottom: 1.4rem;
+    padding-bottom: 1.2rem;
 }
 
 .pedido-botones .btn-natural,

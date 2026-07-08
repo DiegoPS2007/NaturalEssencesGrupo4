@@ -190,8 +190,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         panelCompras.innerHTML = `
             <h4 class="titulo-panel">Mis Compras</h4>
-            ${enProceso.length ? `<h5 class="fw-bold mt-3">Compras en proceso</h5>${enProceso.map(crearCompraHTML).join("")}` : ""}
-            ${terminadas.length ? `<h5 class="fw-bold mt-4">Compras terminadas</h5>${terminadas.map(crearCompraHTML).join("")}` : ""}
+            ${enProceso.map(crearCompraHTML).join("")}
+            ${terminadas.map(crearCompraHTML).join("")}
         `;
     }
 
