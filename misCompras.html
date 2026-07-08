@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Compras</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/misCompras.css">
+    <link rel="icon" href="img/general/favicon logo/favicon.ico">
+</head>
+
+<body>
+    <header class="container-fluid px-0">
+        <div class="text-center px-4 px-lg-5 py-2 bg-white">
+            <div class="row align-items-center m-0">
+                <div class="logo col-sm-8 col-lg-4 order-lg-1">
+                    <div class="row align-items-center">
+                        <div class="col-2 col-md-1">
+                            <img src="img/general/favicon logo/favicon.ico" alt="Logo Natural Essences">
+                        </div>
+                        <div class="col-10 col-md-11 text-start text-sm-center">
+                            <h3 class="mb-0">NATURAL ESSENCES</h3>
+                            <h5>SKINCARE & WELLNESS</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sup-der col-sm-4 col-lg-2 order-lg-3">
+                    <div class="row justify-content-end justify-content-sm-between align-items-center">
+                        <div class="col-3">
+                            <a href="#"><img src="img/general/iconos/fav-border64.png" alt="Favoritos"></a>
+                        </div>
+                        <div class="col-3">
+                            <a href="carritoDeCompras.html"><img src="img/general/iconos/carrito64.png" alt="Carrito"></a>
+                        </div>
+                        <div class="col-3">
+                            <a href="perfil.html"><img src="img/general/iconos/perfil64.png" alt="Perfil"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-lg-6 order-lg-2 my-3 my-lg-0">
+                    <div class="input-group buscador">
+                        <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscar">
+                        <button class="btn btn-natural" type="submit">
+                            <img src="img/general/iconos/lupa32.png" alt="Buscar">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-expand-md">
+            <div class="container-fluid justify-content-start justify-content-md-center">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-md-center" id="navbarNav">
+                    <ul class="navbar-nav text-start text-md-center">
+                        <li class="nav-item">
+                            <a class="nav-link py-0" href="#">PRODUCTOS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link py-0" href="#">COLECCIONES</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link py-0" href="#">TEST DE PIEL</a>
+                        </li>
+                        <li class="nav-item nav-link-der">
+                            <a class="nav-link py-0" href="#">NUESTRA MARCA</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="perfil-main">
+        <div class="container py-4 py-lg-5">
+            <nav aria-label="breadcrumb" class="mb-4">
+                <ol class="breadcrumb fw-bold">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="perfil.html">Perfil</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Mis Compras</li>
+                </ol>
+            </nav>
+
+            <div class="row justify-content-center g-4">
+                <aside class="col-lg-3 col-md-4">
+                    <section class="tarjeta-usuario text-center p-4 mb-4">
+                        <div class="avatar-iniciales d-flex align-items-center justify-content-center mx-auto mb-3">
+                            MG
+                        </div>
+                        <h3 class="nombre-usuario mb-2">Maria Garcia</h3>
+                        <p class="correo-usuario mb-2">maria@gmail.com</p>
+                        <p class="miembro mb-0">Miembro desde 2024</p>
+                    </section>
+
+                    <nav class="menu-perfil list-group">
+                        <a href="misCompras.html" class="list-group-item list-group-item-action opcion-menu active">
+                            <img src="img/perfil/perfil-Mis compras.png" alt=""> Mis Compras
+                        </a>
+                        <a href="perfil.html" class="list-group-item list-group-item-action opcion-menu">
+                            <img src="img/perfil/perfil-perfil.png" alt=""> Mi Informacion
+                        </a>
+                        <a href="misDirecciones.html" class="list-group-item list-group-item-action opcion-menu">
+                            <img src="img/perfil/perfil-direccion.png" alt=""> Mis Direcciones
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action opcion-menu">
+                            <img src="img/perfil/perfil-favoritos.png" alt=""> Favoritos
+                        </a>
+                        <a href="iniciarSesion.html" class="list-group-item list-group-item-action opcion-menu">
+                            <img src="img/perfil/perfil-cerrar sesion.png" alt=""> Cerrar Sesion
+                        </a>
+                    </nav>
+                </aside>
+
+                <section class="col-lg-7 col-md-8">
+                    <div class="panel-perfil p-4 p-lg-5">
+                        <h4 class="titulo-panel">Mis Compras</h4>
+
+                        <article class="pedido-card p-3 p-lg-4">
+                            <div class="pedido-encabezado d-flex flex-column flex-lg-row justify-content-between gap-2 mb-3">
+                                <div class="d-flex align-items-center gap-3">
+                                    <span>#NE-2025-0847</span>
+                                    <span class="estado-entregado">Entregado</span>
+                                </div>
+                                <div class="d-flex flex-wrap gap-4">
+                                    <span>12 Ene 2025</span>
+                                    <strong>S/ 129.00</strong>
+                                </div>
+                            </div>
+
+                            <div class="productos-compra row g-3 pb-3 mb-3">
+                                <div class="col-md-4">
+                                    <div class="producto-mini d-flex gap-2">
+                                        <img src="img/general/productos/serum.jpg" alt="Serum Vitamina C">
+                                        <div>
+                                            <h6>Serum Vitamina C</h6>
+                                            <p>30ml x1</p>
+                                            <strong>S/ 45.00</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="producto-mini d-flex gap-2">
+                                        <img src="img/general/productos/espumaLimpiadora.jpg" alt="Crema Hidratante Luxe">
+                                        <div>
+                                            <h6>Crema Hidratante Luxe</h6>
+                                            <p>30ml x1</p>
+                                            <strong>S/ 55.00</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="producto-mini d-flex gap-2">
+                                        <img src="img/general/productos/jabon.jpg" alt="Mascarilla de Arcilla">
+                                        <div>
+                                            <h6>Mascarilla de Arcilla</h6>
+                                            <p>100g x1</p>
+                                            <strong>S/ 29.00</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row g-4 info-pedido">
+                                <div class="col-md-6">
+                                    <h6>Direccion de entrega</h6>
+                                    <p>Miraflores, Lima 15074</p>
+                                    <p>Av. Larco 1234, Dpto 4B</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6>Metodo de pago</h6>
+                                    <p>Visa terminada en 4521</p>
+                                    <p>Pago aprobado</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6>Resumen</h6>
+                                    <div class="d-flex justify-content-between">
+                                        <span>Subtotal</span>
+                                        <span>S/ 129.00</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between border-bottom border-dark">
+                                        <span>Envio</span>
+                                        <span>Gratis</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between fw-bold">
+                                        <span>Total</span>
+                                        <span>S/ 129.00</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6>Seguimiento</h6>
+                                    <ul class="seguimiento">
+                                        <li>Pedido confirmado - 12 Ene</li>
+                                        <li>En preparacion - 13 Ene</li>
+                                        <li>Enviado - 14 Ene</li>
+                                        <li>Entregado - 16 Ene</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="d-flex flex-column flex-lg-row gap-3 my-3">
+                                <button type="button" class="btn btn-natural">DESCARGAR FACTURA/BOLETA</button>
+                                <button type="button" class="btn btn-natural">INICIAR DEVOLUCION</button>
+                            </div>
+
+                            <div class="pedido-acciones d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3 pt-3">
+                                <button class="btn btn-link resena-link p-0" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#resenaPedidoModal">
+                                    Dejar Resena del Pedido
+                                </button>
+                                <button type="button" class="btn btn-natural">RECOMPRAR</button>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal fade" id="resenaPedidoModal" tabindex="-1" aria-labelledby="resenaPedidoTitulo" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content resena-panel">
+                <div class="modal-header resena-titulo">
+                    <h5 class="modal-title" id="resenaPedidoTitulo">Dejar Resena del Pedido</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex flex-wrap gap-3 mb-3 productos-resena" aria-label="Productos para resenar">
+                        <button type="button" class="btn btn-natural active" data-producto="Serum Vitamina C"
+                            aria-pressed="true">Serum Vitamina C</button>
+                        <button type="button" class="btn btn-natural" data-producto="Crema Hidratante Luxe"
+                            aria-pressed="false">Crema Hidratante Luxe</button>
+                        <button type="button" class="btn btn-natural" data-producto="Mascarilla de Arcilla"
+                            aria-pressed="false">Mascarilla de Arcilla</button>
+                    </div>
+
+                    <label class="form-label mb-1">Calificacion</label>
+                    <div class="estrellas mb-2" role="radiogroup" aria-label="Calificacion de la resena">
+                        <button type="button" class="estrella active" data-valor="1" aria-label="1 estrella"
+                            aria-checked="false" role="radio">&#9733;</button>
+                        <button type="button" class="estrella active" data-valor="2" aria-label="2 estrellas"
+                            aria-checked="false" role="radio">&#9733;</button>
+                        <button type="button" class="estrella active" data-valor="3" aria-label="3 estrellas"
+                            aria-checked="false" role="radio">&#9733;</button>
+                        <button type="button" class="estrella active" data-valor="4" aria-label="4 estrellas"
+                            aria-checked="true" role="radio">&#9733;</button>
+                        <button type="button" class="estrella" data-valor="5" aria-label="5 estrellas"
+                            aria-checked="false" role="radio">&#9733;</button>
+                    </div>
+                    <input type="hidden" id="productosSeleccionados" value="Serum Vitamina C">
+                    <input type="hidden" id="calificacionSeleccionada" value="4">
+
+                    <label for="comentario" class="form-label">Tu Resena:</label>
+                    <textarea class="form-control" id="comentario" rows="4"></textarea>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="submit" class="btn btn-natural">Publicar Resena</button>
+                    <button type="button" class="btn btn-natural" data-bs-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center">
+        <div class="row suscribete py-3 align-items-center m-0">
+            <div class="col-sm-3 text-center">
+                <p class="m-0 fw-bold">Suscribete para recibir novedades exclusivas.</p>
+            </div>
+
+            <div class="col-sm-4">
+                <input type="email" class="form-control" placeholder="Ingrese su correo"
+                    aria-label="Correo de suscripcion">
+            </div>
+
+            <div class="col-sm-2 text-center my-2 my-sm-0">
+                <button class="btn btn-natural" type="submit">SUSCRIBETE!</button>
+            </div>
+
+            <div class="col-sm-3 text-center">
+                <p class="m-0">Al suscribirte, aceptas nuestra <a href="#">Politica de Privacidad</a>.</p>
+            </div>
+        </div>
+
+        <div class="row pt-3 px-4 px-lg-5 m-0 footer-contenido">
+            <div class="col-sm-5 col-lg-4">
+                <div class="row align-items-center logo">
+                    <div class="col-sm-4">
+                        <img class="img-fluid" src="img/general/favicon logo/genfavicon-180.png"
+                            alt="Logo Natural Essences">
+                    </div>
+                    <div class="col-sm-8">
+                        <h3 class="mb-0">NATURAL ESSENCES</h3>
+                        <h5>SKINCARE & WELLNESS</h5>
+                        <div>
+                            <a class="px-2" href="#"><img src="img/general/iconos/facebook32.png" alt="Facebook"></a>
+                            <a class="px-2" href="#"><img src="img/general/iconos/instagram32.png" alt="Instagram"></a>
+                            <a class="px-2" href="#"><img src="img/general/iconos/tik-tok32.png" alt="TikTok"></a>
+                            <a class="px-2" href="#"><img src="img/general/iconos/youtube32.png" alt="YouTube"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-7 col-lg-8 row text-start">
+                <div class="col-sm-4 mb-3">
+                    <h6 class="fw-bold">LEGAL</h6>
+                    <a href="#">Politica de Privacidad</a>
+                    <a href="#">Terminos y Condiciones</a>
+                </div>
+                <div class="col-sm-4 mb-3">
+                    <h6 class="fw-bold">SOPORTE</h6>
+                    <a href="#">Contactanos</a>
+                    <a href="#">Ayuda y Soporte</a>
+                    <a href="#">Preguntas Frecuentes</a>
+                </div>
+                <div class="col-sm-4 mb-3 text-center">
+                    <h6 class="fw-bold">Libro de Reclamaciones</h6>
+                    <img class="libro-img" src="img/general/favicon logo/genfavicon-64.png" alt="Libro de reclamaciones">
+                    <a href="#">Libro de Reclamaciones</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="derechos px-4 px-lg-5 py-3 text-start">
+            <span>&copy; 2026 Natural Essences. Todos los derechos reservados.</span>
+            <span class="metodos-pago float-sm-end"><span>VISA</span><span>MC</span><span>YAPE</span><span>PLIN</span></span>
+        </div>
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/misCompras.js"></script>
+</body>
+
+</html>

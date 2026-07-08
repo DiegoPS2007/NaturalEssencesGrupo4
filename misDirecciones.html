@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil</title>
+    <title>Mis Direcciones</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="css/misDirecciones.css">
     <link rel="icon" href="img/general/favicon logo/favicon.ico">
 </head>
 
@@ -85,7 +85,7 @@
                 <ol class="breadcrumb fw-bold">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                     <li class="breadcrumb-item"><a href="perfil.html">Perfil</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Mi informacion</li>
+                    <li class="breadcrumb-item active" aria-current="page">Mis Direcciones</li>
                 </ol>
             </nav>
 
@@ -108,10 +108,10 @@
                         <a href="misCompras.html" class="list-group-item list-group-item-action opcion-menu">
                             <img src="img/perfil/perfil-Mis compras.png" alt=""> Mis Compras
                         </a>
-                        <a href="perfil.html" class="list-group-item list-group-item-action opcion-menu active">
+                        <a href="perfil.html" class="list-group-item list-group-item-action opcion-menu">
                             <img src="img/perfil/perfil-perfil.png" alt=""> Mi Informacion
                         </a>
-                        <a href="misDirecciones.html" class="list-group-item list-group-item-action opcion-menu">
+                        <a href="misDirecciones.html" class="list-group-item list-group-item-action opcion-menu active">
                             <img src="img/perfil/perfil-direccion.png" alt=""> Mis Direcciones
                         </a>
                         <a href="#" class="list-group-item list-group-item-action opcion-menu">
@@ -124,69 +124,109 @@
                 </aside>
 
                 <section class="col-lg-7 col-md-8">
-                    <div class="panel-perfil p-4 p-lg-5 mb-4">
-                        <h4 class="titulo-panel">Mi Informacion</h4>
-
-                        <form id="formPerfil">
-                            <div class="row mb-3">
-                                <div class="col-md-6 mb-3 mb-md-0">
-                                    <label for="nombres" class="form-label">Nombres:</label>
-                                    <input type="text" class="form-control" id="nombres" value="Maria">
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="apellidos" class="form-label">Apellidos:</label>
-                                    <input type="text" class="form-control" id="apellidos" value="Garcia">
-                                </div>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="correo" class="form-label">Correo electronico:</label>
-                                <input type="email" class="form-control" id="correo" value="maria@gmail.com">
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="telefono" class="form-label">Telefono: (Opcional)</label>
-                                <input type="tel" class="form-control" id="telefono" value="999999999">
-                            </div>
-
-                            <div class="mb-4">
-                                <label for="fecha" class="form-label">Fecha de Nacimiento:</label>
-                                <input type="text" class="form-control" id="fecha" value="15/05/2006">
-                            </div>
-
-                            <div class="d-flex flex-column flex-sm-row gap-3">
-                                <button type="button" class="btn btn-natural px-5" id="btnEditarPerfil">EDITAR</button>
-                                <button type="submit" class="btn btn-natural px-5">GUARDAR CAMBIOS</button>
-                            </div>
-                        </form>
-                    </div>
-
                     <div class="panel-perfil p-4 p-lg-5">
-                        <h4 class="titulo-panel">Cambiar Contrasena</h4>
+                        <h4 class="titulo-panel">Mis Direcciones</h4>
 
-                        <form id="formPassword">
-                            <div class="mb-3">
-                                <label for="actual" class="form-label">Contrasena actual:</label>
-                                <input type="password" class="form-control" id="actual">
-                            </div>
+                        <div id="listaDirecciones">
+                            <article class="direccion-card p-4 mb-4">
+                                <div>
+                                    <p class="mb-2">Miraflores, Lima 15074</p>
+                                    <p class="mb-2">Av. Larco 1234, Dpto 4B</p>
+                                    <p class="mb-3">Frente a plaza vea</p>
+                                    <div class="d-flex flex-wrap gap-3">
+                                        <button type="button" class="btn btn-natural">EDITAR</button>
+                                        <button type="button" class="btn btn-cancelar">ELIMINAR</button>
+                                    </div>
+                                </div>
+                                <span class="principal-badge">Principal</span>
+                            </article>
+                        </div>
 
-                            <div class="mb-3">
-                                <label for="nueva" class="form-label">Nueva contrasena:</label>
-                                <input type="password" class="form-control" id="nueva">
-                            </div>
-
-                            <div class="mb-4">
-                                <label for="confirmar" class="form-label">Confirmar nueva contrasena:</label>
-                                <input type="password" class="form-control" id="confirmar">
-                            </div>
-
-                            <button type="submit" class="btn btn-natural">ACTUALIZAR CONTRASENA</button>
-                        </form>
+                        <section class="agregar-direccion p-4 text-center">
+                            <div class="icono-agregar mb-2">+</div>
+                            <button type="button" class="btn btn-natural" data-bs-toggle="modal"
+                                data-bs-target="#direccionModal">
+                                ANADIR DIRECCION
+                            </button>
+                        </section>
                     </div>
                 </section>
             </div>
         </div>
     </main>
+
+    <div class="modal fade" id="direccionModal" tabindex="-1" aria-labelledby="direccionModalTitulo" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content direccion-modal">
+                <div class="modal-header direccion-modal-titulo">
+                    <h5 class="modal-title" id="direccionModalTitulo">Agregar Direccion</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <form id="formDireccion">
+                    <div class="modal-body p-4">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <label for="departamento" class="form-label">Departamento:</label>
+                                <select class="form-select" id="departamento" required>
+                                    <option value="" selected disabled>Seleccione...</option>
+                                    <option value="Lima">Lima</option>
+                                    <option value="Lambayeque">Lambayeque</option>
+                                    <option value="La Libertad">La Libertad</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="provincia" class="form-label">Provincia:</label>
+                                <select class="form-select" id="provincia" required>
+                                    <option value="" selected disabled>Seleccione...</option>
+                                    <option value="Lima">Lima</option>
+                                    <option value="Chiclayo">Chiclayo</option>
+                                    <option value="Trujillo">Trujillo</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="distrito" class="form-label">Distrito:</label>
+                                <select class="form-select" id="distrito" required>
+                                    <option value="" selected disabled>Seleccione...</option>
+                                    <option value="Miraflores">Miraflores</option>
+                                    <option value="La Victoria">La Victoria</option>
+                                    <option value="Pimentel">Pimentel</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="codigoPostal" class="form-label">Codigo postal:</label>
+                                <input type="text" class="form-control" id="codigoPostal">
+                            </div>
+                            <div class="col-12">
+                                <label for="direccion" class="form-label">Direccion:</label>
+                                <input type="text" class="form-control" id="direccion" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="detalleDireccion" class="form-label">Depto, casa, piso, interior
+                                    (opcional):</label>
+                                <input type="text" class="form-control" id="detalleDireccion">
+                            </div>
+                            <div class="col-12">
+                                <label for="referencia" class="form-label">Referencia:</label>
+                                <input type="text" class="form-control" id="referencia">
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="direccionPrincipal">
+                                    <label class="form-check-label" for="direccionPrincipal">
+                                        Establecer como direccion principal
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-start gap-3">
+                        <button type="submit" class="btn btn-natural">GUARDAR DIRECCION</button>
+                        <button type="button" class="btn btn-cancelar" data-bs-dismiss="modal">CANCELAR</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <footer class="row text-center">
         <div class="row suscribete py-3 align-items-center">
@@ -256,7 +296,7 @@
 
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/storage.js"></script>
-    <script src="js/perfil.js"></script>
+    <script src="js/misDirecciones.js"></script>
 </body>
 
 </html>
