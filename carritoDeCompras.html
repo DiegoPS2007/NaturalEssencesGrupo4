@@ -27,7 +27,7 @@
                     </div>
                 </div>
 
-                <div class=" sup-der col-sm-4 col-lg-2 order-lg-3">
+                <div class="enlaces-usuario-superior col-sm-4 col-lg-2 order-lg-3">
                     <div class="row justify-content-between">
                         <div class="col-3">
                             <a href="#"><img src="img/general/iconos/fav-border64.png" alt="favoritos"></a>
@@ -83,15 +83,15 @@
         <hr class="border-dark opacity-50 mb-4">
 
         <div class="row justify-content-between">
-            <div class="col-lg-7 mb-4 border rounded p-4 marco-carrito">
+            <div class="col-lg-7 mb-4 border rounded p-4 contenedor-principal-carrito">
                 <div class="d-flex justify-content-between align-items-center border-bottom border-dark pb-2 mb-3">
                     <h5 class="m-0 fw-bold">Tus artículos (<span id="cantidad-articulos">0</span>)</h5>
-                    <button id="btn-limpiar" class="btn btn-sm btn-icono fw-bold text-dark">
+                    <button id="btn-limpiar-carrito" class="btn btn-sm btn-icono fw-bold text-dark">
                         Limpiar carrito
                     </button>
                 </div>
 
-                <div id="carrito-contenedor" class="carrito-scroll pe-2">
+                <div id="contenedor-lista-carrito" class="scroll-lista-carrito pe-2">
                 </div>
 
                 <div class="mt-4 text-center">
@@ -115,8 +115,8 @@
                     <div class="mb-4">
                         <label class="form-label text-muted">¿Tienes un código de descuento?</label>
                         <div class="input-group buscador">
-                            <input type="text" id="input-cupon" class="form-control" placeholder="Ej: NATURAL20">
-                            <button id="btn-cupon" class="btn btn-natural fw-bold" type="button">APLICAR</button>
+                            <input type="text" id="entrada-codigo-cupon" class="form-control" placeholder="Ej: NATURAL20">
+                            <button id="btn-aplicar-cupon" class="btn btn-natural fw-bold" type="button">APLICAR</button>
                         </div>
                         <span id="mensaje-cupon"></span>
                     </div>
@@ -126,7 +126,7 @@
                         <h5 class="fw-bold m-0">S/ <span id="resumen-total">0.00</span></h5>
                     </div>
 
-                    <button id="btn-ir-pagar" class="btn btn-natural w-100 fw-bold p-2 mb-3 text-uppercase">IR A
+                    <button id="btn-proceder-pago" class="btn btn-natural w-100 fw-bold p-2 mb-3 text-uppercase">IR A
                         PAGAR</button>
                     <div class="text-center">
                         <a href="#" class="text-decoration-underline text-dark fw-light">Seguir comprando</a>
@@ -140,13 +140,12 @@
             <div class="row g-4" id="contenedor-recomendados">
                 <div class="col-sm-6 col-lg-3">
                     <div class="card h-100 border-0 shadow-sm p-2 tarjeta-producto">
-                        <div
-                            class="d-flex justify-content-between align-items-center px-2 pt-2 position-absolute w-100 top-0 start-0 z-1">
+                        <div class="d-flex justify-content-between align-items-center px-2 pt-2 position-absolute w-100 top-0 start-0 z-1">
                             <span class="badge bg-success">NUEVO</span>
-                            <img src="img/general/iconos/fav32.png" alt="favorito" class="icono-favorito">
+                            <img src="img/general/iconos/fav-border32.png" alt="favorito" class="icono-favorito">
                         </div>
                         <div class="mt-4 mb-2 d-flex justify-content-center contenedor-img-tarjeta">
-                            <img src="img/general/productos/serum.jpg" alt="Sérum" class="img-fluid img-ajustada">
+                            <img src="img/general/productos/serum.jpg" alt="Sérum" class="img-fluid imagen-producto-ajustada">
                         </div>
                         <div class="card-body text-center p-0">
                             <small class="text-muted">Cuidado Facial</small>
@@ -156,7 +155,7 @@
                                 <span class="fw-bold text-danger fs-5">S/ 45.00</span>
                                 <span class="text-warning fw-bold small ms-1">★ 4.7</span>
                             </div>
-                            <button class="btn btn-natural w-100 btn-add-cart" data-id="1"
+                            <button class="btn btn-natural w-100 btn-agregar-carrito" data-id="1"
                                 data-nombre="Sérum Facial Hidratante" data-precio="45.00"
                                 data-img="img/general/productos/serum.jpg">AÑADIR AL CARRITO</button>
                         </div>
@@ -165,13 +164,12 @@
 
                 <div class="col-sm-6 col-lg-3">
                     <div class="card h-100 border-0 shadow-sm p-2 tarjeta-producto">
-                        <div
-                            class="d-flex justify-content-between align-items-center px-2 pt-2 position-absolute w-100 top-0 start-0 z-1">
+                        <div class="d-flex justify-content-between align-items-center px-2 pt-2 position-absolute w-100 top-0 start-0 z-1">
                             <span class="badge bg-success">NUEVO</span>
-                            <img src="img/general/iconos/fav32.png" alt="favorito" class="icono-favorito">
+                            <img src="img/general/iconos/fav-border32.png" alt="favorito" class="icono-favorito">
                         </div>
                         <div class="mt-4 mb-2 d-flex justify-content-center contenedor-img-tarjeta">
-                            <img src="img/general/productos/jabon.jpg" alt="Jabón" class="img-fluid img-ajustada">
+                            <img src="img/general/productos/jabon.jpg" alt="Jabón" class="img-fluid imagen-producto-ajustada">
                         </div>
                         <div class="card-body text-center p-0">
                             <small class="text-muted">Higiene</small>
@@ -181,7 +179,7 @@
                                 <span class="fw-bold text-danger fs-5">S/ 18.50</span>
                                 <span class="text-warning fw-bold small ms-1">★ 4.9</span>
                             </div>
-                            <button class="btn btn-natural w-100 btn-add-cart" data-id="2"
+                            <button class="btn btn-natural w-100 btn-agregar-carrito" data-id="2"
                                 data-nombre="Jabón Exfoliante de Avena" data-precio="18.50"
                                 data-img="img/general/productos/jabon.jpg">AÑADIR AL CARRITO</button>
                         </div>
@@ -190,14 +188,12 @@
 
                 <div class="col-sm-6 col-lg-3">
                     <div class="card h-100 border-0 shadow-sm p-2 tarjeta-producto">
-                        <div
-                            class="d-flex justify-content-between align-items-center px-2 pt-2 position-absolute w-100 top-0 start-0 z-1">
+                        <div class="d-flex justify-content-between align-items-center px-2 pt-2 position-absolute w-100 top-0 start-0 z-1">
                             <span class="badge bg-success">NUEVO</span>
-                            <img src="img/general/iconos/fav32.png" alt="favorito" class="icono-favorito">
+                            <img src="img/general/iconos/fav-border32.png" alt="favorito" class="icono-favorito">
                         </div>
                         <div class="mt-4 mb-2 d-flex justify-content-center contenedor-img-tarjeta">
-                            <img src="img/general/productos/espumaLimpiadora.jpg" alt="Espuma"
-                                class="img-fluid img-ajustada">
+                            <img src="img/general/productos/espumaLimpiadora.jpg" alt="Espuma" class="img-fluid imagen-producto-ajustada">
                         </div>
                         <div class="card-body text-center p-0">
                             <small class="text-muted">Cuidado Facial</small>
@@ -207,7 +203,7 @@
                                 <span class="fw-bold text-danger fs-5">S/ 99.99</span>
                                 <span class="text-warning fw-bold small ms-1">★ 4.7</span>
                             </div>
-                            <button class="btn btn-natural w-100 btn-add-cart" data-id="3"
+                            <button class="btn btn-natural w-100 btn-agregar-carrito" data-id="3"
                                 data-nombre="Espuma facial para piel mixta" data-precio="99.99"
                                 data-img="img/general/productos/espumaLimpiadora.jpg">AÑADIR AL CARRITO</button>
                         </div>
@@ -216,13 +212,12 @@
 
                 <div class="col-sm-6 col-lg-3">
                     <div class="card h-100 border-0 shadow-sm p-2 tarjeta-producto">
-                        <div
-                            class="d-flex justify-content-between align-items-center px-2 pt-2 position-absolute w-100 top-0 start-0 z-1">
+                        <div class="d-flex justify-content-between align-items-center px-2 pt-2 position-absolute w-100 top-0 start-0 z-1">
                             <span class="badge bg-success">NUEVO</span>
-                            <img src="img/general/iconos/fav32.png" alt="favorito" class="icono-favorito">
+                            <img src="img/general/iconos/fav-border32.png" alt="favorito" class="icono-favorito">
                         </div>
                         <div class="mt-4 mb-2 d-flex justify-content-center contenedor-img-tarjeta">
-                            <img src="img/general/productos/champu.jpg" alt="Champu" class="img-fluid img-ajustada">
+                            <img src="img/general/productos/champu.jpg" alt="Champu" class="img-fluid imagen-producto-ajustada">
                         </div>
                         <div class="card-body text-center p-0">
                             <small class="text-muted">Higiene</small>
@@ -232,7 +227,7 @@
                                 <span class="fw-bold text-danger fs-5">S/ 18.50</span>
                                 <span class="text-warning fw-bold small ms-1">★ 4.9</span>
                             </div>
-                            <button class="btn btn-natural w-100 btn-add-cart" data-id="4"
+                            <button class="btn btn-natural w-100 btn-agregar-carrito" data-id="4"
                                 data-nombre="Shampoo Reparador para Cabello" data-precio="18.50"
                                 data-img="img/general/productos/champu.jpg">AÑADIR AL CARRITO</button>
                         </div>
@@ -243,13 +238,13 @@
     </main>
 
     <footer class="text-center">
+        <!-- El contenido del footer se mantiene igual -->
         <div class="row suscribete py-3 align-items-center m-0">
             <div class="col-sm-3 text-center">
                 <p class="m-0 fw-bold">Suscribete para recibir novedades exclusivas.</p>
             </div>
             <div class="col-sm-4 ">
-                <input type="email" class="form-control" placeholder="Ingrese su correo"
-                    aria-label="Correo de suscripción">
+                <input type="email" class="form-control" placeholder="Ingrese su correo" aria-label="Correo de suscripción">
             </div>
             <div class="col-sm-2 text-center">
                 <button class="btn btn-natural" type="submit">SUSCRÍBETE!</button>
@@ -262,8 +257,7 @@
             <div class="col-sm-5 col-lg-4">
                 <div class="row align-items-center logo">
                     <div class="col-sm-4">
-                        <img class="img-fluid" src="img/general/favicon logo/genfavicon-180.png"
-                            alt="Logo Natural Essences">
+                        <img class="img-fluid" src="img/general/favicon logo/genfavicon-180.png" alt="Logo Natural Essences">
                     </div>
                     <div class="col-sm-8">
                         <div>

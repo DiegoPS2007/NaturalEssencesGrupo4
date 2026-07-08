@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Gracias por tu compra! - Natural Essences</title>
+    <title>Confirmación de pedido</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/estilosGenerales.css">
-    <link rel="stylesheet" href="css/estilosConfirmarPedido.css"> <!-- Nueva hoja -->
+    <link rel="stylesheet" href="css/estilosConfirmarPedido.css"> 
     <link rel="icon" href="img/general/favicon logo/favicon.ico">
 </head>
 
@@ -27,7 +27,7 @@
                     </div>
                 </div>
 
-                <div class=" sup-der col-sm-4 col-lg-2 order-lg-3">
+                <div class="enlaces-usuario-superior col-sm-4 col-lg-2 order-lg-3">
                     <div class="row justify-content-between">
                         <div class="col-3">
                             <a href="#"><img src="img/general/iconos/fav-border64.png" alt="favoritos"></a>
@@ -73,30 +73,26 @@
 
     <main class="container my-5">
 
-        <!-- ESTE ES EL NUEVO CONTENEDOR QUE CREA EL MARCO EXTERIOR -->
         <div class="border border-dark p-5 d-flex flex-column align-items-center mx-auto bg-transparent"
             style="max-width: 800px;">
 
-            <!-- Ícono del Check -->
             <div class="mb-4">
                 <div
                     class="icono-check-container rounded-circle d-flex justify-content-center align-items-center mx-auto">
-                    <img src="img/general/iconos/check-blanco.png" alt="Éxito" class="icono-check-img">
+                    <img src="img/general/iconos/check.png" alt="Éxito" class="icono-check-img">
                 </div>
             </div>
 
-            <!-- Mensajes -->
             <h2 class="fw-bold mb-3 texto-primario">¡Gracias por tu compra!</h2>
             <p class="text-muted mb-4 texto-subtitulo text-center">
                 Tu pedido ha sido confirmado. Estamos preparando productos 100%<br>
                 orgánicos con mucho cuidado y dedicación
             </p>
 
-            <!-- Caja del Resumen -->
-            <div class="caja-confirmacion text-start p-4 mb-4 rounded border">
+            <div class="contenedor-detalles-confirmacion text-start p-4 mb-4 rounded">
                 <div class="d-flex justify-content-between mb-4">
                     <span>Número de Pedido:</span>
-                    <span class="fw-bold" id="conf-pedido">Cargando...</span>
+                    <span class="fw-bold" id="texto-numero-pedido">Cargando...</span>
                 </div>
                 <div class="d-flex justify-content-between mb-4">
                     <span>Fecha estimada de entrega:</span>
@@ -104,26 +100,24 @@
                 </div>
                 <div class="d-flex justify-content-between mb-4 pb-4 border-bottom border-dark">
                     <span>Monto Total:</span>
-                    <span class="fw-bold">S/ <span id="conf-total">0.00</span></span>
+                    <span class="fw-bold">S/ <span id="texto-monto-total">0.00</span></span>
                 </div>
                 <div class="d-flex justify-content-between mt-3">
                     <span>Enviado a:</span>
-                    <span class="fw-bold text-end ms-3" id="conf-direccion">Cargando dirección...</span>
+                    <span class="fw-bold text-end ms-3" id="texto-direccion-envio">Cargando dirección...</span>
                 </div>
             </div>
 
-            <!-- Botones -->
-            <div class="contenedor-botones d-flex gap-3 justify-content-center">
+            <div class="contenedor-botones-accion d-flex gap-3 justify-content-center">
                 <a href="#" class="btn btn-natural fw-bold p-2 w-50">VER MIS PEDIDOS</a>
                 <a href="index.html" class="btn btn-natural fw-bold p-2 w-50">VOLVER AL INICIO</a>
             </div>
 
-        </div> <!-- Fin del contenedor del marco -->
+        </div> 
 
     </main>
 
     <footer class="text-center">
-        <!-- (Tu Footer idéntico al de las páginas anteriores) -->
         <div class="row suscribete py-3 align-items-center m-0">
             <div class="col-sm-3 text-center">
                 <p class="m-0 fw-bold">Suscribete para recibir novedades exclusivas.</p>

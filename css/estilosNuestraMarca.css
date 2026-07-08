@@ -1,0 +1,57 @@
+.banner-seccion-marca {
+    background-color: #C1D0B5;
+    color: #1A531A;
+}
+
+.contenedor-texto-banner {
+    max-width: 800px; 
+}
+
+.contenedor-imagen-historia {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.imagen-logo-historia {
+    width: 100%;
+    max-width: 350px; 
+    object-fit: contain;
+    mix-blend-mode: multiply;
+}
+
+.caja-mision-vision {
+    background-color: #C1D0B5;
+    border: 1px solid #1A531A; 
+}
+
+.icono-circular {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #1A531A; 
+}
+
+.icono-caracteristica-marca {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+}
+
+.texto-justificado {
+    text-align: justify;
+    line-height: 1.6;
+}
+
+.bordes-laterales {
+    border-left: 1px solid #212529;
+    border-right: 1px solid #212529;
+}
+
+@media (max-width: 767px) {
+    .bordes-laterales {
+        border-left: none;
+        border-right: none;
+    }
+}

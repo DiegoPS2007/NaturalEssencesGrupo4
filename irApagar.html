@@ -27,7 +27,7 @@
                     </div>
                 </div>
 
-                <div class=" sup-der col-sm-4 col-lg-2 order-lg-3">
+                <div class="enlaces-usuario-superior col-sm-4 col-lg-2 order-lg-3">
                     <div class="row justify-content-between">
                         <div class="col-3">
                             <a href="#"><img src="img/general/iconos/fav-border64.png" alt="favoritos"></a>
@@ -85,55 +85,55 @@
             
             <div class="col-lg-7 mb-4">
                 
-                <div class="border rounded p-4 mb-4 caja-formulario">
+                <div class="rounded p-4 mb-4 contenedor-formulario-pago">
                     <h5 class="fw-bold texto-primario mb-4">
-                        <img src="img/general/iconos/ubicacion.png" alt="Ubicación" class="icono-16 me-2"> Datos de envío
+                        <img src="img/general/iconos/ubicación.png" alt="Ubicación" class="icono-16 me-2"> Datos de envío
                     </h5>
                     
-                    <form id="form-envio">
+                    <form id="formulario-datos-envio">
                         <div class="row mb-3">
                             <div class="col-md-6 mb-3 mb-md-0">
                                 <label class="form-label fw-bold small">Nombres</label>
-                                <input type="text" class="form-control" id="envio-nombres" placeholder="Ej: María">
+                                <input type="text" class="form-control" id="campo-entrada-nombres" placeholder="Ej: María">
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label fw-bold small">Apellidos</label>
-                                <input type="text" class="form-control" id="envio-apellidos" placeholder="Ej: Pérez">
+                                <input type="text" class="form-control" id="campo-entrada-apellidos" placeholder="Ej: Pérez">
                             </div>
                         </div>
                         
                         <div class="row mb-3 align-items-end">
                             <div class="col-md-8 mb-3 mb-md-0">
                                 <label class="form-label fw-bold small">Dirección</label>
-                                <select class="form-select" id="envio-direccion">
+                                <select class="form-select" id="selector-direccion-envio">
                                     <option value="" disabled selected hidden>Selecciona una dirección...</option>
                                     <option value="casa">Av. Principal 123, Chiclayo</option>
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <button type="button" id="btn-agregar-direccion" class="btn btn-natural w-100 fw-bold">AGREGAR</button>
+                                <button type="button" id="boton-agregar-direccion" class="btn btn-natural w-100 fw-bold">AGREGAR</button>
                             </div>
                         </div>
 
                         <div class="mb-4">
                             <label class="form-label fw-bold small">Correo electrónico</label>
-                            <input type="email" class="form-control" id="envio-correo" placeholder="ejemplo@correo.com">
+                            <input type="email" class="form-control" id="campo-entrada-correo" placeholder="ejemplo@correo.com">
                         </div>
 
                         <div class="mt-4 pt-3 border-top border-dark">
-                            <button type="button" id="btn-guardar-envio" class="btn btn-natural w-100 fw-bold p-2">GUARDAR DATOS DE ENVÍO</button>
+                            <button type="button" id="boton-guardar-datos-envio" class="btn btn-natural w-100 fw-bold p-2">GUARDAR DATOS DE ENVÍO</button>
                         </div>
                     </form>
                 </div>
 
-                <div class="border rounded p-4 caja-formulario">
+                <div class="rounded p-4 contenedor-formulario-pago">
                     <h5 class="fw-bold texto-primario mb-4">
-                        <img src="img/general/iconos/tarjeta.png" alt="Pago" class="icono-16 me-2"> Método de Pago
+                        <img src="img/general/iconos/tarjetita.png" alt="Pago" class="icono-16 me-2"> Método de Pago
                     </h5>
                     
-                    <label class="metodo-pago-box border rounded p-3 mb-3 d-flex justify-content-between align-items-center w-100 cursor-pointer" id="box-tarjeta">
+                    <label class="caja-opcion-metodo-pago rounded p-3 mb-3 d-flex justify-content-between align-items-center w-100 cursor-pointer" id="contenedor-opcion-tarjeta">
                         <div class="d-flex align-items-center">
-                            <input class="form-check-input me-3 mt-0" type="radio" name="metodo-pago" value="tarjeta" id="radio-tarjeta">
+                            <input class="form-check-input me-3 mt-0" type="radio" name="metodo-pago" value="tarjeta" id="radio-seleccion-tarjeta">
                             <div>
                                 <h6 class="fw-bold m-0">Tarjeta de Crédito / Débito</h6>
                                 <small class="text-muted">Visa, Mastercard, Amex</small>
@@ -142,30 +142,30 @@
                         <span class="badge bg-primary">VISA</span>
                     </label>
 
-                    <div id="formulario-tarjeta" class="border rounded p-3 mb-3 d-none bg-white">
+                    <div id="formulario-datos-tarjeta" class="border rounded p-3 mb-3 d-none bg-white">
                         <div class="mb-3">
                             <label class="form-label fw-bold small">Número de tarjeta</label>
-                            <input type="text" class="form-control" id="tarjeta-numero" placeholder="0000 0000 0000 0000">
+                            <input type="text" class="form-control" id="campo-entrada-numero-tarjeta" placeholder="0000 0000 0000 0000">
                         </div>
                         <div class="row mb-3 align-items-end">
                             <div class="col-6">
                                 <label class="form-label fw-bold small">Fecha de vencimiento</label>
-                                <input type="text" class="form-control" id="tarjeta-fecha" placeholder="MM / AA">
+                                <input type="text" class="form-control" id="campo-entrada-fecha-tarjeta" placeholder="MM / AA">
                             </div>
                             <div class="col-6">
                                 <label class="form-label fw-bold small">CVV</label>
-                                <input type="text" class="form-control" id="tarjeta-cvv" placeholder="3-4 dígitos">
+                                <input type="text" class="form-control" id="campo-entrada-cvv-tarjeta" placeholder="3-4 dígitos">
                             </div>
                         </div>
                         <div class="text-center mb-3">
                             <small class="text-muted">Todas las transacciones son seguras y privadas</small>
                         </div>
-                        <button type="button" id="btn-guardar-tarjeta" class="btn btn-natural w-100 fw-bold">GUARDAR DATOS DE PAGO</button>
+                        <button type="button" id="boton-guardar-datos-tarjeta" class="btn btn-natural w-100 fw-bold">GUARDAR DATOS DE PAGO</button>
                     </div>
 
-                    <label class="metodo-pago-box border rounded p-3 d-flex justify-content-between align-items-center w-100 cursor-pointer" id="box-yape">
+                    <label class="caja-opcion-metodo-pago rounded p-3 d-flex justify-content-between align-items-center w-100 cursor-pointer" id="contenedor-opcion-yape">
                         <div class="d-flex align-items-center">
-                            <input class="form-check-input me-3 mt-0" type="radio" name="metodo-pago" value="yape" id="radio-yape">
+                            <input class="form-check-input me-3 mt-0" type="radio" name="metodo-pago" value="yape" id="radio-seleccion-yape">
                             <div>
                                 <h6 class="fw-bold m-0">Yape / Plin</h6>
                                 <small class="text-muted">Paga rápido con QR</small>
@@ -177,28 +177,28 @@
             </div>
 
             <div class="col-lg-4">
-                <div class="resumen-pedido p-4 border rounded">
+                <div class="contenedor-resumen-pedido p-4 rounded">
                     <h4 class="fw-bold mb-4 texto-primario">Resumen de compra</h4>
                     
-                    <div id="checkout-productos" class="mb-4">
-                        </div>
+                    <div id="contenedor-lista-productos-checkout" class="mb-4">
+                    </div>
                     
                     <div class="d-flex justify-content-between mb-2">
-                        <span>Subtotal (<span id="resumen-cantidad">0</span> artículos)</span>
-                        <span class="fw-bold">S/ <span id="resumen-subtotal">0.00</span></span>
+                        <span>Subtotal (<span id="texto-cantidad-resumen">0</span> artículos)</span>
+                        <span class="fw-bold">S/ <span id="texto-subtotal-resumen">0.00</span></span>
                     </div>
-                    <div class="d-flex justify-content-between mb-4 pb-3 border-bottom border-dark" id="fila-descuento" style="display: none !important;">
+                    <div class="d-flex justify-content-between mb-4 pb-3 border-bottom border-dark" id="contenedor-fila-descuento" style="display: none !important;">
                         <span class="text-success">Descuento aplicado</span>
-                        <span class="fw-bold text-success">- S/ <span id="resumen-descuento">0.00</span></span>
+                        <span class="fw-bold text-success">- S/ <span id="texto-descuento-resumen">0.00</span></span>
                     </div>
 
                     <div class="d-flex justify-content-between mb-4 border-dark pt-2">
                         <h5 class="fw-bold m-0">Total a pagar</h5>
-                        <h5 class="fw-bold m-0">S/ <span id="resumen-total">0.00</span></h5>
+                        <h5 class="fw-bold m-0">S/ <span id="texto-total-resumen">0.00</span></h5>
                     </div>
 
-                    <button id="btn-pagar-ahora" class="btn btn-natural w-100 fw-bold p-3 mb-3 text-uppercase">PAGAR AHORA</button>
-                    <button id="btn-cancelar-compra" class="btn btn-cancelar w-100 fw-bold p-2 mb-3 text-uppercase">CANCELAR COMPRA</button>
+                    <button id="boton-procesar-pago" class="btn btn-natural w-100 fw-bold p-3 mb-3 text-uppercase">PAGAR AHORA</button>
+                    <button id="boton-cancelar-compra" class="btn boton-cancelar-compra w-100 fw-bold p-2 mb-3 text-uppercase">CANCELAR COMPRA</button>
                     
                     <div class="text-center text-muted small">
                         <img src="img/general/iconos/candado.png" alt="Seguro" style="width: 12px;" class="me-1"> Paga 100% seguro y encriptado
@@ -209,13 +209,13 @@
     </main>
 
     <footer class="text-center">
+        <!-- Footer idéntico -->
         <div class="row suscribete py-3 align-items-center m-0">
             <div class="col-sm-3 text-center">
                 <p class="m-0 fw-bold">Suscribete para recibir novedades exclusivas.</p>
             </div>
             <div class="col-sm-4 ">
-                <input type="email" class="form-control" placeholder="Ingrese su correo"
-                    aria-label="Correo de suscripción">
+                <input type="email" class="form-control" placeholder="Ingrese su correo" aria-label="Correo de suscripción">
             </div>
             <div class="col-sm-2 text-center">
                 <button class="btn btn-natural" type="submit">SUSCRÍBETE!</button>

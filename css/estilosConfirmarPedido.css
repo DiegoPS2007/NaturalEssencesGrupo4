@@ -1,32 +1,26 @@
-/* estilosConfirmacion.css */
-
-/* Contenedor del ícono verde */
 .icono-check-container {
     width: 80px; 
     height: 80px; 
-    background-color: #6a8e69; /* Tono verde específico del check */
+    background-color: #6a8e69; 
 }
 
 .icono-check-img {
     width: 40px;
 }
 
-/* Ajustes de tipografía para el subtítulo */
 .texto-subtitulo {
     font-size: 1.1rem;
     line-height: 1.6;
 }
 
-/* La caja verde central */
-.caja-confirmacion {
+.contenedor-detalles-confirmacion {
     width: 100%;
     max-width: 600px;
-    background-color: #C1D0B5; /* Mismo verde claro del nav/hover */
-    border: 2px solid #1A531A !important;
+    background-color: #C1D0B5; 
+    border: 2px solid #1A531A;
 }
 
-/* Contenedor de botones para que no se desborden en PC */
-.contenedor-botones {
+.contenedor-botones-accion {
     width: 100%;
     max-width: 600px;
 }
