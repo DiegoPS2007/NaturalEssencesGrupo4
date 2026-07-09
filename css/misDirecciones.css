@@ -228,6 +228,7 @@ section, .panel-perfil, .direccion-card{
 .btn-cancelar:hover {
     background-color: #b31313;
     border-color: #b31313;
+    font-weight: bold;
     color: #ffffff;
 }
 
