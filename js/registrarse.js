@@ -6,6 +6,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const password = document.getElementById("password");
     const repetirPassword = document.getElementById("repetir-password");
 
+    function soloLetras(texto) {
+        return /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/.test(texto.trim());
+    }
+
+    function limpiarCampoLetras(campo) {
+        campo.value = campo.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ\s]/g, "");
+    }
+
+    nombre.addEventListener("input", () => limpiarCampoLetras(nombre));
+    apellido.addEventListener("input", () => limpiarCampoLetras(apellido));
+
     formulario.addEventListener("submit", (evento) => {
         evento.preventDefault();
 
@@ -18,6 +29,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!datosUsuario.nombre || !datosUsuario.apellido || !datosUsuario.correo || !datosUsuario.contrasena) {
             alert("Completa todos los campos obligatorios.");
+            return;
+        }
+
+        if (!soloLetras(datosUsuario.nombre)) {
+            alert("El nombre solo debe contener letras.");
+            return;
+        }
+
+        if (!soloLetras(datosUsuario.apellido)) {
+            alert("El apellido solo debe contener letras.");
             return;
         }
 

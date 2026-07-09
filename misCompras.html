@@ -85,11 +85,11 @@
                 <aside class="col-lg-3 col-md-4">
                     <section class="tarjeta-usuario text-center p-4 mb-4">
                         <div class="avatar-iniciales d-flex align-items-center justify-content-center mx-auto mb-3">
-                            MG
+                            <!-- insertado desde js -->
                         </div>
-                        <h3 class="nombre-usuario mb-2">Maria Garcia</h3>
-                        <p class="correo-usuario mb-2">maria@gmail.com</p>
-                        <p class="miembro mb-0">Miembro desde 2024</p>
+                        <h3 class="nombre-usuario mb-2"><!-- insertado desde js --></h3>
+                        <p class="correo-usuario mb-2"><!-- insertado desde js --></p>
+                        <p class="miembro mb-0"><!-- insertado desde js --></p>
                     </section>
 
                     <nav class="menu-perfil list-group">
@@ -115,7 +115,9 @@
                     <div class="panel-perfil p-4 p-lg-5">
                         <h4 class="titulo-panel">Mis Compras</h4>
 
-                        <div id="listaCompras"></div>
+                        <div id="listaCompras">
+                            <!-- insertado desde js -->
+                        </div>
                         
                     </div>
                 </section>
@@ -133,12 +135,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="d-flex flex-wrap gap-3 mb-3 productos-resena" aria-label="Productos para reseñar">
-                        <button type="button" class="btn btn-natural active" data-producto="Serum Vitamina C"
-                            aria-pressed="true">Serum Vitamina C</button>
-                        <button type="button" class="btn btn-natural" data-producto="Crema Hidratante Luxe"
-                            aria-pressed="false">Crema Hidratante Luxe</button>
-                        <button type="button" class="btn btn-natural" data-producto="Mascarilla de Arcilla"
-                            aria-pressed="false">Mascarilla de Arcilla</button>
+                        <!-- insertado desde js -->
                     </div>
 
                     <label class="form-label mb-1">Calificación</label>
@@ -154,7 +151,7 @@
                         <button type="button" class="estrella" data-valor="5" aria-label="5 estrellas"
                             aria-checked="false" role="radio">&#9733;</button>
                     </div>
-                    <input type="hidden" id="productosSeleccionados" value="Serum Vitamina C">
+                    <input type="hidden" id="productosSeleccionados" value="">
                     <input type="hidden" id="calificacionSeleccionada" value="4">
 
                     <label for="comentario" class="form-label">Tu Reseña:</label>

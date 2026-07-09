@@ -359,7 +359,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <p class="mb-3">${item.referencia || "Sin referencia"}</p>
                     <div class="d-flex flex-wrap gap-3">
                         <button type="button" class="btn btn-natural btn-editar-direccion" data-id="${item.id}">EDITAR</button>
-                        <button type="button" class="btn btn-natural btn-eliminar-direccion" data-id="${item.id}">ELIMINAR</button>
+                        <button type="button" class="btn btn-cancelar btn-eliminar-direccion" data-id="${item.id}">ELIMINAR</button>
                     </div>
                 </div>
                 ${item.principal ? '<span class="principal-badge">Principal</span>' : ""}
