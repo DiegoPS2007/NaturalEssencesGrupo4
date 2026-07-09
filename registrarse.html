@@ -126,12 +126,13 @@
                             <div class="col-12 col-xl-6">
                                 <label for="nombre" class="form-label etiqueta-campo">Nombre:</label>
                                 <input type="text" class="form-control caja-entrada" id="nombre" placeholder="Tu nombre"
-                                    required>
+                                    pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" title="Solo se permiten letras" required>
                             </div>
                             <div class="col-12 col-xl-6">
                                 <label for="apellido" class="form-label etiqueta-campo">Apellido:</label>
                                 <input type="text" class="form-control caja-entrada" id="apellido"
-                                    placeholder="Tu apellido" required>
+                                    placeholder="Tu apellido" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+"
+                                    title="Solo se permiten letras" required>
                             </div>
                         </div>
 

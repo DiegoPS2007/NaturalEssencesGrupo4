@@ -124,27 +124,32 @@
                             <div class="row mb-3">
                                 <div class="col-md-6 mb-3 mb-md-0">
                                     <label for="nombres" class="form-label">Nombres:</label>
-                                    <input type="text" class="form-control" id="nombres" value="">
+                                    <input type="text" class="form-control" id="nombres" value=""
+                                        pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" title="Solo se permiten letras">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="apellidos" class="form-label">Apellidos:</label>
-                                    <input type="text" class="form-control" id="apellidos" value="">
+                                    <input type="text" class="form-control" id="apellidos" value=""
+                                        pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" title="Solo se permiten letras">
                                 </div>
                             </div>
 
                             <div class="mb-3">
                                 <label for="correo" class="form-label">Correo electrónico:</label>
-                                <input type="email" class="form-control" id="correo" value="">
+                                <input type="email" class="form-control" id="correo" value="" readonly>
                             </div>
 
                             <div class="mb-3">
                                 <label for="telefono" class="form-label">Teléfono: (Opcional)</label>
-                                <input type="tel" class="form-control" id="telefono" value="">
+                                <input type="tel" class="form-control" id="telefono" value="" inputmode="numeric"
+                                    maxlength="9" pattern="\d{9}" title="Debe tener 9 dígitos">
                             </div>
 
                             <div class="mb-4">
                                 <label for="fecha" class="form-label">Fecha de Nacimiento:</label>
-                                <input type="text" class="form-control" id="fecha" value="">
+                                <input type="text" class="form-control" id="fecha" value="" inputmode="numeric"
+                                    placeholder="16/05/2026" maxlength="10" pattern="\d{2}/\d{2}/(\d{2}|\d{4})"
+                                    title="Use el formato dd/mm/aaaa o dd/mm/aa">
                             </div>
 
                             <div class="d-flex flex-column flex-sm-row gap-3">
