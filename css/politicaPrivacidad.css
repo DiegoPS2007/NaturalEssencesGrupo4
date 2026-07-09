@@ -1,0 +1,72 @@
+/* Estilo del contenedor del banner */
+.banner-verde-legal {
+    background-color: #C1D0B5 !important;
+    border: 3px solid #1A531A !important;
+    border-radius: 4px !important;
+
+    text-align: center !important;
+
+    box-sizing: border-box !important;
+    display: block !important;
+    margin: 0 !important;
+
+
+    margin-left: 12px !important;
+    margin-right: 15px !important;
+
+
+    width: calc(101.5% - 27px) !important;
+    /* 12px + 15px = 27px */
+}
+
+
+.header-terminos {
+    width: 100% !important;
+    padding: 0 !important;
+    /* Elimina el colchón que dejaba el espacio en blanco */
+    margin: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* 1. Color para los títulos de cada sección (I, II, III...) */
+.seccion-legal h3 {
+    color: #1A531A;
+    /* Un verde oscuro profesional y natural */
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* 2. Color para los puntos (bullets) de las listas */
+.lista-puntos-verdes li::marker {
+    color: #1A531A;
+    /* El punto será verde */
+    font-weight: bold;
+    /* Los hace un poquito más notorios */
+    font-weight: bold;
+}
+
+/* Opcional: Si quieres que el texto del punto también sea del mismo color */
+.lista-puntos-verdes li {
+    color: #333;
+    /* Texto en gris oscuro para que sea legible */
+    margin-bottom: 8px;
+
+}
+
+/* Estilo de la fecha */
+.fecha-banner {
+    color: #333333 !important;
+    font-size: 0.9rem !important;
+    margin: 0 !important;
+}
+
+/* Responsividad: Ajuste para pantallas pequeñas */
+@media (max-width: 576px) {
+    .banner-politica-privacidad {
+        padding: 20px 15px !important;
+    }
+
+    .titulo-banner {
+        font-size: 1.8rem !important;
+    }
+}
