@@ -1,0 +1,133 @@
+.sidebar-filtros .item-filtro {
+    border: none;
+    border-bottom: 2px solid #C1D0B5;
+    background: transparent;
+}
+
+.sidebar-filtros .accordion-button {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    padding: 1rem 0;
+}
+
+.sidebar-filtros .accordion-button::after {
+    background-image: none !important;
+    content: 'V';
+    font-family: 'Arial', sans-serif;
+    color: #1A531A;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transform: none !important;
+}
+
+.sidebar-filtros .accordion-button.collapsed::after {
+    content: '>';
+}
+
+.custom-checkbox {
+    margin-bottom: 0.5rem;
+    padding-left: 1.8rem;
+}
+
+.custom-checkbox .form-check-input {
+    margin-left: -1.8rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 1.5px solid #1A531A;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.custom-checkbox .form-check-input:checked {
+    background-color: transparent;
+    border-color: #1A531A;
+    position: relative;
+}
+
+.custom-checkbox .form-check-input:checked::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 0px;
+    width: 6px;
+    height: 12px;
+    border: solid #1A531A;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.custom-checkbox .form-check-label {
+    color: #444;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.custom-range {
+    width: 100%;
+    background: transparent;
+}
+
+.custom-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    background: #C1D0B5;
+    cursor: pointer;
+    margin-top: -6px;
+    border: 2px solid #1A531A;
+    box-shadow: 0 0 0 2px white;
+}
+
+.custom-range::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 6px;
+    cursor: pointer;
+    background: #1A531A;
+    border-radius: 3px;
+}
+
+.tarjeta-producto {
+    border: 1px solid #C1D0B5 !important;
+    transition: all 0.3s ease;
+}
+
+.tarjeta-producto:hover {
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+
+.tarjeta-producto .badge {
+    font-size: 0.75rem;
+    padding: 0.4em 0.8em;
+}
+
+.tarjeta-producto .icono-favorito {
+    width: 28px;
+    opacity: 0.6;
+    transition: all 0.2s;
+}
+
+.tarjeta-producto .icono-favorito:hover,
+.tarjeta-producto .icono-favorito.activo {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.custom-pagination .page-item .page-link {
+    color: #1A531A;
+    border: 2px solid #1A531A;
+    margin: 0 3px;
+    border-radius: 0;
+    font-weight: bold;
+}
+
+.custom-pagination .page-item.active .page-link {
+    background-color: #C1D0B5;
+    color: #1A531A;
+    border-color: #1A531A;
+}
+
+.custom-pagination .page-item.disabled .page-link {
+    border-color: #ccc;
+    color: #ccc;
+}

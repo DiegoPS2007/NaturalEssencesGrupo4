@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test de Piel | Natural Essences</title>
+    <!-- Estilos de terceros y propios -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilosGenerales.css">
+    <link rel="stylesheet" href="css/estiloTestPiel.css">
+    <link rel="icon" href="img/general/favicon logo/favicon.ico">
+</head>
+
+<body>
+
+    <header class="row">
+        <div class="text-center px-5 py-2 bg-white">
+            <div class="row align-items-center">
+                <div class="logo col-sm-8 col-lg-4 order-lg-1">
+                    <div class="row align-items-center">
+                        <div class="col-1">
+                            <img src="img/general/favicon logo/favicon.ico" alt="Logo Natural Essences">
+                        </div>
+                        <div class="col-11">
+                            <h3 class="mb-0">NATURAL ESSENCES</h3>
+                            <h5>SKINCARE & WELLNESS</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class=" sup-der col-sm-4 col-lg-2 order-lg-3">
+                    <div class="row justify-content-between">
+                        <div class="col-3">
+                            <a href="#"><img src="img/general/iconos/fav-border64.png" alt="favoritos"></a>
+                        </div>
+                        <div class="col-3">
+                            <a href="#"><img src="img/general/iconos/carrito64.png" alt="carrito"></a>
+                        </div>
+                        <div class="col-3">
+                            <a href="#"><img src="img/general/iconos/perfil64.png" alt="perfil"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-lg-6 order-lg-2 my-sm-2">
+                    <div class="input-group buscador">
+                        <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar">
+                        <button class="btn btn-natural" type="submit">
+                            <img src="img/general/iconos/lupa32.png" alt="lupa">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-md ">
+            <div class="container-fluid justify-content-start justify-content-md-center">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-md-center" id="navbarNav">
+                    <ul class="navbar-nav text-start text-md-center">
+                        <li class="nav-item">
+                            <a class="nav-link py-0" href="#">PRODUCTOS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link py-0" href="#">COLECCIONES</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link py-0" href="#">TEST DE PIEL</a>
+                        </li>
+                        <li class="nav-item nav-link-der">
+                            <a class="nav-link py-0" href="#">NUESTRA MARCA</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="test-piel-container">
+  <h1 class="test-titulo" id="tituloPrincipal">TEST DE PIEL</h1>
+
+  <div class="progreso-barra">
+    <div class="progreso-linea" id="progresoLinea"></div>
+    <div class="progreso-punto activo" data-paso="1"></div>
+    <div class="progreso-punto" data-paso="2"></div>
+    <div class="progreso-punto" data-paso="3"></div>
+    <div class="progreso-punto" data-paso="4"></div>
+    <div class="progreso-punto" data-paso="5"></div>
+    <div class="progreso-punto" data-paso="6"></div>
+    <div class="progreso-punto" data-paso="7"></div>
+    <div class="progreso-punto" data-paso="8"></div>
+  </div>
+
+  <div class="panel-verde" id="panelPregunta">
+    <p class="pregunta-contador" id="preguntaContador">Pregunta 1 de 8</p>
+    <h2 class="pregunta-titulo" id="preguntaTitulo">¿Cómo describirías tu tipo de piel?</h2>
+
+    <div class="opciones-grid" id="opcionesGrid">
+      <!-- Las 4 opciones se generan dinámicamente con JS -->
+    </div>
+  </div>
+
+  <div class="panel-verde panel-resultado" id="panelResultado" style="display:none;">
+    <img class="resultado-imagen" id="resultadoImagen" src="/mnt/user-data/uploads/RUTA_IMAGEN_RESULTADO.png" alt="Resultado tipo de piel">
+    <h2 class="resultado-titulo" id="resultadoTitulo">Piel Mixta</h2>
+    <p class="resultado-descripcion" id="resultadoDescripcion">
+      Tu zona T necesita control de brillo mientras tus mejillas buscan hidratación. Una rutina equilibrada con productos ligeros pero nutritivos es ideal para ti.
+    </p>
+
+    <h3 class="resultado-subtitulo">Productos Recomendados</h3>
+    <div class="productos-grid" id="productosGrid">
+      <!-- Productos generados dinámicamente con JS -->
+    </div>
+
+    <h3 class="resultado-subtitulo">Colecciones Recomendadas</h3>
+    <div class="colecciones-grid" id="coleccionesGrid">
+      <!-- Colecciones generadas dinámicamente con JS -->
+    </div>
+
+    <div class="repetir-contenedor">
+      <button class="btn-natural btn-repetir" id="btnRepetirTest">REPETIR TEST</button>
+    </div>
+  </div>
+</div>
+    </main>
+
+
+    <footer class="text-center pb-3">
+
+        <div class="row suscribete py-3 align-items-center m-0">
+            <div class="col-sm-3 text-center">
+                <p class="m-0 fw-bold small fs-5">Suscríbete para recibir novedades exclusivas.</p>
+            </div>
+            <div class="col-sm-4 px-1">
+                <input type="email" class="form-control" placeholder="Ingrese su correo"
+                    aria-label="Correo de suscripción">
+            </div>
+            <div class="col-sm-2 p-0">
+                <button class="btn btn-natural fw-bold">¡SUSCRÍBETE!</button>
+            </div>
+            <div class="col-sm-3 text-center p-1">
+                <p class="m-0">Al suscribirte, aceptas nuestra <a href="#">política de privacidad</a>.</p>
+            </div>
+        </div>
+        <div class="row pt-4 px-5 m-0 align-items-start bg-f9fa">
+            <div class="col-lg-4 col-md-12 mb-4">
+                <div class="row align-items-center logo mb-4">
+                    <div class="col-3">
+                        <img src="img/general/favicon logo/genfavicon-180.png" class="img-fluid" alt="Logo">
+                    </div>
+                    <div class="col-9 text-start">
+                        <h3 class="mb-0 fs-5 fw-bold">NATURAL ESSENCES</h3>
+                        <h5 class="fs-6 fw-normal">SKINCARE & WELLNESS</h5>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <a class="px-2" href="#"><img src="img/general/iconos/facebook32.png" alt="Facebook"></a>
+                    <a class="px-2" href="#"><img src="img/general/iconos/instagram32.png" alt="Instagram"></a>
+                    <a class="px-2" href="#"><img src="img/general/iconos/tik-tok32.png" alt="TikTok"></a>
+                    <a class="px-2" href="#"><img src="img/general/iconos/youtube32.png" alt="YouTube"></a>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-12">
+                <div class="row text-start">
+                    <div class="col-md-4 mb-4">
+                        <h6 class="fw-bold mb-3">LEGAL</h6>
+                        <a href="#" class="d-block enlace-footer mb-2">Política de Privacidad</a>
+                        <a href="#" class="d-block enlace-footer">Términos y Condiciones</a>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <h6 class="fw-bold mb-3">SOPORTE</h6>
+                        <a href="#" class="d-block enlace-footer mb-2">Contáctanos</a>
+                        <a href="#" class="d-block enlace-footer mb-2">Ayuda y Soporte</a>
+                        <a href="#" class="d-block enlace-footer">Preguntas Frecuentes</a>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <h6 class="fw-bold mb-3">RECLAMACIONES</h6>
+                        <a href="#" class="enlace-footer enlace-libro text-decoration-none">
+                            <img src="img/general/iconos/libroReclamaciones100.png" alt="Libro de Reclamaciones"
+                                class="img-fluid libro-reclamaciones mb-2">
+                            <span class="d-block">Libro de Reclamaciones</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row align-items-center m-0 p-0">
+                <div class="col-md-6 text-md-start text-center mb-2 mb-md-0">
+                    <p class="small mb-0">© 2026 Natural Essences. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-md-end text-center">
+                    <img src="img/general/iconos/visa.png" class="mx-1" alt="Visa">
+                    <img src="img/general/iconos/Mastercard.png" class="mx-1" alt="Mastercard">
+                    <img src="img/general/iconos/pago-efectivo.png" class="mx-1" alt="Pago Efectivo">
+                    <img src="img/general/iconos/Yape.png" class="mx-1" alt="Yape">
+                    <img src="img/general/iconos/plin.png" class="mx-1" alt="Plin">
+                </div>
+            </div>
+        </div>
+        </main>
+    </footer>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/programaTest.js"></script>
+</body>
+
+</html>

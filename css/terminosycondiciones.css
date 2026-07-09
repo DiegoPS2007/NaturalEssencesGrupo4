@@ -1,0 +1,99 @@
+
+main.row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 15px !important;  /* ¡Esta línea rescata tu borde izquierdo! */
+    padding-right: 15px !important; /* Esta equilibra el borde derecho */
+    width: 100% !important;
+}
+
+
+.titulo-num-articulo {
+        color: #1A531A !important;
+        font-weight: bold !important;
+    }
+
+.header-terminos {
+    width: 100% !important;
+    padding: 0 !important; /* Elimina el colchón que dejaba el espacio en blanco */
+    margin: 0 !important;
+    box-sizing: border-box !important;
+}
+/* Rectángulo Verde del Encabezado con bordes reforzados visibles */
+/* Rectángulo Verde del Encabezado - SOLUCIÓN DE EMERGENCIA */
+/* Rectángulo Verde del Encabezado - AJUSTE MILIMÉTRICO */
+.banner-verde-legal {
+    background-color: #C1D0B5 !important; 
+    border: 3px solid #1A531A !important; 
+    border-radius: 4px !important;
+       
+    text-align: center !important;
+
+    box-sizing: border-box !important; 
+    display: block !important;
+        margin: 0 !important;
+
+    
+    margin-left: 12px !important;   
+    margin-right: 15px !important; 
+
+    
+    width: calc(101.5% - 27px) !important; /* 12px + 15px = 27px */
+}
+
+
+
+/* Título Principal */
+.titulo-pantalla-legal {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #1A531A;
+    letter-spacing: 0.5px;
+}
+
+/* Subtítulo de Fecha */
+.fecha-pantalla-legal {
+    font-size: 1rem;
+    color: #2e4434;
+    font-weight: 500;
+}
+
+/* Contenedor del Bloque de Texto */
+.bloque-central-texto {
+    background-color: transparent;
+}
+
+/* Títulos de las Secciones (I, II, III...) */
+.titulo-num-articulo {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1c3322;
+    margin-bottom: 4px;
+}
+
+/* Línea Separadora Fina */
+.linea-separadora-legal {
+    border-top: 1.5px solid #1c3322;
+    opacity: 1;
+    margin-top: 0;
+    margin-bottom: 18px;
+}
+
+/* Párrafos Legales */
+.articulo-legal-grupo p {
+    font-size: 0.98rem;
+    color: #2b332c;
+    line-height: 1.75;
+    margin-bottom: 16px;
+    text-align: justify;
+}
+
+/* Adjustes Responsivos de protección */
+@media (max-width: 767.98px) {
+    .banner-verde-legal {
+        padding: 25px 15px !important;
+    }
+    .titulo-pantalla-legal {
+        font-size: 1.65rem;
+    }
+}
