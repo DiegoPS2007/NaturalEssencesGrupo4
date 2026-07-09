@@ -6,56 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilosGenerales.css">
     <link rel="stylesheet" href="css/perfil.css">
     <link rel="icon" href="img/general/favicon logo/favicon.ico">
 </head>
 
 <body>
     <header class="container-fluid px-0">
-        <div class="text-center px-4 px-lg-5 py-2 bg-white">
+        <div class="text-center px-5 py-2 bg-white">
             <div class="row align-items-center m-0">
                 <div class="logo col-sm-8 col-lg-4 order-lg-1">
                     <div class="row align-items-center">
-                        <div class="col-2 col-md-1">
+                        <div class="col-1">
                             <img src="img/general/favicon logo/favicon.ico" alt="Logo Natural Essences">
                         </div>
-                        <div class="col-10 col-md-11 text-start text-sm-center">
+                        <div class="col-11">
                             <h3 class="mb-0">NATURAL ESSENCES</h3>
                             <h5>SKINCARE & WELLNESS</h5>
                         </div>
                     </div>
                 </div>
 
-                <div class="sup-der col-sm-4 col-lg-2 order-lg-3">
-                    <div class="row justify-content-end justify-content-sm-between align-items-center">
+                <div class=" sup-der col-sm-4 col-lg-2 order-lg-3">
+                    <div class="row justify-content-between">
                         <div class="col-3">
-                            <a href="#"><img src="img/general/iconos/fav-border64.png" alt="Favoritos"></a>
+                            <a href="#"><img src="img/general/iconos/fav-border64.png" alt="favoritos"></a>
                         </div>
                         <div class="col-3">
                             <a href="carritoDeCompras.html"><img src="img/general/iconos/carrito64.png"
-                                    alt="Carrito"></a>
+                                    alt="carrito"></a>
                         </div>
                         <div class="col-3">
-                            <a href="perfil.html"><img src="img/general/iconos/perfil64.png" alt="Perfil"></a>
+                            <a href="perfil.html"><img src="img/general/iconos/perfil64.png" alt="perfil"></a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-sm-12 col-lg-6 order-lg-2 my-3 my-lg-0">
+                <div class="col-sm-12 col-lg-6 order-lg-2 my-sm-2">
                     <div class="input-group buscador">
-                        <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscar">
+                        <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar">
                         <button class="btn btn-natural" type="submit">
-                            <img src="img/general/iconos/lupa32.png" alt="Buscar">
+                            <img src="img/general/iconos/lupa32.png" alt="lupa">
                         </button>
                     </div>
                 </div>
             </div>
         </div>
-
-        <nav class="navbar navbar-expand-md">
+        <nav class="navbar navbar-expand-md ">
             <div class="container-fluid justify-content-start justify-content-md-center">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menu">
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -81,14 +81,6 @@
 
     <main class="perfil-main">
         <div class="container py-4 py-lg-5">
-            <nav aria-label="breadcrumb" class="mb-4">
-                <ol class="breadcrumb fw-bold">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item"><a href="perfil.html">Perfil</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Mi informacion</li>
-                </ol>
-            </nav>
-
             <div class="row justify-content-center g-4">
                 <aside class="col-lg-3 col-md-4">
                     <section class="tarjeta-usuario text-center p-4 mb-4">
@@ -188,69 +180,78 @@
         </div>
     </main>
 
-    <footer class="row text-center">
-        <div class="row suscribete py-3 align-items-center">
-            <div class="col-sm-3 text-center">
-                <p class="m-0 fw-bold">Suscribete para recibir novedades exclusivas.</p>
-            </div>
+    <footer class="text-center pb-3">
 
-            <div class="col-sm-4 ">
+        <!-- Suscripción -->
+        <div class="row suscribete py-3 align-items-center m-0">
+            <div class="col-sm-3 text-center">
+                <p class="m-0 fw-bold small fs-5">Suscríbete para recibir novedades exclusivas.</p>
+            </div>
+            <div class="col-sm-4 px-1">
                 <input type="email" class="form-control" placeholder="Ingrese su correo"
                     aria-label="Correo de suscripción">
             </div>
-
-            <div class="col-sm-2 text-center">
-                <button class="btn btn-natural" type="submit">SUSCRÍBETE!</button>
+            <div class="col-sm-2 p-0">
+                <button class="btn btn-natural fw-bold">¡SUSCRÍBETE!</button>
             </div>
-
-            <div class="col-sm-3 text-center">
-                <p class="m-0">Al suscríbirte, aceptas nuestra <a href="#">política de privacidad</a>.</p>
+            <div class="col-sm-3 text-center p-1">
+                <p class="m-0">Al suscribirte, aceptas nuestra <a href="#">política de privacidad</a>.</p>
             </div>
         </div>
-        <div class="row pt-3 px-5">
-            <div class="col-sm-5 col-lg-4">
-                <div class="row align-items-center logo">
-                    <div class="col-sm-4">
-                        <img class="img-fluid" src="img/general/favicon logo/genfavicon-180.png"
-                            alt="Logo Natural Essences">
+        <div class="row pt-4 px-5 m-0 align-items-start bg-f9fa">
+            <div class="col-lg-4 col-md-12 mb-4">
+                <div class="row align-items-center logo mb-4">
+                    <div class="col-3">
+                        <img src="img/general/favicon logo/genfavicon-180.png" class="img-fluid" alt="Logo">
                     </div>
-                    <div class="col-sm-8">
-                        <div>
-                            <h3 class="mb-0">NATURAL ESSENCES</h3>
-                            <h5>SKINCARE & WELLNESS</h5>
-                        </div>
-                        <div>
-                            <a class="px-2" href="#"><img src="img/general/iconos/facebook32.png" alt="eee"></a>
-                            <a class="px-2" href="#"><img src="img/general/iconos/instagram32.png" alt="eee"></a>
-                            <a class="px-2" href="#"><img src="img/general/iconos/tik-tok32.png" alt="eee"></a>
-                            <a class="px-2" href="#"><img src="img/general/iconos/youtube32.png" alt="eee"></a>
-                        </div>
+                    <div class="col-9 text-start">
+                        <h3 class="mb-0 fs-5 fw-bold">NATURAL ESSENCES</h3>
+                        <h5 class="fs-6 fw-normal">SKINCARE & WELLNESS</h5>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <a class="px-2" href="#"><img src="img/general/iconos/facebook32.png" alt="Facebook"></a>
+                    <a class="px-2" href="#"><img src="img/general/iconos/instagram32.png" alt="Instagram"></a>
+                    <a class="px-2" href="#"><img src="img/general/iconos/tik-tok32.png" alt="TikTok"></a>
+                    <a class="px-2" href="#"><img src="img/general/iconos/youtube32.png" alt="YouTube"></a>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-12">
+                <div class="row text-start">
+                    <div class="col-md-4 mb-4">
+                        <h6 class="fw-bold mb-3">LEGAL</h6>
+                        <a href="#" class="d-block enlace-footer mb-2">Política de Privacidad</a>
+                        <a href="#" class="d-block enlace-footer">Términos y Condiciones</a>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <h6 class="fw-bold mb-3">SOPORTE</h6>
+                        <a href="#" class="d-block enlace-footer mb-2">Contáctanos</a>
+                        <a href="#" class="d-block enlace-footer mb-2">Ayuda y Soporte</a>
+                        <a href="#" class="d-block enlace-footer">Preguntas Frecuentes</a>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <h6 class="fw-bold mb-3">RECLAMACIONES</h6>
+                        <a href="#" class="enlace-footer enlace-libro text-decoration-none">
+                            <img src="img/general/iconos/libroReclamaciones100.png" alt="Libro de Reclamaciones"
+                                class="img-fluid libro-reclamaciones mb-2">
+                            <span class="d-block">Libro de Reclamaciones</span>
+                        </a>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-7 col-lg-8 row footer-contenido">
-                <div class="col-sm-4 mb-3">
-                    <h6 class="fw-bold">LEGAL</h6>
-                    <a href="#">Politica de Privacidad</a>
-                    <a href="#">Terminos y Condiciones</a>
+            <hr>
+            <div class="row align-items-center m-0 p-0">
+                <div class="col-md-6 text-md-start text-center mb-2 mb-md-0">
+                    <p class="small mb-0">© 2026 Natural Essences. Todos los derechos reservados.</p>
                 </div>
-                <div class="col-sm-4 mb-3">
-                    <h6 class="fw-bold">SOPORTE</h6>
-                    <a href="#">Contactanos</a>
-                    <a href="#">Ayuda y Soporte</a>
-                    <a href="#">Preguntas Frecuentes</a>
-                </div>
-                <div class="col-sm-4 mb-3 text-center">
-                    <img class="libro-img" src="img/general/favicon logo/genfavicon-64.png"
-                        alt="Libro de reclamaciones">
-                    <a href="#">Libro de Reclamaciones</a>
+                <div class="col-md-6 text-md-end text-center">
+                    <img src="img/general/iconos/visa.png" class="mx-1" alt="Visa">
+                    <img src="img/general/iconos/Mastercard.png" class="mx-1" alt="Mastercard">
+                    <img src="img/general/iconos/pago-efectivo.png" class="mx-1" alt="Pago Efectivo">
+                    <img src="img/general/iconos/Yape.png" class="mx-1" alt="Yape">
+                    <img src="img/general/iconos/plin.png" class="mx-1" alt="Plin">
                 </div>
             </div>
-        </div>
-        <div class="derechos px-5 py-3 text-start">
-            <span>&copy; 2026 Natural Essences. Todos los derechos reservados.</span>
-            <span
-                class="metodos-pago float-sm-end"><span>VISA</span><span>MC</span><span>YAPE</span><span>PLIN</span></span>
         </div>
     </footer>
 

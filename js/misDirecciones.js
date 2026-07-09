@@ -15,6 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let idDireccionEditando = null;
 
+    StorageNE.pintarDatosMenuUsuario(usuario);
+    StorageNE.activarCerrarSesion();
+
     const datosUbicaciones = {
         Amazonas: {
             Chachapoyas: ["Chachapoyas", "Asuncion", "Balsas", "Cheto", "Chiliquin", "Chuquibamba", "Granada", "Huancas", "La Jalca", "Leimebamba", "Levanto", "Magdalena", "Mariscal Castilla", "Molinopampa", "Montevideo", "Olleros", "Quinjalca", "San Francisco de Daguas", "San Isidro de Maino", "Soloco", "Sonche"],
@@ -69,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
         Ayacucho: {
             Huamanga: ["Ayacucho", "Acocro", "Acos Vinchos", "Carmen Alto", "Chiara", "Ocros", "Pacaycasa", "Quinua", "San Jose de Ticllas", "San Juan Bautista", "Santiago de Pischa", "Socos", "Tambillo", "Vinchos", "Jesus Nazareno", "Andres Avelino Caceres Dorregaray"],
             Cangallo: ["Cangallo", "Chuschi", "Los Morochucos", "Maria Parado de Bellido", "Paras", "Totos"],
-            Huanca Sancos: ["Sancos", "Carapo", "Sacsamarca", "Santiago de Lucanamarca"],
+            "Huanca Sancos": ["Sancos", "Carapo", "Sacsamarca", "Santiago de Lucanamarca"],
             Huanta: ["Huanta", "Ayahuanco", "Huamanguilla", "Iguain", "Luricocha", "Santillana", "Sivia", "Llochegua", "Canayre", "Uchuraccay", "Pucacolpa", "Chaca"],
             "La Mar": ["San Miguel", "Anco", "Ayna", "Chilcas", "Chungui", "Luis Carranza", "Santa Rosa", "Tambo", "Samugari", "Anchihuay", "Oronccoy"],
             Lucanas: ["Puquio", "Aucara", "Cabana", "Carmen Salcedo", "Chaviña", "Chipao", "Huac-Huas", "Laramate", "Leoncio Prado", "Llauta", "Lucanas", "Ocaña", "Otoca", "Saisa", "San Cristobal", "San Juan", "San Pedro", "San Pedro de Palco", "Sancos", "Santa Ana de Huaycahuacho", "Santa Lucia"],
@@ -88,11 +91,11 @@ document.addEventListener("DOMContentLoaded", () => {
             Cutervo: ["Cutervo", "Callayuc", "Choros", "Cujillo", "La Ramada", "Pimpingos", "Querocotillo", "San Andres de Cutervo", "San Juan de Cutervo", "San Luis de Lucma", "Santa Cruz", "Santo Domingo de la Capilla", "Santo Tomas", "Socota", "Toribio Casanova"],
             Hualgayoc: ["Bambamarca", "Chugur", "Hualgayoc"],
             Jaen: ["Jaen", "Bellavista", "Chontali", "Colasay", "Huabal", "Las Pirias", "Pomahuaca", "Pucara", "Sallique", "San Felipe", "San Jose del Alto", "Santa Rosa"],
-            San Ignacio: ["San Ignacio", "Chirinos", "Huarango", "La Coipa", "Namballe", "San Jose de Lourdes", "Tabaconas"],
-            San Marcos: ["Pedro Galvez", "Chancay", "Eduardo Villanueva", "Gregorio Pita", "Ichocan", "Jose Manuel Quiroz", "Jose Sabogal"],
-            San Miguel: ["San Miguel", "Bolivar", "Calquis", "Catilluc", "El Prado", "La Florida", "Llapa", "Nanchoc", "Niepos", "San Gregorio", "San Silvestre de Cochan", "Union Agua Blanca"],
-            San Pablo: ["San Pablo", "San Bernardino", "San Luis", "Tumbaden"],
-            Santa Cruz: ["Santa Cruz", "Andabamba", "Catache", "Chancaybaños", "La Esperanza", "Ninabamba", "Pulan", "Saucepampa", "Sexi", "Uticyacu", "Yauyucan"]
+            "San Ignacio": ["San Ignacio", "Chirinos", "Huarango", "La Coipa", "Namballe", "San Jose de Lourdes", "Tabaconas"],
+            "San Marcos": ["Pedro Galvez", "Chancay", "Eduardo Villanueva", "Gregorio Pita", "Ichocan", "Jose Manuel Quiroz", "Jose Sabogal"],
+            "San Miguel": ["San Miguel", "Bolivar", "Calquis", "Catilluc", "El Prado", "La Florida", "Llapa", "Nanchoc", "Niepos", "San Gregorio", "San Silvestre de Cochan", "Union Agua Blanca"],
+            "San Pablo": ["San Pablo", "San Bernardino", "San Luis", "Tumbaden"],
+            "Santa Cruz": ["Santa Cruz", "Andabamba", "Catache", "Chancaybaños", "La Esperanza", "Ninabamba", "Pulan", "Saucepampa", "Sexi", "Uticyacu", "Yauyucan"]
         },
         Callao: {
             Callao: ["Callao", "Bellavista", "Carmen de la Legua Reynoso", "La Perla", "La Punta", "Ventanilla", "Mi Peru"]
@@ -127,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "Dos de Mayo": ["La Union", "Chuquis", "Marias", "Pachas", "Quivilla", "Ripan", "Shunqui", "Sillapata", "Yanas"],
             Huacaybamba: ["Huacaybamba", "Canchabamba", "Cochabamba", "Pinra"],
             Huamalies: ["Llata", "Arancay", "Chavin de Pariarca", "Jacas Grande", "Jircan", "Miraflores", "Monzon", "Punchao", "Puños", "Singa", "Tantamayo"],
-            Leoncio Prado: ["Rupa-Rupa", "Daniel Alomia Robles", "Hermilio Valdizan", "Jose Crespo y Castillo", "Luyando", "Mariano Damaso Beraun", "Pucayacu", "Castillo Grande", "Pueblo Nuevo", "Santo Domingo de Anda"],
+            "Leoncio Prado": ["Rupa-Rupa", "Daniel Alomia Robles", "Hermilio Valdizan", "Jose Crespo y Castillo", "Luyando", "Mariano Damaso Beraun", "Pucayacu", "Castillo Grande", "Pueblo Nuevo", "Santo Domingo de Anda"],
             "Marañon": ["Huacrachuco", "Cholon", "San Buenaventura", "La Morada", "Santa Rosa de Alto Yanajanca"],
             Pachitea: ["Panao", "Chaglla", "Molino", "Umari"],
             "Puerto Inca": ["Puerto Inca", "Codo del Pozuzo", "Honoria", "Tournavista", "Yuyapichis"],
@@ -163,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
             Pataz: ["Tayabamba", "Buldibuyo", "Chillia", "Huancaspata", "Huaylillas", "Huayo", "Ongon", "Parcoy", "Pataz", "Pias", "Santiago de Challas", "Taurija", "Urpay"],
             "Sanchez Carrion": ["Huamachuco", "Chugay", "Cochorco", "Curgos", "Marcabal", "Sanagoran", "Sarin", "Sartimbamba"],
             "Santiago de Chuco": ["Santiago de Chuco", "Angasmarca", "Cachicadan", "Mollebamba", "Mollepata", "Quiruvilca", "Santa Cruz de Chuca", "Sitabamba"],
-            Gran Chimu: ["Cascas", "Lucma", "Marmot", "Sayapullo"],
+            "Gran Chimu": ["Cascas", "Lucma", "Marmot", "Sayapullo"],
             Viru: ["Viru", "Chao", "Guadalupito"]
         },
         Lambayeque: {

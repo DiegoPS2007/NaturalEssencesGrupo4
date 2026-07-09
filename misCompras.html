@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis Compras</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilosGenerales.css">
     <link rel="stylesheet" href="css/misCompras.css">
     <link rel="icon" href="img/general/favicon logo/favicon.ico">
 </head>
@@ -32,7 +33,8 @@
                             <a href="#"><img src="img/general/iconos/fav-border64.png" alt="Favoritos"></a>
                         </div>
                         <div class="col-3">
-                            <a href="carritoDeCompras.html"><img src="img/general/iconos/carrito64.png" alt="Carrito"></a>
+                            <a href="carritoDeCompras.html"><img src="img/general/iconos/carrito64.png"
+                                    alt="Carrito"></a>
                         </div>
                         <div class="col-3">
                             <a href="perfil.html"><img src="img/general/iconos/perfil64.png" alt="Perfil"></a>
@@ -80,14 +82,6 @@
 
     <main class="perfil-main">
         <div class="container py-4 py-lg-5">
-            <nav aria-label="breadcrumb" class="mb-4">
-                <ol class="breadcrumb fw-bold">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item"><a href="perfil.html">Perfil</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Mis Compras</li>
-                </ol>
-            </nav>
-
             <div class="row justify-content-center g-4">
                 <aside class="col-lg-3 col-md-4">
                     <section class="tarjeta-usuario text-center p-4 mb-4">
@@ -104,7 +98,7 @@
                             <img src="img/perfil/perfil-Mis compras.png" alt=""> Mis Compras
                         </a>
                         <a href="perfil.html" class="list-group-item list-group-item-action opcion-menu">
-                            <img src="img/perfil/perfil-perfil.png" alt=""> Mi Informacion
+                            <img src="img/perfil/perfil-perfil.png" alt=""> Mi Información
                         </a>
                         <a href="misDirecciones.html" class="list-group-item list-group-item-action opcion-menu">
                             <img src="img/perfil/perfil-direccion.png" alt=""> Mis Direcciones
@@ -113,7 +107,7 @@
                             <img src="img/perfil/perfil-favoritos.png" alt=""> Favoritos
                         </a>
                         <a href="iniciarSesion.html" class="list-group-item list-group-item-action opcion-menu">
-                            <img src="img/perfil/perfil-cerrar sesion.png" alt=""> Cerrar Sesion
+                            <img src="img/perfil/perfil-cerrar sesion.png" alt=""> Cerrar Sesión
                         </a>
                     </nav>
                 </aside>
@@ -122,112 +116,20 @@
                     <div class="panel-perfil p-4 p-lg-5">
                         <h4 class="titulo-panel">Mis Compras</h4>
 
-                        <article class="pedido-card p-3 p-lg-4">
-                            <div class="pedido-encabezado d-flex flex-column flex-lg-row justify-content-between gap-2 mb-3">
-                                <div class="d-flex align-items-center gap-3">
-                                    <span>#NE-2025-0847</span>
-                                    <span class="estado-entregado">Entregado</span>
-                                </div>
-                                <div class="d-flex flex-wrap gap-4">
-                                    <span>12 Ene 2025</span>
-                                    <strong>S/ 129.00</strong>
-                                </div>
-                            </div>
-
-                            <div class="productos-compra row g-3 pb-3 mb-3">
-                                <div class="col-md-4">
-                                    <div class="producto-mini d-flex gap-2">
-                                        <img src="img/general/productos/serum.jpg" alt="Serum Vitamina C">
-                                        <div>
-                                            <h6>Serum Vitamina C</h6>
-                                            <p>30ml x1</p>
-                                            <strong>S/ 45.00</strong>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="producto-mini d-flex gap-2">
-                                        <img src="img/general/productos/espumaLimpiadora.jpg" alt="Crema Hidratante Luxe">
-                                        <div>
-                                            <h6>Crema Hidratante Luxe</h6>
-                                            <p>30ml x1</p>
-                                            <strong>S/ 55.00</strong>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="producto-mini d-flex gap-2">
-                                        <img src="img/general/productos/jabon.jpg" alt="Mascarilla de Arcilla">
-                                        <div>
-                                            <h6>Mascarilla de Arcilla</h6>
-                                            <p>100g x1</p>
-                                            <strong>S/ 29.00</strong>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row g-4 info-pedido">
-                                <div class="col-md-6">
-                                    <h6>Direccion de entrega</h6>
-                                    <p>Miraflores, Lima 15074</p>
-                                    <p>Av. Larco 1234, Dpto 4B</p>
-                                </div>
-                                <div class="col-md-6">
-                                    <h6>Metodo de pago</h6>
-                                    <p>Visa terminada en 4521</p>
-                                    <p>Pago aprobado</p>
-                                </div>
-                                <div class="col-md-6">
-                                    <h6>Resumen</h6>
-                                    <div class="d-flex justify-content-between">
-                                        <span>Subtotal</span>
-                                        <span>S/ 129.00</span>
-                                    </div>
-                                    <div class="d-flex justify-content-between border-bottom border-dark">
-                                        <span>Envio</span>
-                                        <span>Gratis</span>
-                                    </div>
-                                    <div class="d-flex justify-content-between fw-bold">
-                                        <span>Total</span>
-                                        <span>S/ 129.00</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <h6>Seguimiento</h6>
-                                    <ul class="seguimiento">
-                                        <li>Pedido confirmado - 12 Ene</li>
-                                        <li>En preparacion - 13 Ene</li>
-                                        <li>Enviado - 14 Ene</li>
-                                        <li>Entregado - 16 Ene</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="d-flex flex-column flex-lg-row gap-3 my-3">
-                                <button type="button" class="btn btn-natural">DESCARGAR FACTURA/BOLETA</button>
-                                <button type="button" class="btn btn-natural">INICIAR DEVOLUCION</button>
-                            </div>
-
-                            <div class="pedido-acciones d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3 pt-3">
-                                <button class="btn btn-link resena-link p-0" type="button" data-bs-toggle="modal"
-                                    data-bs-target="#resenaPedidoModal">
-                                    Dejar Resena del Pedido
-                                </button>
-                                <button type="button" class="btn btn-natural">RECOMPRAR</button>
-                            </div>
-                        </article>
+                        <div id="listaCompras"></div>
+                        
                     </div>
                 </section>
             </div>
         </div>
     </main>
 
-    <div class="modal fade" id="resenaPedidoModal" tabindex="-1" aria-labelledby="resenaPedidoTitulo" aria-hidden="true">
+    <div class="modal fade" id="resenaPedidoModal" tabindex="-1" aria-labelledby="resenaPedidoTitulo"
+        aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content resena-panel">
                 <div class="modal-header resena-titulo">
-                    <h5 class="modal-title" id="resenaPedidoTitulo">Dejar Resena del Pedido</h5>
+                    <h5 class="modal-title" id="resenaPedidoTitulo">Dejar Reseña del Pedido</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                 </div>
                 <div class="modal-body">
@@ -256,80 +158,89 @@
                     <input type="hidden" id="productosSeleccionados" value="Serum Vitamina C">
                     <input type="hidden" id="calificacionSeleccionada" value="4">
 
-                    <label for="comentario" class="form-label">Tu Resena:</label>
+                    <label for="comentario" class="form-label">Tu Reseña:</label>
                     <textarea class="form-control" id="comentario" rows="4"></textarea>
                 </div>
                 <div class="modal-footer justify-content-between">
-                    <button type="submit" class="btn btn-natural">Publicar Resena</button>
-                    <button type="button" class="btn btn-natural" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-natural">Publicar Reseña</button>
+                    <button type="button" class="btn btn-cancelar" data-bs-dismiss="modal">Cancelar</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <footer class="text-center">
+    <footer class="text-center pb-3">
+
+        <!-- Suscripción -->
         <div class="row suscribete py-3 align-items-center m-0">
             <div class="col-sm-3 text-center">
-                <p class="m-0 fw-bold">Suscribete para recibir novedades exclusivas.</p>
+                <p class="m-0 fw-bold small fs-5">Suscríbete para recibir novedades exclusivas.</p>
             </div>
-
-            <div class="col-sm-4">
+            <div class="col-sm-4 px-1">
                 <input type="email" class="form-control" placeholder="Ingrese su correo"
-                    aria-label="Correo de suscripcion">
+                    aria-label="Correo de suscripción">
             </div>
-
-            <div class="col-sm-2 text-center my-2 my-sm-0">
-                <button class="btn btn-natural" type="submit">SUSCRIBETE!</button>
+            <div class="col-sm-2 p-0">
+                <button class="btn btn-natural fw-bold">¡SUSCRÍBETE!</button>
             </div>
-
-            <div class="col-sm-3 text-center">
-                <p class="m-0">Al suscribirte, aceptas nuestra <a href="#">Politica de Privacidad</a>.</p>
+            <div class="col-sm-3 text-center p-1">
+                <p class="m-0">Al suscribirte, aceptas nuestra <a href="#">política de privacidad</a>.</p>
             </div>
         </div>
-
-        <div class="row pt-3 px-4 px-lg-5 m-0 footer-contenido">
-            <div class="col-sm-5 col-lg-4">
-                <div class="row align-items-center logo">
-                    <div class="col-sm-4">
-                        <img class="img-fluid" src="img/general/favicon logo/genfavicon-180.png"
-                            alt="Logo Natural Essences">
+        <div class="row pt-4 px-5 m-0 align-items-start bg-f9fa">
+            <div class="col-lg-4 col-md-12 mb-4">
+                <div class="row align-items-center logo mb-4">
+                    <div class="col-3">
+                        <img src="img/general/favicon logo/genfavicon-180.png" class="img-fluid" alt="Logo">
                     </div>
-                    <div class="col-sm-8">
-                        <h3 class="mb-0">NATURAL ESSENCES</h3>
-                        <h5>SKINCARE & WELLNESS</h5>
-                        <div>
-                            <a class="px-2" href="#"><img src="img/general/iconos/facebook32.png" alt="Facebook"></a>
-                            <a class="px-2" href="#"><img src="img/general/iconos/instagram32.png" alt="Instagram"></a>
-                            <a class="px-2" href="#"><img src="img/general/iconos/tik-tok32.png" alt="TikTok"></a>
-                            <a class="px-2" href="#"><img src="img/general/iconos/youtube32.png" alt="YouTube"></a>
-                        </div>
+                    <div class="col-9 text-start">
+                        <h3 class="mb-0 fs-5 fw-bold">NATURAL ESSENCES</h3>
+                        <h5 class="fs-6 fw-normal">SKINCARE & WELLNESS</h5>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <a class="px-2" href="#"><img src="img/general/iconos/facebook32.png" alt="Facebook"></a>
+                    <a class="px-2" href="#"><img src="img/general/iconos/instagram32.png" alt="Instagram"></a>
+                    <a class="px-2" href="#"><img src="img/general/iconos/tik-tok32.png" alt="TikTok"></a>
+                    <a class="px-2" href="#"><img src="img/general/iconos/youtube32.png" alt="YouTube"></a>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-12">
+                <div class="row text-start">
+                    <div class="col-md-4 mb-4">
+                        <h6 class="fw-bold mb-3">LEGAL</h6>
+                        <a href="#" class="d-block enlace-footer mb-2">Política de Privacidad</a>
+                        <a href="#" class="d-block enlace-footer">Términos y Condiciones</a>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <h6 class="fw-bold mb-3">SOPORTE</h6>
+                        <a href="#" class="d-block enlace-footer mb-2">Contáctanos</a>
+                        <a href="#" class="d-block enlace-footer mb-2">Ayuda y Soporte</a>
+                        <a href="#" class="d-block enlace-footer">Preguntas Frecuentes</a>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <h6 class="fw-bold mb-3">RECLAMACIONES</h6>
+                        <a href="#" class="enlace-footer enlace-libro text-decoration-none">
+                            <img src="img/general/iconos/libroReclamaciones100.png" alt="Libro de Reclamaciones"
+                                class="img-fluid libro-reclamaciones mb-2">
+                            <span class="d-block">Libro de Reclamaciones</span>
+                        </a>
                     </div>
                 </div>
             </div>
-
-            <div class="col-sm-7 col-lg-8 row text-start">
-                <div class="col-sm-4 mb-3">
-                    <h6 class="fw-bold">LEGAL</h6>
-                    <a href="#">Politica de Privacidad</a>
-                    <a href="#">Terminos y Condiciones</a>
+            <hr>
+            <div class="row align-items-center m-0 p-0">
+                <div class="col-md-6 text-md-start text-center mb-2 mb-md-0">
+                    <p class="small mb-0">© 2026 Natural Essences. Todos los derechos reservados.</p>
                 </div>
-                <div class="col-sm-4 mb-3">
-                    <h6 class="fw-bold">SOPORTE</h6>
-                    <a href="#">Contactanos</a>
-                    <a href="#">Ayuda y Soporte</a>
-                    <a href="#">Preguntas Frecuentes</a>
-                </div>
-                <div class="col-sm-4 mb-3 text-center">
-                    <h6 class="fw-bold">Libro de Reclamaciones</h6>
-                    <img class="libro-img" src="img/general/favicon logo/genfavicon-64.png" alt="Libro de reclamaciones">
-                    <a href="#">Libro de Reclamaciones</a>
+                <div class="col-md-6 text-md-end text-center">
+                    <img src="img/general/iconos/visa.png" class="mx-1" alt="Visa">
+                    <img src="img/general/iconos/Mastercard.png" class="mx-1" alt="Mastercard">
+                    <img src="img/general/iconos/pago-efectivo.png" class="mx-1" alt="Pago Efectivo">
+                    <img src="img/general/iconos/Yape.png" class="mx-1" alt="Yape">
+                    <img src="img/general/iconos/plin.png" class="mx-1" alt="Plin">
                 </div>
             </div>
-        </div>
-
-        <div class="derechos px-4 px-lg-5 py-3 text-start">
-            <span>&copy; 2026 Natural Essences. Todos los derechos reservados.</span>
-            <span class="metodos-pago float-sm-end"><span>VISA</span><span>MC</span><span>YAPE</span><span>PLIN</span></span>
         </div>
     </footer>
 
