@@ -234,3 +234,61 @@ section, .panel-perfil, .direccion-card{
 section, .panel-perfil, #listaDirecciones{
     border-radius: 5px;
 }
+
+@media (max-width: 991.98px) {
+    .tarjeta-usuario {
+        min-height: auto;
+    }
+
+    .panel-perfil {
+        padding: 1.5rem !important;
+    }
+
+    .direccion-card {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .direccion-card {
+        align-items: flex-start !important;
+        flex-direction: column;
+    }
+
+    .principal-badge {
+        align-self: flex-start;
+    }
+
+    .direccion-card .d-flex {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .direccion-card .btn,
+    .agregar-direccion .btn {
+        width: 100%;
+    }
+
+    .modal-footer {
+        flex-direction: column;
+    }
+
+    .modal-footer .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .avatar-iniciales {
+        height: 88px;
+        width: 88px;
+    }
+
+    .panel-perfil {
+        padding: 1rem !important;
+    }
+
+    .titulo-panel {
+        font-size: 1.1rem;
+    }
+}

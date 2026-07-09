@@ -353,3 +353,72 @@ section, .panel-perfil, .direccion-card{
     border-color: #b31313;
     color: #ffffff;
 }
+
+@media (max-width: 991.98px) {
+    .tarjeta-usuario {
+        min-height: auto;
+    }
+
+    .panel-perfil {
+        padding: 1.5rem !important;
+    }
+
+    .pedido-encabezado,
+    .producto-mini,
+    .pedido-botones {
+        gap: 0.75rem;
+    }
+
+    .pedido-botones .btn {
+        min-width: 0;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .pedido-card {
+        padding: 1.25rem !important;
+    }
+
+    .pedido-encabezado {
+        align-items: flex-start !important;
+        flex-direction: column;
+    }
+
+    .productos-compra .col-md-4,
+    .info-pedido .col-md-6 {
+        margin-bottom: 1rem;
+    }
+
+    .producto-mini img {
+        height: 64px;
+        width: 64px;
+    }
+
+    .pedido-botones {
+        flex-direction: column;
+    }
+
+    .pedido-botones .btn,
+    .pedido-acciones .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .avatar-iniciales {
+        height: 88px;
+        width: 88px;
+    }
+
+    .panel-perfil {
+        padding: 1rem !important;
+    }
+
+    .titulo-panel {
+        font-size: 1.1rem;
+    }
+
+    .pedido-card {
+        font-size: 0.9rem;
+    }
+}
