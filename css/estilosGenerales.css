@@ -172,6 +172,12 @@ footer .logo h5{
     outline: 0;
 }
 
+.form-select:focus {
+    border-color: #7FC05C;
+    box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
+    outline: 0;
+}
+
 /* LINKS <a>*/
 
 a{
