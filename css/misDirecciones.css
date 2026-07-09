@@ -1,11 +1,195 @@
-/* ESTILOS GENERALES */
-@import url("perfil.css");
+.form-control {
+    border: 2px solid #a7a7a7;
+    border-radius: 5px;
+    color: #3c3c3c;
+}
 
-/* HEADER */
+.form-control:focus {
+    border-color: #7fc05c;
+    box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
+    outline: 0;
+}
 
-/* FOOTER */
+a {
+    color: #1a531a;
+    text-decoration: none;
+}
 
-/* MAIN Y MODALES */
+.perfil-main {
+    background-color: #f9f6f0;
+    min-height: 650px;
+}
+
+section, .panel-perfil, .direccion-card{
+    border-radius: 5px;
+}
+
+.breadcrumb-item,
+.breadcrumb-item a {
+    color: #1a531a;
+}
+
+.breadcrumb-item.active {
+    color: #1a531a;
+}
+
+.tarjeta-usuario,
+.menu-perfil,
+.panel-perfil {
+    background-color: #ffffff;
+    border: 2px solid #1a531a;
+}
+
+.tarjeta-usuario {
+    min-height: 250px;
+}
+
+.avatar-iniciales {
+    background-color: #c1d0b5;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 2.7rem;
+    height: 105px;
+    width: 105px;
+}
+
+.nombre-usuario {
+    color: #1a531a;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.correo-usuario,
+.miembro {
+    color: #244c2b;
+    font-size: 0.9rem;
+}
+
+
+.cont-miembro img{
+    width: 15px;
+}
+
+.menu-perfil {
+    border-bottom: 0;
+}
+
+.menu-perfil img {
+    margin-right: 0.75rem;
+    width: 18px;
+}
+
+.menu-perfil .opcion-menu {
+    align-items: center;
+    background-color: #ffffff;
+    border: 0;
+    border-bottom: 2px solid #1a531a;
+    color: #144926;
+    display: flex;
+    font-size: 1rem;
+    padding: 0.95rem 1.25rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.menu-perfil .opcion-menu:hover,
+.menu-perfil .opcion-menu.active {
+    background-color: #c1d0b5;
+    color: #144926;
+}
+
+.panel-perfil {
+    color: #1a531a;
+}
+
+.titulo-panel {
+    border-bottom: 1px solid #333333;
+    color: #1a531a;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.65rem;
+}
+
+.panel-perfil .form-label {
+    color: #1a531a;
+    font-weight: bold;
+    margin-bottom: 0.45rem;
+}
+
+.panel-perfil .btn {
+    min-width: 170px;
+}
+
+.direccion-card {
+    border: 2px solid #1a531a;
+    color: #111111;
+    display: flex;
+    justify-content: space-between;
+    min-height: 145px;
+}
+
+.direccion-card p {
+    font-size: 0.9rem;
+}
+
+.principal-badge {
+    align-self: flex-start;
+    background-color: #c1d0b5;
+    color: #1a531a;
+    font-weight: bold;
+    padding: 0.25rem 0.8rem;
+}
+
+.agregar-direccion {
+    border: 2px solid #1a531a;
+}
+
+.icono-agregar {
+    color: #c1d0b5;
+    font-size: 4.8rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.direccion-modal {
+    background-color: #f9f6f0;
+    border: 2px solid #1a531a;
+    border-radius: 0;
+}
+
+.direccion-modal-titulo {
+    background-color: #c9c9c9;
+    border-bottom: 2px solid #1a531a;
+    color: #333333;
+    font-style: italic;
+    padding-bottom: 0.25rem;
+    padding-top: 0.25rem;
+}
+
+.direccion-modal-titulo .modal-title {
+    font-size: 1rem;
+}
+
+.direccion-modal .form-label {
+    color: #1a531a;
+    font-weight: bold;
+}
+
+.direccion-modal .form-select,
+.direccion-modal .form-control {
+    border: 2px solid #a7a7a7;
+    border-radius: 5px;
+}
+
+.direccion-modal .modal-footer {
+    border-top: 0;
+    padding-top: 0;
+}
+
+.direccion-modal .form-check-input {
+    border: 2px solid #6d6d6d;
+}
+
 .direccion-modal {
     border: 2px solid #1a531a;
     border-radius: 8px;
@@ -49,4 +233,62 @@
 
 section, .panel-perfil, #listaDirecciones{
     border-radius: 5px;
+}
+
+@media (max-width: 991.98px) {
+    .tarjeta-usuario {
+        min-height: auto;
+    }
+
+    .panel-perfil {
+        padding: 1.5rem !important;
+    }
+
+    .direccion-card {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .direccion-card {
+        align-items: flex-start !important;
+        flex-direction: column;
+    }
+
+    .principal-badge {
+        align-self: flex-start;
+    }
+
+    .direccion-card .d-flex {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .direccion-card .btn,
+    .agregar-direccion .btn {
+        width: 100%;
+    }
+
+    .modal-footer {
+        flex-direction: column;
+    }
+
+    .modal-footer .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .avatar-iniciales {
+        height: 88px;
+        width: 88px;
+    }
+
+    .panel-perfil {
+        padding: 1rem !important;
+    }
+
+    .titulo-panel {
+        font-size: 1.1rem;
+    }
 }

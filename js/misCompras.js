@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    const panelCompras = document.querySelector(".panel-perfil");
+    const listaCompras = document.getElementById("listaCompras");
     const contenedorProductosResena = document.querySelector(".productos-resena");
     const estrellas = document.querySelectorAll(".estrella");
     const calificacionSeleccionada = document.getElementById("calificacionSeleccionada");
@@ -13,8 +13,33 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalResena = document.getElementById("resenaPedidoModal");
     const instanciaModal = bootstrap.Modal.getOrCreateInstance(modalResena);
     const btnPublicar = document.querySelector("#resenaPedidoModal .modal-footer .btn-natural");
+    const tituloResena = document.getElementById("resenaPedidoTitulo");
+    const etiquetaComentario = document.querySelector('label[for="comentario"]');
+    const etiquetaCalificacion = document.querySelector(".estrellas")?.previousElementSibling;
 
     let idCompraActual = null;
+
+    if (tituloResena) {
+        tituloResena.textContent = "Dejar Reseña del Pedido";
+    }
+
+    if (etiquetaComentario) {
+        etiquetaComentario.textContent = "Tu Reseña:";
+    }
+
+    if (etiquetaCalificacion) {
+        etiquetaCalificacion.textContent = "Calificación";
+    }
+
+    if (btnPublicar) {
+        btnPublicar.textContent = "Publicar Reseña";
+    }
+
+    if (contenedorProductosResena) {
+        contenedorProductosResena.setAttribute("aria-label", "Productos para reseñar");
+    }
+
+    document.querySelector(".estrellas")?.setAttribute("aria-label", "Calificación de la reseña");
 
     function formatoFecha(fechaISO) {
         return new Date(fechaISO).toLocaleDateString("es-PE", {
@@ -32,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function obtenerDireccionTexto(direccion) {
         if (!direccion) {
-            return "Direccion no registrada";
+            return "Dirección no registrada";
         }
 
         return `${direccion.distrito || ""}, ${direccion.provincia || ""} ${direccion.codigoPostal || ""}<br>${direccion.direccion || direccion}`;
@@ -64,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return 3;
         }
 
-        if (estado.includes("prepar") || estado.includes("proceso")) {
+        if (estado.includes("prepar")) {
             return 2;
         }
 
@@ -75,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const pasoActual = obtenerPasoActual(compra);
         const pasos = [
             { texto: "Pedido confirmado", fecha: compra.fecha },
-            { texto: "En preparacion", fecha: sumarDias(compra.fecha, 1) },
+            { texto: "En preparación", fecha: sumarDias(compra.fecha, 1) },
             { texto: "Enviado", fecha: sumarDias(compra.fecha, 2) },
             { texto: "Entregado", fecha: sumarDias(compra.fecha, 4) }
         ];
@@ -92,12 +117,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function crearCompraHTML(compra) {
         const compraTerminada = compra.estado === "Terminado" || compra.estado === "Entregado";
-        const estadoClase = compra.estado === "Terminado" || compra.estado === "Entregado"
-            ? "estado-entregado"
-            : "badge bg-warning text-dark";
+        const estadoClase = compraTerminada ? "estado-pedido estado-entregado" : "estado-pedido estado-proceso";
 
         const resenasTexto = (compra.resenas || []).length > 0
-            ? `<p class="text-muted small mb-0">${compra.resenas.length} resena(s) guardada(s)</p>`
+            ? `<p class="text-muted small mb-0">${compra.resenas.length} reseña(s) guardada(s)</p>`
             : "";
 
         return `
@@ -109,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                     <div class="d-flex flex-wrap align-items-center gap-4">
                         <span class="fecha-pedido d-inline-flex align-items-center gap-2">
-                            <span class="espacio-imagen-fecha" aria-hidden="true"></span>
+                            <img src="img/perfil/mis-compras-calendario1.png" alt="calendario" class="icono-fecha-pedido">
                             ${formatoFecha(compra.fecha)}
                         </span>
                         <strong>S/ ${Number(compra.total).toFixed(2)}</strong>
@@ -122,11 +145,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 <div class="row g-4 info-pedido">
                     <div class="col-md-6">
-                        <h6>Direccion de entrega</h6>
+                        <h6>Dirección de entrega</h6>
                         <p>${obtenerDireccionTexto(compra.direccion)}</p>
                     </div>
                     <div class="col-md-6">
-                        <h6>Metodo de pago</h6>
+                        <h6>Método de pago</h6>
                         <p>${compra.metodoPago || "No registrado"}</p>
                         <p>Pago aprobado</p>
                     </div>
@@ -155,13 +178,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 <div class="pedido-botones d-flex flex-column flex-md-row gap-3 pt-3">
                     <button type="button" class="btn btn-natural btn-boleta" data-id="${compra.id}">DESCARGAR FACTURA/BOLETA</button>
-                    <button type="button" class="btn btn-natural btn-devolucion" data-id="${compra.id}">INICIAR DEVOLUCION</button>
+                    <button type="button" class="btn btn-natural btn-devolucion" data-id="${compra.id}">INICIAR DEVOLUCIÓN</button>
                 </div>
 
                 <div class="pedido-acciones d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3 pt-3">
                     <div>
                         <button class="btn btn-link resena-link p-0 btn-resena" type="button" data-id="${compra.id}">
-                            Dejar Resena del Pedido
+                            Dejar Reseña del Pedido
                         </button>
                         ${resenasTexto}
                     </div>
@@ -181,21 +204,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const terminadas = compras.filter((compra) => compra.estado === "Terminado" || compra.estado === "Entregado");
 
         if (compras.length === 0) {
-            panelCompras.innerHTML = `
-                <h4 class="titulo-panel">Mis Compras</h4>
-                <p class="text-muted mt-3">Aun no tienes compras</p>
-            `;
+            listaCompras.innerHTML = '<p class="text-muted mt-3">Aún no tienes compras</p>';
             return;
         }
 
-        panelCompras.innerHTML = `
-            <h4 class="titulo-panel">Mis Compras</h4>
+        listaCompras.innerHTML = `
             ${enProceso.map(crearCompraHTML).join("")}
             ${terminadas.map(crearCompraHTML).join("")}
         `;
     }
 
-    panelCompras.addEventListener("click", (evento) => {
+    listaCompras.addEventListener("click", (evento) => {
         const botonResena = evento.target.closest(".btn-resena");
         const botonRecomprar = evento.target.closest(".btn-recomprar");
         const botonBoleta = evento.target.closest(".btn-boleta");
@@ -226,7 +245,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (botonDevolucion) {
-            alert("Solicitud de devolucion iniciada.");
+            alert("Solicitud de devolución iniciada.");
         }
     });
 
@@ -273,7 +292,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         instanciaModal.hide();
         renderizarCompras();
-        alert("Resena guardada correctamente.");
+        alert("Reseña guardada correctamente.");
     });
 
     renderizarCompras();

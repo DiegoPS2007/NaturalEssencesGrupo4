@@ -1,10 +1,3 @@
-/* ESTILOS GENERALES */
-@import url("iniciarSesion.css");
-
-/* HEADER */
-
-/* FOOTER */
-
 /* MAIN */
 .panel-imagen-registrarse {
     background-image: linear-gradient(rgba(84, 69, 43, 0.35), rgba(84, 69, 43, 0.35)), url("../img/login/registrarse-fondo.jpg");
@@ -20,6 +13,33 @@
 .contenedor-tarjetas-registrarse {
     margin-left: auto;
     max-width: 500px;
+}
+
+.tarjeta {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.25rem;
+}
+
+.tarjeta img{
+    margin-top: 7px;
+}
+
+.panel-formulario {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor-formulario {
+    max-width: 500px;
+    width: 100%;
+}
+
+.titulo-formulario,
+.etiqueta-campo {
+    color: #1a531a;
+    font-weight: 700;
 }
 
 .panel-imagen-registrarse span,
